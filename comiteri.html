@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Comiteri &mdash; Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Răspunsuri la întrebări frecvente legate de Git" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Răspunsuri la întrebări frecvente legate de Git"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="comiteri">
+<h1>Comiteri<a class="headerlink" href="#comiteri" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cum-sa-schimb-mesajul-ultimei-comiteri">
+<h2>Cum să schimb mesajul ultimei comiteri?<a class="headerlink" href="#cum-sa-schimb-mesajul-ultimei-comiteri" title="Permalink to this headline">¶</a></h2>
+<p>În cazul când ați depistat greșeli gramaticale sau greșeli de sintaxă în mesajul ultimei comiteri sau poate considerați că mesajul nu descrie suficient de clar modificările comise, puteți <em>împrospăta</em> mesajul după bunul dumnevoastră plac folosind opțiunea <tt class="docutils literal"><span class="pre">--amend</span></tt> a comenzii
+<tt class="docutils literal"><span class="pre">git-commit</span></tt></p>
+<div class="highlight-bash"><div class="highlight"><pre>git commit --amend -m <span class="s1">&#39;&lt;mesaj nou&gt;&#39;</span>
+</pre></div>
+</div>
+<p>În cazul când doriți să consultați mesajul ultimei comiteri sau fișierele conținute în aceasta, înainte de a actualiza mesajul, puteți exclude
+opținea <tt class="docutils literal"><span class="pre">-m</span></tt></p>
+<div class="highlight-bash"><div class="highlight"><pre>git commit --amend
+</pre></div>
+</div>
+<p>În rezultat se va deschide editorul implicit în care veți putea introduce noul mesaj și veți putea vizualiza mesajul vechi împreună cu fișierele din comitere</p>
+<div class="highlight-bash"><div class="highlight"><pre>&lt;mesaj vechi&gt;
+
+<span class="c"># Please enter the commit message for your changes. Lines starting</span>
+<span class="c"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+<span class="c"># On branch master</span>
+<span class="c"># Changes to be committed:</span>
+<span class="c">#       modified:   &lt;fisier1&gt;</span>
+<span class="c">#       modified:   &lt;fisier2&gt;</span>
+<span class="c">#       modified:   &lt;fisier3&gt;</span>
+<span class="c">#</span>
+</pre></div>
+</div>
+<p>Dacă ultima comitere a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push --force
+</pre></div>
+</div>
+</div>
+<div class="section" id="cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri">
+<h2>Cum să schimb mesajul oricărei sau oricăror comiteri?<a class="headerlink" href="#cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri" title="Permalink to this headline">¶</a></h2>
+<p>Acest lucru este posibil folosind comanda <tt class="docutils literal"><span class="pre">git-rebase</span></tt> cu opțiunea <tt class="docutils literal"><span class="pre">-i</span></tt> (sau <tt class="docutils literal"><span class="pre">--interactive</span></tt>) doar că parametrul trimis acestei comenzi nu este comiterea care trebuie modificată ci comiterea părinte a celei care trebuie moficată sau parintele comun ale comiterilor ce trebuie modificate. Astfel această comandă primește drept parametru o comitere de pornire oferind posibilitatea de a modifica comiterile din intervalul (&lt;comitere de pornire&gt;, HEAD]</p>
+<div class="highlight-bash"><div class="highlight"><pre>git rebase -i &lt;comitere de pornire&gt;
+</pre></div>
+</div>
+<p>În caz că doriți să schimbați mesajul unei singure comiteri puteți folosi</p>
+<div class="highlight-bash"><div class="highlight"><pre>git rebase -i &lt;comitere&gt;~1
+</pre></div>
+</div>
+<p>În rezultatul execuției comenzii va apărea editorul implicit</p>
+<p>Înlocuți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați.</p>
+</div>
+<div class="section" id="cum-sa-exclud-un-fisier-din-ultima-comitere">
+<h2>Cum să exclud un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-exclud-un-fisier-din-ultima-comitere" title="Permalink to this headline">¶</a></h2>
+<p>Dacă ați pus un fișier în plus în ultima comitere</p>
+<ol class="upperalpha simple">
+<li></li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git reset HEAD~1 &lt;fisier&gt;
+git commit --amend
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="2">
+<li></li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
+git reset HEAD &lt;fisier&gt;
+git commit
+</pre></div>
+</div>
+</div>
+<div class="section" id="cum-sa-ma-debarasez-de-un-fisier">
+<h2>Cum să mă debarasez de un fișier?<a class="headerlink" href="#cum-sa-ma-debarasez-de-un-fisier" title="Permalink to this headline">¶</a></h2>
+<p>Eu am avut o astfel de situație cînd cineva a facut <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> la un fisier inclus în fișierul <tt class="docutils literal"><span class="pre">.gitignotre</span></tt>, eu l-am preluat și vina a fost a mea.</p>
+</div>
+<div class="section" id="cum-sa-adaug-un-fisier-la-ultima-comitere">
+<h2>Cum să adaug un fișier la ultima comitere?<a class="headerlink" href="#cum-sa-adaug-un-fisier-la-ultima-comitere" title="Permalink to this headline">¶</a></h2>
+<p>Dacă ați uitat să adăugați un fișier în ultima comitere atunci</p>
+<ol class="upperalpha simple">
+<li></li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git add &lt;fisier&gt;
+git commit --amend
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="2">
+<li></li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
+git add &lt;fisier&gt;
+git commit
+</pre></div>
+</div>
+</div>
+<div class="section" id="cum-sa-modific-un-fisier-din-ultima-comitere">
+<h2>Cum să modific un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-modific-un-fisier-din-ultima-comitere" title="Permalink to this headline">¶</a></h2>
+<p>Dcă ați mai făcut niște schibări care nu merită comise aparte ci se înscriu in ultima comitere</p>
+<ol class="upperalpha simple">
+<li></li>
+</ol>
+<p>Modificați fiserul apoi</p>
+<div class="highlight-bash"><div class="highlight"><pre>git add &lt;fisier&gt;
+git commit --amend
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="2">
+<li></li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
+</pre></div>
+</div>
+<p>Modificați fiserul apoi</p>
+<div class="highlight-bash"><div class="highlight"><pre>git add &lt;fisier&gt;
+git commit
+</pre></div>
+</div>
+</div>
+<div class="section" id="cum-sa-anulez-ultima-operatie-de-comitere">
+<h2>Cum sa anulez ultima operație de comitere?<a class="headerlink" href="#cum-sa-anulez-ultima-operatie-de-comitere" title="Permalink to this headline">¶</a></h2>
+<p>După comitere ați înțeles că vați grăbit că mai sunt fișiere care trebuie în acestă comitere, dar asupra lor mai este de lucru așa că UNDO</p>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
+</pre></div>
+</div>
+</div>
+<div class="section" id="cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere">
+<h2>Cum sa revin la versiunea fișierul dintr-o anumită comitere?<a class="headerlink" href="#cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere" title="Permalink to this headline">¶</a></h2>
+<ol class="upperalpha simple">
+<li>Vreau doar să vizualizez acestă versiune (o privire în trecut)</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git show &lt;comitere&gt;:&lt;<span class="k">fi</span>șier&gt;
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="2">
+<li>Vreau să văd diferența</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git diff &lt;comitere&gt;:&lt;<span class="k">fi</span>șier&gt;
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="2">
+<li>Vreau sa înlocuiesc fișierul actual cu acea versiune (restabilirea)</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git checkout &lt;comitere&gt; &lt;fisier&gt;
+</pre></div>
+</div>
+<p>Atenție! Ultima comadă alterează atît conținutul din șantier cît și șterge conținutul din index.
+C) Vreau să înlocuesc doar conținutul din index</p>
+<div class="highlight-bash"><div class="highlight"><pre>git reset &lt;comitere&gt; &lt;fisier&gt;
+</pre></div>
+</div>
+<p>în rezultat fișier rămîne nealterat și se schimbă doar conținutul din index</p>
+</div>
+<div class="section" id="cum-sa-vad-istoria-unui-fisier">
+<h2>Cum să văd istoria unui fișier?<a class="headerlink" href="#cum-sa-vad-istoria-unui-fisier" title="Permalink to this headline">¶</a></h2>
+<ol class="upperalpha simple">
+<li>Vreau să văd doar commiterile referitoare la fișier</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git log --oneline &lt;fisier&gt;
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="2">
+<li>Vreau să văd diferențele dintre fișier și versiunea sa din o comitere</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git diff &lt;comitere&gt; &lt;<span class="k">fi</span>șier&gt;
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="3">
+<li>Vreau să văd diferența dintre fișier și versiunea din index</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git diff --cached &lt;fisier&gt;
+git diff -- &lt;<span class="k">fi</span>șier&gt;
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="4">
+<li>Vreau să văd cum s-au schimbat rîndurile fișierului</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git blame &lt;fisier&gt;
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="5">
+<li>Vreau să văd cum s-au schimbat rîndurile fișierului într-o anumită comitere</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git blame &lt;comitere&gt; &lt;fisier&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="cum-sa-scot-fisiere-din-index">
+<h2>Cum să scot fișiere din index?<a class="headerlink" href="#cum-sa-scot-fisiere-din-index" title="Permalink to this headline">¶</a></h2>
+<p>Din greșeală am adaugat multe fișiere în cache cum să le scot pe cele adauagate din grșeala si sa las cele care trebuie.
+1)</p>
+<div class="highlight-bash"><div class="highlight"><pre>git remove --cached &lt;fisier&gt;
+</pre></div>
+</div>
+<p>DA POT SCOATE CELE ADAUGATE DUPA ORA 5</p>
+<p>For a directory:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git rm --cached -r mydirectory
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre>git reset &lt;fisier&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Comiteri</a><ul>
+<li><a class="reference internal" href="#cum-sa-schimb-mesajul-ultimei-comiteri">Cum să schimb mesajul ultimei comiteri?</a></li>
+<li><a class="reference internal" href="#cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri">Cum să schimb mesajul oricărei sau oricăror comiteri?</a></li>
+<li><a class="reference internal" href="#cum-sa-exclud-un-fisier-din-ultima-comitere">Cum să exclud un fișier din ultima comitere?</a></li>
+<li><a class="reference internal" href="#cum-sa-ma-debarasez-de-un-fisier">Cum să mă debarasez de un fișier?</a></li>
+<li><a class="reference internal" href="#cum-sa-adaug-un-fisier-la-ultima-comitere">Cum să adaug un fișier la ultima comitere?</a></li>
+<li><a class="reference internal" href="#cum-sa-modific-un-fisier-din-ultima-comitere">Cum să modific un fișier din ultima comitere?</a></li>
+<li><a class="reference internal" href="#cum-sa-anulez-ultima-operatie-de-comitere">Cum sa anulez ultima operație de comitere?</a></li>
+<li><a class="reference internal" href="#cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere">Cum sa revin la versiunea fișierul dintr-o anumită comitere?</a></li>
+<li><a class="reference internal" href="#cum-sa-vad-istoria-unui-fisier">Cum să văd istoria unui fișier?</a></li>
+<li><a class="reference internal" href="#cum-sa-scot-fisiere-din-index">Cum să scot fișiere din index?</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Răspunsuri la întrebări frecvente legate de Git</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/comiteri.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Răspunsuri la întrebări frecvente legate de Git"
+             >previous</a> |</li>
+        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Radu Dumbrăveanu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

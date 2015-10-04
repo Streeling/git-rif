@@ -55,7 +55,7 @@
 </pre></div>
 </div>
 <p>În cazul când doriți să consultați mesajul ultimei comiteri sau fișierele conținute în aceasta, înainte de a actualiza mesajul, puteți exclude
-opținea <tt class="docutils literal"><span class="pre">-m</span></tt></p>
+opțiunea <tt class="docutils literal"><span class="pre">-m</span></tt></p>
 <div class="highlight-bash"><div class="highlight"><pre>git commit --amend
 </pre></div>
 </div>
@@ -79,7 +79,7 @@ opținea <tt class="docutils literal"><span class="pre">-m</span></tt></p>
 </div>
 <div class="section" id="cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri">
 <h2>Cum să schimb mesajul oricărei sau oricăror comiteri?<a class="headerlink" href="#cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri" title="Permalink to this headline">¶</a></h2>
-<p>Acest lucru este posibil folosind comanda <tt class="docutils literal"><span class="pre">git-rebase</span></tt> cu opțiunea <tt class="docutils literal"><span class="pre">-i</span></tt> (sau <tt class="docutils literal"><span class="pre">--interactive</span></tt>) doar că parametrul trimis acestei comenzi nu este comiterea care trebuie modificată ci comiterea părinte a celei care trebuie moficată sau parintele comun ale comiterilor ce trebuie modificate. Astfel această comandă primește drept parametru o comitere de pornire oferind posibilitatea de a modifica comiterile din intervalul (&lt;comitere de pornire&gt;, HEAD]</p>
+<p>Acest lucru este posibil folosind comanda <tt class="docutils literal"><span class="pre">git-rebase</span></tt> cu opțiunea <tt class="docutils literal"><span class="pre">-i</span></tt> (sau <tt class="docutils literal"><span class="pre">--interactive</span></tt>) doar că parametrul trimis acestei comenzi nu este comiterea care trebuie modificată ci comiterea părinte a celei care trebuie modificată sau părintele comun ale comiterilor ce trebuie modificate. Astfel această comandă primește drept parametru o comitere de pornire oferind posibilitatea de a modifica comiterile din intervalul (&lt;comitere de pornire&gt;, HEAD]</p>
 <div class="highlight-bash"><div class="highlight"><pre>git rebase -i &lt;comitere de pornire&gt;
 </pre></div>
 </div>
@@ -88,7 +88,7 @@ opținea <tt class="docutils literal"><span class="pre">-m</span></tt></p>
 </pre></div>
 </div>
 <p>În rezultatul execuției comenzii va apărea editorul implicit</p>
-<p>Înlocuți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați.</p>
+<p>Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați.</p>
 </div>
 <div class="section" id="cum-sa-exclud-un-fisier-din-ultima-comitere">
 <h2>Cum să exclud un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-exclud-un-fisier-din-ultima-comitere" title="Permalink to this headline">¶</a></h2>
@@ -111,7 +111,7 @@ git commit
 </div>
 <div class="section" id="cum-sa-ma-debarasez-de-un-fisier">
 <h2>Cum să mă debarasez de un fișier?<a class="headerlink" href="#cum-sa-ma-debarasez-de-un-fisier" title="Permalink to this headline">¶</a></h2>
-<p>Eu am avut o astfel de situație cînd cineva a facut <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> la un fisier inclus în fișierul <tt class="docutils literal"><span class="pre">.gitignotre</span></tt>, eu l-am preluat și vina a fost a mea.</p>
+<p>Eu am avut o astfel de situație când cineva a făcut <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> la un fișier inclus în fișierul <tt class="docutils literal"><span class="pre">.gitignotre</span></tt>, eu l-am preluat și vina a fost a mea.</p>
 </div>
 <div class="section" id="cum-sa-adaug-un-fisier-la-ultima-comitere">
 <h2>Cum să adaug un fișier la ultima comitere?<a class="headerlink" href="#cum-sa-adaug-un-fisier-la-ultima-comitere" title="Permalink to this headline">¶</a></h2>
@@ -134,7 +134,7 @@ git commit
 </div>
 <div class="section" id="cum-sa-modific-un-fisier-din-ultima-comitere">
 <h2>Cum să modific un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-modific-un-fisier-din-ultima-comitere" title="Permalink to this headline">¶</a></h2>
-<p>Dcă ați mai făcut niște schibări care nu merită comise aparte ci se înscriu in ultima comitere</p>
+<p>Dacă ați mai făcut niște schimbări care nu merită comise aparte ci se înscriu în ultima comitere</p>
 <ol class="upperalpha simple">
 <li></li>
 </ol>
@@ -149,7 +149,7 @@ git commit --amend
 <div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
 </pre></div>
 </div>
-<p>Modificați fiserul apoi</p>
+<p>Modificați fișierul apoi</p>
 <div class="highlight-bash"><div class="highlight"><pre>git add &lt;fisier&gt;
 git commit
 </pre></div>
@@ -157,7 +157,7 @@ git commit
 </div>
 <div class="section" id="cum-sa-anulez-ultima-operatie-de-comitere">
 <h2>Cum sa anulez ultima operație de comitere?<a class="headerlink" href="#cum-sa-anulez-ultima-operatie-de-comitere" title="Permalink to this headline">¶</a></h2>
-<p>După comitere ați înțeles că vați grăbit că mai sunt fișiere care trebuie în acestă comitere, dar asupra lor mai este de lucru așa că UNDO</p>
+<p>După comitere ați înțeles că v-ați grăbit că mai sunt fișiere care trebuie în acestă comitere, dar asupra lor mai este de lucru așa că UNDO</p>
 <div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
 </pre></div>
 </div>
@@ -192,7 +192,7 @@ C) Vreau să înlocuesc doar conținutul din index</p>
 <div class="section" id="cum-sa-vad-istoria-unui-fisier">
 <h2>Cum să văd istoria unui fișier?<a class="headerlink" href="#cum-sa-vad-istoria-unui-fisier" title="Permalink to this headline">¶</a></h2>
 <ol class="upperalpha simple">
-<li>Vreau să văd doar commiterile referitoare la fișier</li>
+<li>Vreau să văd doar comiterile referitoare la fișier</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre>git log --oneline &lt;fisier&gt;
 </pre></div>
@@ -217,7 +217,7 @@ git diff -- &lt;<span class="k">fi</span>șier&gt;
 </pre></div>
 </div>
 <ol class="upperalpha simple" start="5">
-<li>Vreau să văd cum s-au schimbat rîndurile fișierului într-o anumită comitere</li>
+<li>Vreau să văd cum s-au schimbat rândurile fișierului într-o anumită comitere</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre>git blame &lt;comitere&gt; &lt;fisier&gt;
 </pre></div>
@@ -225,7 +225,7 @@ git diff -- &lt;<span class="k">fi</span>șier&gt;
 </div>
 <div class="section" id="cum-sa-scot-fisiere-din-index">
 <h2>Cum să scot fișiere din index?<a class="headerlink" href="#cum-sa-scot-fisiere-din-index" title="Permalink to this headline">¶</a></h2>
-<p>Din greșeală am adaugat multe fișiere în cache cum să le scot pe cele adauagate din grșeala si sa las cele care trebuie.
+<p>Din greșeală am adăugat multe fișiere în cache cum să le scot pe cele adăugate din greșeala și sa las cele care trebuie.
 1)</p>
 <div class="highlight-bash"><div class="highlight"><pre>git remove --cached &lt;fisier&gt;
 </pre></div>

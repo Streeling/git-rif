@@ -57,6 +57,7 @@ Acest lucru este posibil folosind comanda ``git-rebase`` cu opțiunea ``-i`` (sa
 În rezultatul execuției comenzii va apărea editorul implicit 
 
 .. code-block:: bash
+
    pick <comitere6> <mesaj6>
    pick <comitere5> <mesaj5>
    pick <comitere4> <mesaj4>
@@ -221,25 +222,21 @@ E) Vreau să văd cum s-au schimbat rândurile fișierului într-o anumită comi
 
    git blame <comitere> <fisier>
 
-Cum să scot fișiere din index?
+Cum să scot fișierele adăugate în index?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Din greșeală am adăugat multe fișiere în cache cum să le scot pe cele adăugate din greșeala și sa las cele care trebuie.
-1)
+
+Dacă din greșeală ați actualizat index-ul atât cu fișiere pe care doriți să le comiteți cât și cu fișiere pe care nu doriți să le comiteți această eroare poate fi înlăturată folosind comanda ``git-reset`` 
 
 .. code-block:: bash
 
-   git remove --cached <fisier>
+   git reset [HEAD] <fișier>
 
-DA POT SCOATE CELE ADAUGATE DUPA ORA 5
-
-For a directory:
+sau puteți aplica comanda pe mai multe fișiere concomitent
 
 .. code-block:: bash
 
-   git rm --cached -r mydirectory
+   git reset [HEAD] -- <fișier1> <fișier2> ... <fișiern> 
 
-2)
+.. warning::
+   Folosind Google puteți găsi și alte recomandări pentru a soluționa această problemă printre care și folosirea ``git rm --cached <fisier>``. Folosirea cestei comenzi nu este identică cu ``git-reset`` deoarece ``git-reset`` înlocuiește versiunea fișierului din index cu versiunea    aceluiași fișier din ultima comitere (adică cea la care indică HEAD), astfel fișierul va fi prezent în următoarea comitere, dar cu conținutul vechi. Pe când ``git rm --cached`` șterge complet fișierul din index astfel fișierul va lipsi complet din următoarea comitere (adică nu va fi inclus în istorie). 
 
-.. code-block:: bash
-
-   git reset <fisier>

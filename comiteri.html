@@ -88,6 +88,27 @@ opțiunea <tt class="docutils literal"><span class="pre">-m</span></tt></p>
 </pre></div>
 </div>
 <p>În rezultatul execuției comenzii va apărea editorul implicit</p>
+<div class="highlight-bash"><div class="highlight"><pre>pick &lt;comitere6&gt; &lt;mesaj6&gt;
+pick &lt;comitere5&gt; &lt;mesaj5&gt;
+pick &lt;comitere4&gt; &lt;mesaj4&gt;
+pick &lt;comitere3&gt; &lt;mesaj3&gt;
+pick &lt;comitere2&gt; &lt;mesaj2&gt;
+pick &lt;comitere1&gt; &lt;mesaj1&gt;
+
+<span class="c"># Rebase 7e2035a..e3335d3 onto 7e2035a</span>
+<span class="c">#</span>
+<span class="c"># Commands:</span>
+<span class="c">#  p, pick = use commit</span>
+<span class="c">#  r, reword = use commit, but edit the commit message</span>
+<span class="c">#  e, edit = use commit, but stop for amending</span>
+<span class="c">#  s, squash = use commit, but meld into previous commit</span>
+<span class="c">#  f, fixup = like &quot;squash&quot;, but discard this commit&#39;s log message</span>
+<span class="c">#  x, exec = run command (the rest of the line) using shell</span>
+<span class="c">#</span>
+<span class="c"># These lines can be re-ordered; they are executed from top to bottom.</span>
+<span class="c">#</span>
+</pre></div>
+</div>
 <p>Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați.</p>
 </div>
 <div class="section" id="cum-sa-exclud-un-fisier-din-ultima-comitere">
@@ -223,23 +244,19 @@ git diff -- &lt;<span class="k">fi</span>șier&gt;
 </pre></div>
 </div>
 </div>
-<div class="section" id="cum-sa-scot-fisiere-din-index">
-<h2>Cum să scot fișiere din index?<a class="headerlink" href="#cum-sa-scot-fisiere-din-index" title="Permalink to this headline">¶</a></h2>
-<p>Din greșeală am adăugat multe fișiere în cache cum să le scot pe cele adăugate din greșeala și sa las cele care trebuie.
-1)</p>
-<div class="highlight-bash"><div class="highlight"><pre>git remove --cached &lt;fisier&gt;
+<div class="section" id="cum-sa-scot-fisierele-adaugate-in-index">
+<h2>Cum să scot fișierele adăugate în index?<a class="headerlink" href="#cum-sa-scot-fisierele-adaugate-in-index" title="Permalink to this headline">¶</a></h2>
+<p>Dacă din greșeală ați actualizat index-ul atât cu fișiere pe care doriți să le comiteți cât și cu fișiere pe care nu doriți să le comiteți această eroare poate fi înlăturată folosind comanda <tt class="docutils literal"><span class="pre">git-reset</span></tt></p>
+<div class="highlight-bash"><div class="highlight"><pre>git reset <span class="o">[</span>HEAD<span class="o">]</span> &lt;<span class="k">fi</span>șier&gt;
 </pre></div>
 </div>
-<p>DA POT SCOATE CELE ADAUGATE DUPA ORA 5</p>
-<p>For a directory:</p>
-<div class="highlight-bash"><div class="highlight"><pre>git rm --cached -r mydirectory
+<p>sau puteți aplica comanda pe mai multe fișiere concomitent</p>
+<div class="highlight-bash"><div class="highlight"><pre>git reset <span class="o">[</span>HEAD<span class="o">]</span> -- &lt;<span class="k">fi</span>șier1&gt; &lt;<span class="k">fi</span>șier2&gt; ... &lt;<span class="k">fi</span>șiern&gt;
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre>git reset &lt;fisier&gt;
-</pre></div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Folosind Google puteți găsi și alte recomandări pentru a soluționa această problemă printre care și folosirea <tt class="docutils literal"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">--cached</span> <span class="pre">&lt;fisier&gt;</span></tt>. Folosirea cestei comenzi nu este identică cu <tt class="docutils literal"><span class="pre">git-reset</span></tt> deoarece <tt class="docutils literal"><span class="pre">git-reset</span></tt> înlocuiește versiunea fișierului din index cu versiunea    aceluiași fișier din ultima comitere (adică cea la care indică HEAD), astfel fișierul va fi prezent în următoarea comitere, dar cu conținutul vechi. Pe când <tt class="docutils literal"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">--cached</span></tt> șterge complet fișierul din index astfel fișierul va lipsi complet din următoarea comitere (adică nu va fi inclus în istorie).</p>
 </div>
 </div>
 </div>
@@ -262,7 +279,7 @@ git diff -- &lt;<span class="k">fi</span>șier&gt;
 <li><a class="reference internal" href="#cum-sa-anulez-ultima-operatie-de-comitere">Cum sa anulez ultima operație de comitere?</a></li>
 <li><a class="reference internal" href="#cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere">Cum sa revin la versiunea fișierul dintr-o anumită comitere?</a></li>
 <li><a class="reference internal" href="#cum-sa-vad-istoria-unui-fisier">Cum să văd istoria unui fișier?</a></li>
-<li><a class="reference internal" href="#cum-sa-scot-fisiere-din-index">Cum să scot fișiere din index?</a></li>
+<li><a class="reference internal" href="#cum-sa-scot-fisierele-adaugate-in-index">Cum să scot fișierele adăugate în index?</a></li>
 </ul>
 </li>
 </ul>

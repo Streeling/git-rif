@@ -12,7 +12,7 @@ Cum să schimb mesajul ultimei comiteri?
    git commit --amend -m '<mesaj nou>'
 
 În cazul când doriți să consultați mesajul ultimei comiteri sau fișierele conținute în aceasta, înainte de a actualiza mesajul, puteți exclude 
-opținea ``-m``
+opțiunea ``-m``
 
 .. code-block:: bash
 
@@ -42,7 +42,7 @@ Dacă ultima comitere a fost deja încărcată pe server, adică nu este prezent
 Cum să schimb mesajul oricărei sau oricăror comiteri?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Acest lucru este posibil folosind comanda ``git-rebase`` cu opțiunea ``-i`` (sau ``--interactive``) doar că parametrul trimis acestei comenzi nu este comiterea care trebuie modificată ci comiterea părinte a celei care trebuie moficată sau parintele comun ale comiterilor ce trebuie modificate. Astfel această comandă primește drept parametru o comitere de pornire oferind posibilitatea de a modifica comiterile din intervalul (<comitere de pornire>, HEAD] 
+Acest lucru este posibil folosind comanda ``git-rebase`` cu opțiunea ``-i`` (sau ``--interactive``) doar că parametrul trimis acestei comenzi nu este comiterea care trebuie modificată ci comiterea părinte a celei care trebuie modificată sau părintele comun ale comiterilor ce trebuie modificate. Astfel această comandă primește drept parametru o comitere de pornire oferind posibilitatea de a modifica comiterile din intervalul (<comitere de pornire>, HEAD] 
 
 .. code-block:: bash
 
@@ -77,7 +77,7 @@ Acest lucru este posibil folosind comanda ``git-rebase`` cu opțiunea ``-i`` (sa
    # These lines can be re-ordered; they are executed from top to bottom.
    #
  
-Înlocuți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați. 
+Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați. 
  
 Cum să exclud un fișier din ultima comitere?
 """"""""""""""""""""""""""""""""""""""""""""
@@ -101,7 +101,7 @@ B.
 
 Cum să mă debarasez de un fișier?
 """""""""""""""""""""""""""""""""
-Eu am avut o astfel de situație cînd cineva a facut ``git add`` la un fisier inclus în fișierul ``.gitignotre``, eu l-am preluat și vina a fost a mea.
+Eu am avut o astfel de situație când cineva a făcut ``git add`` la un fișier inclus în fișierul ``.gitignotre``, eu l-am preluat și vina a fost a mea.
 
 Cum să adaug un fișier la ultima comitere?
 """"""""""""""""""""""""""""""""""""""""""
@@ -126,7 +126,7 @@ B.
 Cum să modific un fișier din ultima comitere?
 """""""""""""""""""""""""""""""""""""""""""""
 
-Dcă ați mai făcut niște schibări care nu merită comise aparte ci se înscriu in ultima comitere 
+Dacă ați mai făcut niște schimbări care nu merită comise aparte ci se înscriu în ultima comitere 
 
 A. 
 
@@ -143,7 +143,7 @@ B.
 
    git reset --soft HEAD~1
 
-Modificați fiserul apoi
+Modificați fișierul apoi
 
 .. code-block:: bash
 
@@ -152,7 +152,7 @@ Modificați fiserul apoi
 
 Cum sa anulez ultima operație de comitere?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-După comitere ați înțeles că vați grăbit că mai sunt fișiere care trebuie în acestă comitere, dar asupra lor mai este de lucru așa că UNDO
+După comitere ați înțeles că v-ați grăbit că mai sunt fișiere care trebuie în acestă comitere, dar asupra lor mai este de lucru așa că UNDO
 
 .. code-block:: bash
 
@@ -190,7 +190,7 @@ C) Vreau să înlocuesc doar conținutul din index
 
 Cum să văd istoria unui fișier?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-A) Vreau să văd doar commiterile referitoare la fișier
+A) Vreau să văd doar comiterile referitoare la fișier
 
 .. code-block:: bash
 
@@ -215,7 +215,7 @@ D) Vreau să văd cum s-au schimbat rîndurile fișierului
 
    git blame <fisier>
 
-E) Vreau să văd cum s-au schimbat rîndurile fișierului într-o anumită comitere
+E) Vreau să văd cum s-au schimbat rândurile fișierului într-o anumită comitere
 
 .. code-block:: bash
 
@@ -223,7 +223,7 @@ E) Vreau să văd cum s-au schimbat rîndurile fișierului într-o anumită comi
 
 Cum să scot fișiere din index?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Din greșeală am adaugat multe fișiere în cache cum să le scot pe cele adauagate din grșeala si sa las cele care trebuie.
+Din greșeală am adăugat multe fișiere în cache cum să le scot pe cele adăugate din greșeala și sa las cele care trebuie.
 1)
 
 .. code-block:: bash

@@ -78,7 +78,7 @@ Acest lucru este posibil folosind comanda ``git-rebase`` cu opțiunea ``-i`` (sa
    # These lines can be re-ordered; they are executed from top to bottom.
    #
  
-Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați. 
+Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri al cărei mesaj doriți să-l schimbați. 
  
 Cum să exclud un fișier din ultima comitere?
 """"""""""""""""""""""""""""""""""""""""""""
@@ -190,33 +190,45 @@ C) Vreau să înlocuesc doar conținutul din index
 în rezultat fișier rămîne nealterat și se schimbă doar conținutul din index
 
 Cum să văd istoria unui fișier?
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-A) Vreau să văd doar comiterile referitoare la fișier
+"""""""""""""""""""""""""""""""
+
+A. Vreau să văd doar comiterile referitoare la fișier
 
 .. code-block:: bash
 
    git log --oneline <fisier>
 
-B) Vreau să văd diferențele dintre fișier și versiunea sa din o comitere
+sau dacă aveți instalat programul ``gitk`` puteți îmbunătăți experiența grafică 
+
+.. code-block:: bash
+
+   gitk <fisier>
+
+B. Vreau să văd diferențele dintre fișier și versiunea sa din o comitere
 
 .. code-block:: bash
 
    git diff <comitere> <fișier>
 
-C) Vreau să văd diferența dintre fișier și versiunea din index
+C. Vreau să văd diferența dintre fișier și versiunea din index
 
 .. code-block:: bash
 
    git diff --cached <fisier>
+
+sau
+
+.. code-block:: bash
+
    git diff -- <fișier>
 
-D) Vreau să văd cum s-au schimbat rîndurile fișierului
+D. Vreau să văd cum s-au schimbat rîndurile fișierului
 
 .. code-block:: bash
 
    git blame <fisier>
 
-E) Vreau să văd cum s-au schimbat rândurile fișierului într-o anumită comitere
+E. Vreau să văd cum s-au schimbat rândurile fișierului într-o anumită comitere
 
 .. code-block:: bash
 

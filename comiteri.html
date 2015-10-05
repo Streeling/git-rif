@@ -109,7 +109,7 @@ pick &lt;comitere1&gt; &lt;mesaj1&gt;
 <span class="c">#</span>
 </pre></div>
 </div>
-<p>Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri a cărei mesaj doriți să-l schimbați.</p>
+<p>Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri al cărei mesaj doriți să-l schimbați.</p>
 </div>
 <div class="section" id="cum-sa-exclud-un-fisier-din-ultima-comitere">
 <h2>Cum să exclud un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-exclud-un-fisier-din-ultima-comitere" title="Permalink to this headline">¶</a></h2>
@@ -218,6 +218,10 @@ C) Vreau să înlocuesc doar conținutul din index</p>
 <div class="highlight-bash"><div class="highlight"><pre>git log --oneline &lt;fisier&gt;
 </pre></div>
 </div>
+<p>sau dacă aveți instalat programul <tt class="docutils literal"><span class="pre">gitk</span></tt> puteți îmbunătăți experiența grafică</p>
+<div class="highlight-bash"><div class="highlight"><pre>gitk &lt;fisier&gt;
+</pre></div>
+</div>
 <ol class="upperalpha simple" start="2">
 <li>Vreau să văd diferențele dintre fișier și versiunea sa din o comitere</li>
 </ol>
@@ -228,7 +232,10 @@ C) Vreau să înlocuesc doar conținutul din index</p>
 <li>Vreau să văd diferența dintre fișier și versiunea din index</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre>git diff --cached &lt;fisier&gt;
-git diff -- &lt;<span class="k">fi</span>șier&gt;
+</pre></div>
+</div>
+<p>sau</p>
+<div class="highlight-bash"><div class="highlight"><pre>git diff -- &lt;<span class="k">fi</span>șier&gt;
 </pre></div>
 </div>
 <ol class="upperalpha simple" start="4">

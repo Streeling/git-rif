@@ -13,3 +13,21 @@ A. Ramura corectă încă nu exsită
    git branch <ramura corectă>
    git reset --hard <comiterea B>
    git checkout <ramura corectă>
+
+Cum să redenumesc o ramură?
+"""""""""""""""""""""""""""
+
+Redenumirea unei ramuri se poate realiza folosind comanda
+
+.. code-block:: bash
+
+   git branch -m <denumirea veche> <denumirea nouă>
+
+În cazul când ramura veche a fost deja încărcată pe server va trebui de reînoi
+
+trecxeti in ramura noua, daca inca nu erati acolo
+
+.. code-block:: bash
+
+   git push origin --set-upstream <denumirea nouă>
+   git push origin :<denumirea veche>

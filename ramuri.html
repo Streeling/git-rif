@@ -59,6 +59,19 @@ git checkout &lt;ramura corectă&gt;
 </pre></div>
 </div>
 </div>
+<div class="section" id="cum-sa-redenumesc-o-ramura">
+<h2>Cum să redenumesc o ramură?<a class="headerlink" href="#cum-sa-redenumesc-o-ramura" title="Permalink to this headline">¶</a></h2>
+<p>Redenumirea unei ramuri se poate realiza folosind comanda</p>
+<div class="highlight-bash"><div class="highlight"><pre>git branch -m &lt;denumirea veche&gt; &lt;denumirea nouă&gt;
+</pre></div>
+</div>
+<p>În cazul când ramura veche a fost deja încărcată pe server va trebui de reînoi</p>
+<p>trecxeti in ramura noua, daca inca nu erati acolo</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin --set-upstream &lt;denumirea nouă&gt;
+git push origin :&lt;denumirea veche&gt;
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -71,6 +84,7 @@ git checkout &lt;ramura corectă&gt;
   <ul>
 <li><a class="reference internal" href="#">Ramuri</a><ul>
 <li><a class="reference internal" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta">Cum să mut comiterile dintr-o ramură în alta?</a></li>
+<li><a class="reference internal" href="#cum-sa-redenumesc-o-ramura">Cum să redenumesc o ramură?</a></li>
 </ul>
 </li>
 </ul>

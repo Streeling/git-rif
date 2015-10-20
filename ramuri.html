@@ -65,8 +65,8 @@ git checkout &lt;ramura corectă&gt;
 <div class="highlight-bash"><div class="highlight"><pre>git branch -m &lt;denumirea veche&gt; &lt;denumirea nouă&gt;
 </pre></div>
 </div>
-<p>În cazul când ramura veche a fost deja încărcată pe server va trebui de reînoi</p>
-<p>trecxeti in ramura noua, daca inca nu erati acolo</p>
+<p>Dacă ramura cu denumirea veche a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu comenzile următoare,
+dar mai întâi asigurați-vă că ramura cu denumirea nouă este ramura curentă</p>
 <div class="highlight-bash"><div class="highlight"><pre>git push origin --set-upstream &lt;denumirea nouă&gt;
 git push origin :&lt;denumirea veche&gt;
 </pre></div>

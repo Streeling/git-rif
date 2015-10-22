@@ -23,10 +23,21 @@ Redenumirea unei ramuri se poate realiza folosind comanda
 
    git branch -m <denumirea veche> <denumirea nouă>
 
-Dacă ramura cu denumirea veche a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu comenzile următoare,
-dar mai întâi asigurați-vă că ramura cu denumirea nouă este ramura curentă 
+Dacă ramura cu denumirea veche a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu încărcarea ramurii noi pe server 
 
 .. code-block:: bash
 
    git push origin --set-upstream <denumirea nouă>
+   
+și ștergerea celei vechi de pe server
+   
+.. code-block:: bash
+
    git push origin :<denumirea veche>
+
+sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe server mai poate fi realizată și astfel 
+   
+.. code-block:: bash
+
+   git push origin --delete <denumirea veche>
+      

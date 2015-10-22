@@ -49,13 +49,31 @@
 <h1>Ramuri<a class="headerlink" href="#ramuri" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cum-sa-mut-comiterile-dintr-o-ramura-in-alta">
 <h2>Cum să mut comiterile dintr-o ramură în alta?<a class="headerlink" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta" title="Permalink to this headline">¶</a></h2>
-<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?</p>
+<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
+De exemplu avem următoarea situație</p>
+<div class="code highlight-python"><div class="highlight"><pre>(A) -- (B) -- (C) -- (D)
+                      |
+                  &lt;ramura0&gt;
+                      |
+                     HEAD
+</pre></div>
+</div>
+<p>când de fapt ar fi trebuit să fie astfel</p>
+<div class="code highlight-python"><div class="highlight"><pre>         + -- (C) -- (D)
+        /             |
+(A) -- (B)            |
+        |             |
+    &lt;ramura0&gt;     &lt;ramura1&gt;
+        |
+       HEAD
+</pre></div>
+</div>
 <ol class="upperalpha simple">
-<li>Ramura corectă încă nu exsită</li>
+<li>Ramura corectă încă nu există</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>git branch &lt;ramura corectă&gt;
+<div class="highlight-bash"><div class="highlight"><pre>git branch &lt;ramura1&gt;
 git reset --hard &lt;comiterea B&gt;
-git checkout &lt;ramura corectă&gt;
+git checkout &lt;ramura1&gt;
 </pre></div>
 </div>
 </div>
@@ -78,6 +96,9 @@ git checkout &lt;ramura corectă&gt;
 </pre></div>
 </div>
 </div>
+<div class="section" id="cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura">
+<h2>Cum să încarc mai multe ramuri pe server dintr-o lovitură?<a class="headerlink" href="#cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -91,6 +112,7 @@ git checkout &lt;ramura corectă&gt;
 <li><a class="reference internal" href="#">Ramuri</a><ul>
 <li><a class="reference internal" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta">Cum să mut comiterile dintr-o ramură în alta?</a></li>
 <li><a class="reference internal" href="#cum-sa-redenumesc-o-ramura">Cum să redenumesc o ramură?</a></li>
+<li><a class="reference internal" href="#cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura">Cum să încarc mai multe ramuri pe server dintr-o lovitură?</a></li>
 </ul>
 </li>
 </ul>

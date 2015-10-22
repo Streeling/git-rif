@@ -65,10 +65,16 @@ git checkout &lt;ramura corectă&gt;
 <div class="highlight-bash"><div class="highlight"><pre>git branch -m &lt;denumirea veche&gt; &lt;denumirea nouă&gt;
 </pre></div>
 </div>
-<p>Dacă ramura cu denumirea veche a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu comenzile următoare,
-dar mai întâi asigurați-vă că ramura cu denumirea nouă este ramura curentă</p>
+<p>Dacă ramura cu denumirea veche a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu încărcarea ramurii noi pe server</p>
 <div class="highlight-bash"><div class="highlight"><pre>git push origin --set-upstream &lt;denumirea nouă&gt;
-git push origin :&lt;denumirea veche&gt;
+</pre></div>
+</div>
+<p>și ștergerea celei vechi de pe server</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin :&lt;denumirea veche&gt;
+</pre></div>
+</div>
+<p>sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe server mai poate fi realizată și astfel</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin --delete &lt;denumirea veche&gt;
 </pre></div>
 </div>
 </div>

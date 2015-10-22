@@ -5,14 +5,35 @@ Cum să mut comiterile dintr-o ramură în alta?
 """""""""""""""""""""""""""""""""""""""""""""
 
 Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
+De exemplu avem următoarea situație
 
-A. Ramura corectă încă nu exsită
+.. code::
+
+   (A) -- (B) -- (C) -- (D)
+                         |
+                     <ramura0>
+                         |
+                        HEAD
+
+când de fapt ar fi trebuit să fie astfel
+
+.. code::
+
+            + -- (C) -- (D)
+           /             |
+   (A) -- (B)            |
+           |             |
+       <ramura0>     <ramura1>
+           |
+          HEAD
+
+A. Ramura corectă încă nu există
 
 .. code-block:: bash
 
-   git branch <ramura corectă>
+   git branch <ramura1>
    git reset --hard <comiterea B>
-   git checkout <ramura corectă>
+   git checkout <ramura1>
 
 Cum să redenumesc o ramură?
 """""""""""""""""""""""""""
@@ -40,4 +61,9 @@ sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe ser
 .. code-block:: bash
 
    git push origin --delete <denumirea veche>
+
+Cum să încarc mai multe ramuri pe server dintr-o lovitură?
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
       

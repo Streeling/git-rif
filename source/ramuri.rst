@@ -5,7 +5,8 @@ Cum să mut comiterile dintr-o ramură în alta?
 """""""""""""""""""""""""""""""""""""""""""""
 
 Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
-De exemplu avem următoarea situație
+
+A. Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație
 
 .. code::
 
@@ -27,7 +28,7 @@ când de fapt ar fi trebuit să fie astfel
            |
           HEAD
 
-A. Ramura corectă încă nu există
+Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm următoarele comenzi
 
 .. code-block:: bash
 

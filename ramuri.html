@@ -49,8 +49,10 @@
 <h1>Ramuri<a class="headerlink" href="#ramuri" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cum-sa-mut-comiterile-dintr-o-ramura-in-alta">
 <h2>Cum să mut comiterile dintr-o ramură în alta?<a class="headerlink" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta" title="Permalink to this headline">¶</a></h2>
-<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
-De exemplu avem următoarea situație</p>
+<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?</p>
+<ol class="upperalpha simple">
+<li>Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație</li>
+</ol>
 <div class="code highlight-python"><div class="highlight"><pre>(A) -- (B) -- (C) -- (D)
                       |
                   &lt;ramura0&gt;
@@ -64,18 +66,39 @@ De exemplu avem următoarea situație</p>
 (A) -- (B)            |
         |             |
     &lt;ramura0&gt;     &lt;ramura1&gt;
-        |
-       HEAD
+                      |
+                     HEAD
 </pre></div>
 </div>
-<ol class="upperalpha simple">
-<li>Ramura corectă încă nu există</li>
-</ol>
+<p>Pentru a muta comiterile (C) și (D) în ramura &lt;ramura1&gt; trebuie să rulăm următoarele comenzi</p>
 <div class="highlight-bash"><div class="highlight"><pre>git branch &lt;ramura1&gt;
 git reset --hard &lt;comiterea B&gt;
 git checkout &lt;ramura1&gt;
 </pre></div>
 </div>
+<ol class="upperalpha simple" start="2">
+<li>Ramura corectă există, adică avem următoarea situație</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre>         + -- (U) -- (V) -- (W) -- (X)
+        /                           |
+(A) -- (B) -- (C) -- (D)            |
+                      |             |
+                  &lt;ramura0&gt;     &lt;ramura1&gt;
+                      |
+                     HEAD
+</pre></div>
+</div>
+<p>când de fapt ar fi trebuit să fie astfel</p>
+<div class="code highlight-python"><div class="highlight"><pre>         + -- (U) -- (V) -- (W) -- (X) -- (C) -- (D)
+        /                                         |
+(A) -- (B)                                        |
+        |                                         |
+    &lt;ramura0&gt;                                 &lt;ramura1&gt;
+                                                  |
+                                                 HEAD
+</pre></div>
+</div>
+<p>Pentru a muta comiterile (C) și (D) în ramura &lt;ramura1&gt; trebuie să rulăm următoarele comenzi</p>
 </div>
 <div class="section" id="cum-sa-redenumesc-o-ramura">
 <h2>Cum să redenumesc o ramură?<a class="headerlink" href="#cum-sa-redenumesc-o-ramura" title="Permalink to this headline">¶</a></h2>

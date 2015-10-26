@@ -25,8 +25,8 @@ când de fapt ar fi trebuit să fie astfel
    (A) -- (B)            |
            |             |
        <ramura0>     <ramura1>
-           |
-          HEAD
+                         |
+                        HEAD
 
 Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm următoarele comenzi
 
@@ -35,6 +35,33 @@ Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm urm
    git branch <ramura1>
    git reset --hard <comiterea B>
    git checkout <ramura1>
+
+B. Ramura corectă există, adică avem următoarea situație
+
+.. code::
+
+            + -- (U) -- (V) -- (W) -- (X)
+           /                           |  
+   (A) -- (B) -- (C) -- (D)            |
+                         |             |
+                     <ramura0>     <ramura1>
+                         |
+                        HEAD
+
+când de fapt ar fi trebuit să fie astfel
+
+.. code::
+
+            + -- (U) -- (V) -- (W) -- (X) -- (C) -- (D)
+           /                                         |
+   (A) -- (B)                                        |
+           |                                         |
+       <ramura0>                                 <ramura1>
+                                                     |
+                                                    HEAD
+
+Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm următoarele comenzi
+
 
 Cum să redenumesc o ramură?
 """""""""""""""""""""""""""

@@ -1,2 +1,7 @@
 Termeni
 =======
+
+.. glossary::
+
+   fast-forward
+      ???

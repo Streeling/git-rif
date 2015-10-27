@@ -63,6 +63,14 @@ când de fapt ar fi trebuit să fie astfel
 
 Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm următoarele comenzi
 
+.. code-block:: bash
+
+   git checkout <ramura1>
+   git merge <ramura0>
+   git checkout <ramura1>
+   git reset --hard <comiterea B>
+   git checkout <ramura1>
+
 Cum să redenumesc o ramură?
 """""""""""""""""""""""""""
 

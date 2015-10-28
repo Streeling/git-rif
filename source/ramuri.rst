@@ -4,7 +4,7 @@ Ramuri
 .. _cum-să-mut-comiterile-dintr-o-ramură-în-alta:
 
 Cum să mut comiterile dintr-o ramură în alta?
-"""""""""""""""""""""""""""""""""""""""""""""
+---------------------------------------------
 
 Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
 De exemplu avem următoarea situație
@@ -107,5 +107,6 @@ sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe ser
 Cum să încarc mai multe ramuri pe server dintr-o lovitură?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+.. code-block:: bash
 
-      
+   git push --all origin

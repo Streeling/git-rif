@@ -4,12 +4,12 @@ Ramuri
 .. _cum-să-mut-comiterile-dintr-o-ramură-în-alta:
 
 Cum să mut comiterile dintr-o ramură în alta?
----------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""
 
 Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
 De exemplu avem următoarea situație
 
-A. Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație
+.. rubric:: A. Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație
 
 .. code::
 
@@ -39,7 +39,7 @@ Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm urm
    git reset --hard <comiterea B>
    git checkout <ramura1>
 
-B. Ramura corectă există, adică avem următoarea situație
+.. rubric:: B. Ramura corectă există, adică avem următoarea situație
 
 .. code::
 

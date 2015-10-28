@@ -4,7 +4,7 @@ Comenzi
 .. _git-fetch:
 
 git-fetch
-""""""""""
+"""""""""
 
 .. _git-merge:
 

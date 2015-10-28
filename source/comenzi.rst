@@ -66,3 +66,24 @@ git-rebase
 
 git-remote
 """"""""""
+
+Gestionează informațiile privind proiectele la distanță (adăugare, ștergere, vizualizare etc). De regulă în cazul unui singur proiect la distanță (proiect pe server) se folosește în formatul
+
+.. code-block:: bash
+
+   git remote add origin <URL-ul proiectului>
+
+Pentru a lista alias-urile existente
+
+.. code-block:: bash
+
+   git remote -v
+
+De exemplu în cazul acestui proiect în rezultatul rulării comenzii de mai sus avem
+
+.. code-block:: bash
+
+   git remote -v
+   origin	https://github.com/Streeling/git-rif.git (fetch)
+   origin	https://github.com/Streeling/git-rif.git (push)
+

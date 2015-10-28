@@ -1,6 +1,8 @@
 Comiteri
 ========
 
+.. _cum-să-schimb-mesajul-ultimei-comiteri:
+
 Cum să schimb mesajul ultimei comiteri?
 """""""""""""""""""""""""""""""""""""""
 
@@ -38,6 +40,8 @@ Dacă ultima comitere a fost deja încărcată pe server, adică nu este prezent
 .. code-block:: bash
 
    git push --force
+
+.. _cum-să-schimb-mesajul-oricărei-sau-oricăror-comiteri:
 
 Cum să schimb mesajul oricărei sau oricăror comiteri?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,6 +84,8 @@ Acest lucru este posibil folosind comanda ``git-rebase`` cu opțiunea ``-i`` (sa
  
 Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri al cărei mesaj doriți să-l schimbați. 
  
+.. _cum-să-exclud-un-fișier-din-ultima-comitere:
+
 Cum să exclud un fișier din ultima comitere?
 """"""""""""""""""""""""""""""""""""""""""""
 
@@ -100,9 +106,13 @@ B.
    git reset HEAD <fisier>
    git commit
 
+.. _cum-să-mă-debarasez-de-un-fișier:
+
 Cum să mă debarasez de un fișier?
 """""""""""""""""""""""""""""""""
 Eu am avut o astfel de situație când cineva a făcut ``git add`` la un fișier inclus în fișierul ``.gitignotre``, eu l-am preluat și vina a fost a mea.
+
+.. _cum-să-adaug-un-fișier-la-ultima-comitere:
 
 Cum să adaug un fișier la ultima comitere?
 """"""""""""""""""""""""""""""""""""""""""
@@ -123,6 +133,8 @@ B.
    git reset --soft HEAD~1
    git add <fisier>
    git commit
+
+.. _cum-să-modific-un-fișier-din-ultima-comitere:
 
 Cum să modific un fișier din ultima comitere?
 """""""""""""""""""""""""""""""""""""""""""""
@@ -151,13 +163,17 @@ Modificați fișierul apoi
    git add <fisier>
    git commit
 
-Cum sa anulez ultima operație de comitere?
+.. _cum-sa-anulez-ultima-operație-de-comitere:
+
+Cum să anulez ultima operație de comitere?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 După comitere ați înțeles că v-ați grăbit că mai sunt fișiere care trebuie în acestă comitere, dar asupra lor mai este de lucru așa că UNDO
 
 .. code-block:: bash
 
    git reset --soft HEAD~1
+
+.. _cum-sa-revin-la-versiunea-fișierul-dintr-o-anumită-comitere:
 
 Cum sa revin la versiunea fișierul dintr-o anumită comitere?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -188,6 +204,8 @@ C) Vreau să înlocuesc doar conținutul din index
    git reset <comitere> <fisier>
 
 în rezultat fișier rămîne nealterat și se schimbă doar conținutul din index
+
+.. _cum-să-văd-istoria-unui-fișier:
 
 Cum să văd istoria unui fișier?
 """""""""""""""""""""""""""""""
@@ -233,6 +251,8 @@ E. Vreau să văd cum s-au schimbat rândurile fișierului într-o anumită comi
 .. code-block:: bash
 
    git blame <comitere> <fisier>
+
+.. _cum-să-scot-fișierele-adăugate-în-index:
 
 Cum să scot fișierele adăugate în index?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,6 +1,8 @@
 Ramuri
 ======
 
+.. _cum-să-mut-comiterile-dintr-o-ramură-în-alta:
+
 Cum să mut comiterile dintr-o ramură în alta?
 """""""""""""""""""""""""""""""""""""""""""""
 
@@ -71,6 +73,8 @@ Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm urm
    git reset --hard <comiterea B>
    git checkout <ramura1>
 
+.. _cum-să-redenumesc-o-ramură:
+
 Cum să redenumesc o ramură?
 """""""""""""""""""""""""""
 
@@ -97,6 +101,8 @@ sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe ser
 .. code-block:: bash
 
    git push origin --delete <denumirea veche>
+
+.. _Cum-să-încarc-mai-multe-ramuri-pe-server-dintr-o-lovitură:
 
 Cum să încarc mai multe ramuri pe server dintr-o lovitură?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Comenzi &mdash; Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Termeni" href="termeni.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="termeni.html" title="Termeni"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="comenzi">
+<h1>Comenzi<a class="headerlink" href="#comenzi" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="git-config">
+<span id="id1"></span><h2>git-config<a class="headerlink" href="#git-config" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="git-fetch">
+<span id="id2"></span><h2>git-fetch<a class="headerlink" href="#git-fetch" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="git-merge">
+<span id="id3"></span><h2>git-merge<a class="headerlink" href="#git-merge" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="git-pull">
+<span id="id4"></span><h2>git-pull<a class="headerlink" href="#git-pull" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="git-push">
+<span id="id5"></span><h2>git-push<a class="headerlink" href="#git-push" title="Permalink to this headline">¶</a></h2>
+<p>Încarcă toate modificările operate asupra proiectului local într-un alt proiect aflat de regulă la distanță.
+Altfel spus realizează sincronizarea unui proiect la distanță cu proiectul local.
+Cel mai des se utilizează în formatul următor</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push &lt;proiect la distanță&gt; &lt;ramura <span class="nb">local</span>ă&gt;
+</pre></div>
+</div>
+<p>Unde <tt class="code docutils literal"><span class="pre">&lt;proiect</span> <span class="pre">la</span> <span class="pre">distanță&gt;</span></tt> poate fi specificat direct prin URL (<a class="reference external" href="https://git-scm.com/book/tr/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/tr/v2/Git-on-the-Server-The-Protocols</a>)
+sau printr-un nume creat cu ajutorul comenzii <a class="reference internal" href="#git-remote"><em>git-remote</em></a>.
+În rezultat modificările din ramura locală sunt încărcate în ramura cu același nume din proiectul <tt class="code docutils literal"><span class="pre">&lt;proiect</span> <span class="pre">la</span> <span class="pre">distanță&gt;</span></tt>.
+Dacă ramura de la distanță are alt nume atunci va fi nevoie de schimbat puțin formatul comenzii</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push &lt;proiect la distanță&gt; &lt;ramura <span class="nb">local</span>ă&gt;:&lt;ramura la distanță&gt;
+</pre></div>
+</div>
+<p>În cazul când nu este specificată ramura sursă (<tt class="code docutils literal"><span class="pre">ramura</span> <span class="pre">locală&gt;</span></tt>)</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push &lt;proiect la distanță&gt; :&lt;ramura la distanță&gt;
+</pre></div>
+</div>
+<p>efectul rulării comenzii este ștergerea ramurii <tt class="code docutils literal"><span class="pre">&lt;ramura</span> <span class="pre">la</span> <span class="pre">distanță&gt;</span></tt>.</p>
+<p class="rubric" id="git-push-force">Încărcare forțată</p>
+<p>Modificările locale pot fi respinse de <tt class="code docutils literal"><span class="pre">&lt;proiect</span> <span class="pre">la</span> <span class="pre">distanță&gt;</span></tt> atunci când acesta conține modificări mai proaspete decât cele locale.
+În așa caz fie că se integrează noile modificări și apoi se execută încă o dată <a class="reference internal" href="#git-push"><em>git-push</em></a> fie, dacă țineți cu tot adinsul, se suprascriu folodind opțiunea <tt class="code docutils literal"><span class="pre">-f</span></tt> (<tt class="code docutils literal"><span class="pre">--force</span></tt>)</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push -f &lt;proiect la distanță&gt; &lt;ramura <span class="nb">local</span>ă&gt;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">În rezultatul încăracării forțate toate modificările mai proaspete decât cele locale vor dispărea din proiectul de la distanță. Din acest motiv asigurați-vă că nu sunt modificări importante pe proiectul la distanță. Printre situațiile când este nevoie de încărcare forțată se numără: <a class="reference internal" href="comiteri.html#cum-sa-schimb-mesajul-ultimei-comiteri"><em>Cum să schimb mesajul ultimei comiteri?</em></a> sau <a class="reference internal" href="ramuri.html#cum-sa-redenumesc-o-ramura"><em>Cum să redenumesc o ramură?</em></a>.</p>
+</div>
+</div>
+<div class="section" id="git-rebase">
+<span id="id6"></span><h2>git-rebase<a class="headerlink" href="#git-rebase" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="git-remote">
+<span id="id7"></span><h2>git-remote<a class="headerlink" href="#git-remote" title="Permalink to this headline">¶</a></h2>
+<p>Gestionează informațiile privind proiectele la distanță (adăugare, ștergere, vizualizare etc). De regulă în cazul unui singur proiect la distanță (proiect pe server) se folosește în formatul</p>
+<div class="highlight-bash"><div class="highlight"><pre>git remote add origin &lt;URL-ul proiectului&gt;
+</pre></div>
+</div>
+<p>Pentru a lista alias-urile existente</p>
+<div class="highlight-bash"><div class="highlight"><pre>git remote -v
+</pre></div>
+</div>
+<p>De exemplu în cazul acestui proiect în rezultatul rulării comenzii de mai sus avem</p>
+<div class="highlight-bash"><div class="highlight"><pre>git remote -v
+origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>fetch<span class="o">)</span>
+origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Comenzi</a><ul>
+<li><a class="reference internal" href="#git-config">git-config</a></li>
+<li><a class="reference internal" href="#git-fetch">git-fetch</a></li>
+<li><a class="reference internal" href="#git-merge">git-merge</a></li>
+<li><a class="reference internal" href="#git-pull">git-pull</a></li>
+<li><a class="reference internal" href="#git-push">git-push</a></li>
+<li><a class="reference internal" href="#git-rebase">git-rebase</a></li>
+<li><a class="reference internal" href="#git-remote">git-remote</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="termeni.html"
+                        title="previous chapter">Termeni</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/comenzi.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="termeni.html" title="Termeni"
+             >previous</a> |</li>
+        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Radu Dumbrăveanu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

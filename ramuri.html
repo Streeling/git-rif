@@ -24,6 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentation" href="index.html" />
+    <link rel="next" title="Termeni" href="termeni.html" />
     <link rel="prev" title="Comiteri" href="comiteri.html" /> 
   </head>
   <body>
@@ -33,6 +34,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="termeni.html" title="Termeni"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="comiteri.html" title="Comiteri"
              accesskey="P">previous</a> |</li>
@@ -48,11 +52,10 @@
   <div class="section" id="ramuri">
 <h1>Ramuri<a class="headerlink" href="#ramuri" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cum-sa-mut-comiterile-dintr-o-ramura-in-alta">
-<h2>Cum să mut comiterile dintr-o ramură în alta?<a class="headerlink" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta" title="Permalink to this headline">¶</a></h2>
-<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?</p>
-<ol class="upperalpha simple">
-<li>Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație</li>
-</ol>
+<span id="id1"></span><h2>Cum să mut comiterile dintr-o ramură în alta?<a class="headerlink" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta" title="Permalink to this headline">¶</a></h2>
+<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
+De exemplu avem următoarea situație</p>
+<p class="rubric">A. Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație</p>
 <div class="code highlight-python"><div class="highlight"><pre>(A) -- (B) -- (C) -- (D)
                       |
                   &lt;ramura0&gt;
@@ -76,9 +79,7 @@ git reset --hard &lt;comiterea B&gt;
 git checkout &lt;ramura1&gt;
 </pre></div>
 </div>
-<ol class="upperalpha simple" start="2">
-<li>Ramura corectă există, adică avem următoarea situație</li>
-</ol>
+<p class="rubric">B. Ramura corectă există, adică avem următoarea situație</p>
 <div class="code highlight-python"><div class="highlight"><pre>         + -- (U) -- (V) -- (W) -- (X)
         /                           |
 (A) -- (B) -- (C) -- (D)            |
@@ -99,9 +100,16 @@ git checkout &lt;ramura1&gt;
 </pre></div>
 </div>
 <p>Pentru a muta comiterile (C) și (D) în ramura &lt;ramura1&gt; trebuie să rulăm următoarele comenzi</p>
+<div class="highlight-bash"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
+git merge &lt;ramura0&gt;
+git checkout &lt;ramura1&gt;
+git reset --hard &lt;comiterea B&gt;
+git checkout &lt;ramura1&gt;
+</pre></div>
+</div>
 </div>
 <div class="section" id="cum-sa-redenumesc-o-ramura">
-<h2>Cum să redenumesc o ramură?<a class="headerlink" href="#cum-sa-redenumesc-o-ramura" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Cum să redenumesc o ramură?<a class="headerlink" href="#cum-sa-redenumesc-o-ramura" title="Permalink to this headline">¶</a></h2>
 <p>Redenumirea unei ramuri se poate realiza folosind comanda</p>
 <div class="highlight-bash"><div class="highlight"><pre>git branch -m &lt;denumirea veche&gt; &lt;denumirea nouă&gt;
 </pre></div>
@@ -120,7 +128,10 @@ git checkout &lt;ramura1&gt;
 </div>
 </div>
 <div class="section" id="cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura">
-<h2>Cum să încarc mai multe ramuri pe server dintr-o lovitură?<a class="headerlink" href="#cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Cum să încarc mai multe ramuri pe server dintr-o lovitură?<a class="headerlink" href="#cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>git push --all origin
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -143,6 +154,9 @@ git checkout &lt;ramura1&gt;
   <h4>Previous topic</h4>
   <p class="topless"><a href="comiteri.html"
                         title="previous chapter">Comiteri</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="termeni.html"
+                        title="next chapter">Termeni</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/ramuri.txt"
@@ -171,6 +185,9 @@ git checkout &lt;ramura1&gt;
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="termeni.html" title="Termeni"
+             >next</a> |</li>
         <li class="right" >
           <a href="comiteri.html" title="Comiteri"
              >previous</a> |</li>

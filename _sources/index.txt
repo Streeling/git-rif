@@ -13,7 +13,8 @@ Cuprins:
    
    comiteri
    ramuri
-
+   termeni
+   comenzi
 
 
 Index și tabele

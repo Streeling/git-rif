@@ -56,7 +56,7 @@ efectul rulării comenzii este ștergerea ramurii :code:`<ramura la distanță>`
 .. rubric:: Încărcare forțată
 
 Modificările locale pot fi respinse de :code:`<proiect la distanță>` atunci când acesta conține modificări mai proaspete decât cele locale.
-În așa caz fie că se integrează noile modificări și apoi se execută încă o dată :ref:`git-push` fie, dacă țineți cu tot adinsul, se suprascriu folodind opțiunea :code:`-f` (:code:`--force`)
+În așa caz fie că se integrează noile modificări și apoi se execută încă o dată :ref:`git-push` fie, dacă țineți cu tot adinsul, se suprascriu folosind opțiunea :code:`-f` (:code:`--force`)
 
 .. code-block:: bash
 

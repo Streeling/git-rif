@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Comiteri &mdash; Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</title>
+    <title>Comiteri &mdash; Răspunsuri la întrebări frecvente legate de Git 1.0 documentație</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,24 +23,24 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentation" href="index.html" />
+    <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentație" href="index.html" />
     <link rel="next" title="Ramuri" href="ramuri.html" />
     <link rel="prev" title="Răspunsuri la întrebări frecvente legate de Git" href="index.html" /> 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>Navigare</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="genindex.html" title="Index General"
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="ramuri.html" title="Ramuri"
-             accesskey="N">next</a> |</li>
+             accesskey="N">următor</a> |</li>
         <li class="right" >
           <a href="index.html" title="Răspunsuri la întrebări frecvente legate de Git"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</a> &raquo;</li> 
+             accesskey="P">precedent</a> |</li>
+        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentație</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,9 +50,9 @@
           <div class="body">
             
   <div class="section" id="comiteri">
-<h1>Comiteri<a class="headerlink" href="#comiteri" title="Permalink to this headline">¶</a></h1>
+<h1>Comiteri<a class="headerlink" href="#comiteri" title="Link permanent la acest titlu">¶</a></h1>
 <div class="section" id="cum-sa-schimb-mesajul-ultimei-comiteri">
-<span id="id1"></span><h2>Cum să schimb mesajul ultimei comiteri?<a class="headerlink" href="#cum-sa-schimb-mesajul-ultimei-comiteri" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Cum să schimb mesajul ultimei comiteri?<a class="headerlink" href="#cum-sa-schimb-mesajul-ultimei-comiteri" title="Link permanent la acest titlu">¶</a></h2>
 <p>În cazul când ați depistat greșeli gramaticale sau greșeli de sintaxă în mesajul ultimei comiteri sau poate considerați că mesajul nu descrie suficient de clar modificările comise, puteți <em>împrospăta</em> mesajul după bunul dumnevoastră plac folosind opțiunea <tt class="docutils literal"><span class="pre">--amend</span></tt> a comenzii
 <tt class="docutils literal"><span class="pre">git-commit</span></tt></p>
 <div class="highlight-bash"><div class="highlight"><pre>git commit --amend -m <span class="s1">&#39;&lt;mesaj nou&gt;&#39;</span>
@@ -82,7 +82,7 @@ opțiunea <tt class="docutils literal"><span class="pre">-m</span></tt></p>
 </div>
 </div>
 <div class="section" id="cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri">
-<span id="id2"></span><h2>Cum să schimb mesajul oricărei sau oricăror comiteri?<a class="headerlink" href="#cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Cum să schimb mesajul oricărei sau oricăror comiteri?<a class="headerlink" href="#cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri" title="Link permanent la acest titlu">¶</a></h2>
 <p>Acest lucru este posibil folosind comanda <tt class="docutils literal"><span class="pre">git-rebase</span></tt> cu opțiunea <tt class="docutils literal"><span class="pre">-i</span></tt> (sau <tt class="docutils literal"><span class="pre">--interactive</span></tt>) doar că parametrul trimis acestei comenzi nu este comiterea care trebuie modificată ci comiterea părinte a celei care trebuie modificată sau părintele comun ale comiterilor ce trebuie modificate. Astfel această comandă primește drept parametru o comitere de pornire oferind posibilitatea de a modifica comiterile din intervalul (&lt;comitere de pornire&gt;, HEAD]</p>
 <div class="highlight-bash"><div class="highlight"><pre>git rebase -i &lt;comitere de pornire&gt;
 </pre></div>
@@ -116,7 +116,7 @@ pick &lt;comitere1&gt; &lt;mesaj1&gt;
 <p>Înlocuiți cuvântul „pick” cu „reword” în dreptul fiecărei comiteri al cărei mesaj doriți să-l schimbați.</p>
 </div>
 <div class="section" id="cum-sa-exclud-un-fisier-din-ultima-comitere">
-<span id="id3"></span><h2>Cum să exclud un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-exclud-un-fisier-din-ultima-comitere" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Cum să exclud un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-exclud-un-fisier-din-ultima-comitere" title="Link permanent la acest titlu">¶</a></h2>
 <p>Dacă ați inclus un fișier (sau mai multe) în plus în ultima comitere, atunci puteți <em>corecta</em> acest lucru fie folosind opțiunea <tt class="docutils literal"><span class="pre">--amend</span></tt> a comenzii <tt class="docutils literal"><span class="pre">git-commit</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre>git reset HEAD~1 &lt;fisier&gt;
 git commit --amend
@@ -130,7 +130,7 @@ git commit
 </div>
 </div>
 <div class="section" id="cum-sa-adaug-un-fisier-la-ultima-comitere">
-<span id="id4"></span><h2>Cum să adaug un fișier la ultima comitere?<a class="headerlink" href="#cum-sa-adaug-un-fisier-la-ultima-comitere" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Cum să adaug un fișier la ultima comitere?<a class="headerlink" href="#cum-sa-adaug-un-fisier-la-ultima-comitere" title="Link permanent la acest titlu">¶</a></h2>
 <p>Dacă ați uitat să adăugați un fișier în ultima comitere, atunci fie folosiți opțiunea <tt class="docutils literal"><span class="pre">--amend</span></tt> a comenzii <tt class="docutils literal"><span class="pre">git-commit</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre>git add &lt;fisier&gt;
 git commit --amend
@@ -144,7 +144,7 @@ git commit
 </div>
 </div>
 <div class="section" id="cum-sa-modific-un-fisier-din-ultima-comitere">
-<span id="id5"></span><h2>Cum să modific un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-modific-un-fisier-din-ultima-comitere" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Cum să modific un fișier din ultima comitere?<a class="headerlink" href="#cum-sa-modific-un-fisier-din-ultima-comitere" title="Link permanent la acest titlu">¶</a></h2>
 <p>Dacă ați mai făcut niște schimbări care nu merită comise aparte ci se înscriu perfect în ultima comitere, atunci fie folosiți opțiunea <tt class="docutils literal"><span class="pre">--amend</span></tt> a comenzii <tt class="docutils literal"><span class="pre">git-commit</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre>git add &lt;fisier&gt;
 git commit --amend
@@ -158,7 +158,7 @@ git commit
 </div>
 </div>
 <div class="section" id="cum-sa-anulez-ultima-operatie-de-comitere">
-<span id="id6"></span><h2>Cum să anulez ultima operație de comitere?<a class="headerlink" href="#cum-sa-anulez-ultima-operatie-de-comitere" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Cum să anulez ultima operație de comitere?<a class="headerlink" href="#cum-sa-anulez-ultima-operatie-de-comitere" title="Link permanent la acest titlu">¶</a></h2>
 <p>După comitere ați înțeles că v-ați grăbit și că mai sunt fișiere care trebuie incluse în acestă comitere, dar asupra lor mai este de lucru; atunci:</p>
 <div class="highlight-python"><div class="highlight"><pre>git reset --soft HEAD~1
 </pre></div>
@@ -170,7 +170,7 @@ git commit ...
 </div>
 </div>
 <div class="section" id="cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere">
-<span id="id7"></span><h2>Cum sa revin la versiunea fișierul dintr-o anumită comitere?<a class="headerlink" href="#cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Cum sa revin la versiunea fișierul dintr-o anumită comitere?<a class="headerlink" href="#cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere" title="Link permanent la acest titlu">¶</a></h2>
 <p class="rubric">A. Vreau doar să vizualizez acestă versiune (o privire în trecut)</p>
 <div class="highlight-bash"><div class="highlight"><pre>git show &lt;comitere&gt;:&lt;<span class="k">fi</span>șier&gt;
 </pre></div>
@@ -194,7 +194,7 @@ git commit ...
 <p>În rezultat fișier rămîne nealterat și se schimbă doar conținutul din index.</p>
 </div>
 <div class="section" id="cum-sa-vad-istoria-unui-fisier">
-<span id="id8"></span><h2>Cum să văd istoria unui fișier?<a class="headerlink" href="#cum-sa-vad-istoria-unui-fisier" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>Cum să văd istoria unui fișier?<a class="headerlink" href="#cum-sa-vad-istoria-unui-fisier" title="Link permanent la acest titlu">¶</a></h2>
 <p class="rubric">Vreau să văd doar comiterile referitoare la fișier</p>
 <div class="highlight-bash"><div class="highlight"><pre>git log --oneline &lt;fisier&gt;
 </pre></div>
@@ -225,7 +225,7 @@ git commit ...
 </div>
 </div>
 <div class="section" id="cum-sa-scot-fisierele-adaugate-in-index">
-<span id="id9"></span><h2>Cum să scot fișierele adăugate în index?<a class="headerlink" href="#cum-sa-scot-fisierele-adaugate-in-index" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>Cum să scot fișierele adăugate în index?<a class="headerlink" href="#cum-sa-scot-fisierele-adaugate-in-index" title="Link permanent la acest titlu">¶</a></h2>
 <p>Dacă din greșeală ați actualizat index-ul atât cu fișiere pe care doriți să le comiteți cât și cu fișiere pe care nu doriți să le comiteți această eroare poate fi înlăturată folosind comanda <tt class="docutils literal"><span class="pre">git-reset</span></tt></p>
 <div class="highlight-bash"><div class="highlight"><pre>git reset <span class="o">[</span>HEAD<span class="o">]</span> &lt;<span class="k">fi</span>șier&gt;
 </pre></div>
@@ -240,7 +240,7 @@ git commit ...
 </div>
 </div>
 <div class="section" id="cum-sa-ma-debarasez-de-un-fisier">
-<span id="id10"></span><h2>Cum să mă debarasez de un fișier?<a class="headerlink" href="#cum-sa-ma-debarasez-de-un-fisier" title="Permalink to this headline">¶</a></h2>
+<span id="id10"></span><h2>Cum să mă debarasez de un fișier?<a class="headerlink" href="#cum-sa-ma-debarasez-de-un-fisier" title="Link permanent la acest titlu">¶</a></h2>
 <p>Eu am avut o astfel de situație când cineva a făcut <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> la un fișier inclus în fișierul <tt class="docutils literal"><span class="pre">.gitignotre</span></tt>, eu l-am preluat și vina a fost a mea.</p>
 </div>
 </div>
@@ -268,19 +268,19 @@ git commit ...
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>Subiectul precedent</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Răspunsuri la întrebări frecvente legate de Git</a></p>
-  <h4>Next topic</h4>
+                        title="capitolul precedent">Răspunsuri la întrebări frecvente legate de Git</a></p>
+  <h4>Subiectul următor</h4>
   <p class="topless"><a href="ramuri.html"
-                        title="next chapter">Ramuri</a></p>
-  <h3>This Page</h3>
+                        title="capitolul următor">Ramuri</a></p>
+  <h3>Această Pagină</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/comiteri.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>Căutare rapidă</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
@@ -297,23 +297,23 @@ git commit ...
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>Navigare</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="genindex.html" title="Index General"
              >index</a></li>
         <li class="right" >
           <a href="ramuri.html" title="Ramuri"
-             >next</a> |</li>
+             >următor</a> |</li>
         <li class="right" >
           <a href="index.html" title="Răspunsuri la întrebări frecvente legate de Git"
-             >previous</a> |</li>
-        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentation</a> &raquo;</li> 
+             >precedent</a> |</li>
+        <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentație</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2015, Radu Dumbrăveanu.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+        &copy; Drepturi de autor 2015, Radu Dumbrăveanu.
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

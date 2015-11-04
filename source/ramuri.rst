@@ -7,7 +7,6 @@ Cum să mut comiterile dintr-o ramură în alta?
 """""""""""""""""""""""""""""""""""""""""""""
 
 Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
-De exemplu avem următoarea situație
 
 .. rubric:: A. Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație
 
@@ -19,9 +18,7 @@ De exemplu avem următoarea situație
                          |
                         HEAD
 
-când de fapt ar fi trebuit să fie astfel
-
-.. code::
+când de fapt ar fi trebuit să fie astfel::
 
             + -- (C) -- (D)
            /             |
@@ -31,12 +28,16 @@ când de fapt ar fi trebuit să fie astfel
                          |
                         HEAD
 
-Pentru a muta comiterile (C) și (D) în ramura <ramura1> trebuie să rulăm următoarele comenzi
-
-.. code-block:: bash
+Pentru a muta comiterile (C) și (D) în ramura :code:`<ramura1>` trebuie în primul rând să :ref:`creăm o ramură fără a ne comuta la ea<git-branch-crearea-unei-ramuri-noi>` ::
 
    git branch <ramura1>
+
+apoi să excludem comiterile (C) și (D) din :code:`<ramura1>` mutând capul pe comiterea (B)::
+
    git reset --hard <comiterea B>
+
+și în final trecem al ramura nou creată::
+
    git checkout <ramura1>
 
 .. rubric:: B. Ramura corectă există, adică avem următoarea situație

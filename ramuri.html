@@ -53,8 +53,7 @@
 <h1>Ramuri<a class="headerlink" href="#ramuri" title="Link permanent la acest titlu">¶</a></h1>
 <div class="section" id="cum-sa-mut-comiterile-dintr-o-ramura-in-alta">
 <span id="id1"></span><h2>Cum să mut comiterile dintr-o ramură în alta?<a class="headerlink" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta" title="Link permanent la acest titlu">¶</a></h2>
-<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?
-De exemplu avem următoarea situație</p>
+<p>Am comis într-o ramură, dar ar fi trebuit să comit în alta; cum să mut aceste comiteri în ramura corectă?</p>
 <p class="rubric">A. Ramura corectă încă nu există, adică fără a pierde din generalitate, putem considera că avem următoarea situație</p>
 <div class="code highlight-python"><div class="highlight"><pre>(A) -- (B) -- (C) -- (D)
                       |
@@ -63,8 +62,8 @@ De exemplu avem următoarea situație</p>
                      HEAD
 </pre></div>
 </div>
-<p>când de fapt ar fi trebuit să fie astfel</p>
-<div class="code highlight-python"><div class="highlight"><pre>         + -- (C) -- (D)
+<p>când de fapt ar fi trebuit să fie astfel:</p>
+<div class="highlight-python"><div class="highlight"><pre>         + -- (C) -- (D)
         /             |
 (A) -- (B)            |
         |             |
@@ -73,7 +72,7 @@ De exemplu avem următoarea situație</p>
                      HEAD
 </pre></div>
 </div>
-<p>Pentru a muta comiterile (C) și (D) în ramura &lt;ramura1&gt; trebuie să rulăm următoarele comenzi</p>
+<p>Pentru a muta comiterile (C) și (D) în ramura &lt;ramura1&gt; trebuie în primul rând să creăm</p>
 <div class="highlight-bash"><div class="highlight"><pre>git branch &lt;ramura1&gt;
 git reset --hard &lt;comiterea B&gt;
 git checkout &lt;ramura1&gt;
@@ -194,9 +193,21 @@ git checkout &lt;ramura1&gt;
         <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentație</a> &raquo;</li> 
       </ul>
     </div>
+
     <div class="footer">
         &copy; Drepturi de autor 2015, Radu Dumbrăveanu.
       Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-12117059-7', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
   </body>
 </html>

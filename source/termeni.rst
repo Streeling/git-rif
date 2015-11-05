@@ -26,4 +26,9 @@ Termeni
       
    HEAD
       HEAD (sau capul) este o referință rezervată indică spre ultima comitere din ramura curentă.  
+   
+   upstream
+      Proiectul inițial (de origine) cu care se sincronizează regulat proiectul local.
       
+   tracking branch
+      Ramură locală pentru care este specificată ramura corespunzătoare de pe proiectul inițial.   

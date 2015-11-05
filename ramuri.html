@@ -72,10 +72,16 @@
                      HEAD
 </pre></div>
 </div>
-<p>Pentru a muta comiterile (C) și (D) în ramura &lt;ramura1&gt; trebuie în primul rând să creăm</p>
-<div class="highlight-bash"><div class="highlight"><pre>git branch &lt;ramura1&gt;
-git reset --hard &lt;comiterea B&gt;
-git checkout &lt;ramura1&gt;
+<p>Pentru a muta comiterile (C) și (D) în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt> trebuie în primul rând să <a class="reference internal" href="comenzi.html#git-branch-crearea-unei-ramuri-noi"><em>creăm o ramură fără a ne comuta la ea</em></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch &lt;ramura1&gt;
+</pre></div>
+</div>
+<p>apoi să excludem comiterile (C) și (D) din <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt> mutând capul pe părintele comiterii (C):</p>
+<div class="highlight-python"><div class="highlight"><pre>git reset --hard (B)
+</pre></div>
+</div>
+<p>și în final trecem la ramura nou creată:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
 </pre></div>
 </div>
 <p class="rubric">B. Ramura corectă există, adică avem următoarea situație</p>
@@ -98,31 +104,88 @@ git checkout &lt;ramura1&gt;
                                                  HEAD
 </pre></div>
 </div>
-<p>Pentru a muta comiterile (C) și (D) în ramura &lt;ramura1&gt; trebuie să rulăm următoarele comenzi</p>
-<div class="highlight-bash"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
-git merge &lt;ramura0&gt;
-git checkout &lt;ramura1&gt;
-git reset --hard &lt;comiterea B&gt;
-git checkout &lt;ramura1&gt;
+<p>Pentru a muta comiterile (C) și (D) în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt> trebuie să trecem în această ramură:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
+</pre></div>
+</div>
+<p>și să integrăm modificările din ramura <tt class="code docutils literal"><span class="pre">&lt;ramura0&gt;</span></tt> în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>git merge &lt;ramura0&gt;
+</pre></div>
+</div>
+<p>apoi să trecem în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura0&gt;</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
+</pre></div>
+</div>
+<p>și să &#8216;&#8217;aruncăm&#8217;&#8217; comiterile (C) și (D) din ramură mutând capul pe părintele comiterii (C):</p>
+<div class="highlight-python"><div class="highlight"><pre>git reset --hard &lt;comiterea B&gt;
+</pre></div>
+</div>
+<p>după aceste operații putem trece la ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt> pentru a continua lucrul:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
+</pre></div>
+</div>
+<p class="rubric">C. Ramura corectă există, dar nu putem integra direct ramura greșită în cea corectă</p>
+<p>Putem presupune că avem următoarea situație</p>
+<div class="code highlight-python"><div class="highlight"><pre>  + -- (U) -- (V) -- (W) --------- (X)
+ /                                  |
+(A) -- (B) -- (C) -- (D)            |
+                      |             |
+                  &lt;ramura0&gt;     &lt;ramura1&gt;
+                      |
+                     HEAD
+</pre></div>
+</div>
+<p>când de fapt ar fi trebuit să fie astfel</p>
+<div class="code highlight-python"><div class="highlight"><pre>  + -- (U) -- (V) -- (W) -- (X) -- (C) -- (D)
+ /                                         |
+(A) -- (B)                                 |
+        |                                  |
+    &lt;ramura0&gt;                          &lt;ramura1&gt;
+                                           |
+                                          HEAD
+</pre></div>
+</div>
+<p>Respectiv nu ne putem permite să integrăm ramura <tt class="code docutils literal"><span class="pre">&lt;ramura0&gt;</span></tt> în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt> deoarece în rezultat comiterea (B) va nimeri în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt>.</p>
+<p>Pentru a muta doar comiterile (C) și (D) în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt> trebuie să trecem în această ramură:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
+</pre></div>
+</div>
+<p>și să integrăm doar comiterile (B) și (C):</p>
+<div class="highlight-python"><div class="highlight"><pre>git cherry-pick (B)
+git cherry-pick --continue
+git cherry-pick (C)
+git cherry-pick --continue
+</pre></div>
+</div>
+<p>apoi să trecem în ramura <tt class="code docutils literal"><span class="pre">&lt;ramura0&gt;</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
+</pre></div>
+</div>
+<p>și să &#8216;&#8217;aruncăm&#8217;&#8217; comiterile (C) și (D) din ramură mutând capul pe părintele comiterii (C):</p>
+<div class="highlight-python"><div class="highlight"><pre>git reset --hard &lt;comiterea B&gt;
+</pre></div>
+</div>
+<p>după aceste operații putem trece la ramura <tt class="code docutils literal"><span class="pre">&lt;ramura1&gt;</span></tt> pentru a continua lucrul:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura1&gt;
 </pre></div>
 </div>
 </div>
 <div class="section" id="cum-sa-redenumesc-o-ramura">
 <span id="id2"></span><h2>Cum să redenumesc o ramură?<a class="headerlink" href="#cum-sa-redenumesc-o-ramura" title="Link permanent la acest titlu">¶</a></h2>
-<p>Redenumirea unei ramuri se poate realiza folosind comanda</p>
-<div class="highlight-bash"><div class="highlight"><pre>git branch -m &lt;denumirea veche&gt; &lt;denumirea nouă&gt;
+<p>Redenumirea unei ramuri se poate realiza folosind comanda:</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch -m &lt;denumirea veche&gt; &lt;denumirea nouă&gt;
 </pre></div>
 </div>
-<p>Dacă ramura cu denumirea veche a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu încărcarea ramurii noi pe server</p>
-<div class="highlight-bash"><div class="highlight"><pre>git push origin --set-upstream &lt;denumirea nouă&gt;
+<p>Dacă ramura cu denumirea veche a fost deja încărcată pe server, adică nu este prezentă doar local, va fi nevoie de a finaliza operațiile de mai sus cu încărcarea ramurii noi pe server:</p>
+<div class="highlight-python"><div class="highlight"><pre>git push origin [--set-upstream] &lt;denumirea nouă&gt;
 </pre></div>
 </div>
-<p>și ștergerea celei vechi de pe server</p>
-<div class="highlight-bash"><div class="highlight"><pre>git push origin :&lt;denumirea veche&gt;
+<p>și ștergerea celei vechi de pe server:</p>
+<div class="highlight-python"><div class="highlight"><pre>git push origin :&lt;denumirea veche&gt;
 </pre></div>
 </div>
-<p>sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe server mai poate fi realizată și astfel</p>
-<div class="highlight-bash"><div class="highlight"><pre>git push origin --delete &lt;denumirea veche&gt;
+<p>sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe server mai poate fi realizată și astfel:</p>
+<div class="highlight-python"><div class="highlight"><pre>git push origin --delete &lt;denumirea veche&gt;
 </pre></div>
 </div>
 </div>

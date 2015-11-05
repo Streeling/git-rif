@@ -1,6 +1,53 @@
 Comenzi
 =======
 
+.. _git-branch:
+
+git-branch
+""""""""""
+
+Gestionează ramurile. De obicei se utilizează pentru:
+
+.. rubric:: Afișarea ramurilor existente
+
+.. code-block:: bash
+
+   git branch
+
+în rezultat se va afișa o listă cu ramurile existente, iar ramura curentă va fi marcată cu ajutorul simbolului `*`::
+
+     <ramura1>
+     <ramura2>
+   * <ramura3>
+     <ramura4>
+     <ramura5>
+
+.. _git-branch-crearea-unei-ramuri-noi:
+
+.. rubric:: Crearea unei ramuri noi
+
+.. code-block:: bash
+
+   git branch <ramura nouă>
+
+în rezultat se va crea :code:`<ramura nouă>` care va avea drept punct de început comiterea curentă. Totodată acestă comandă nu schimbă ramura curentă. 
+
+.. _git-branch-stergerea-unei-ramuri:
+
+.. rubric:: Ștergerea unei ramuri
+
+se realizează folosind opțiunea :code:`-d` (:code:`--delete`) ::
+
+   git branch -d <ramură existentă>
+
+.. _git-branch-redenumirea-unei-ramuri:
+
+.. rubric:: Redenumirea unei ramuri
+
+se realizează folosind opțiunea :code:`-d` (:code:`--delete`) ::
+
+   git branch -m [<ramura veche>] <ramura nouă>
+
 .. _git-config:
 
 git-config

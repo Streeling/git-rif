@@ -52,18 +52,26 @@
   <div class="section" id="termeni">
 <h1>Termeni<a class="headerlink" href="#termeni" title="Link permanent la acest titlu">¶</a></h1>
 <dl class="glossary docutils">
-<dt id="term-fast-forward">fast-forward</dt>
-<dd>???</dd>
-<dt id="term-obiect-git-en-git-object">obiect git [en. git object]</dt>
-<dd>Un obiect git poate fi: un <a class="reference internal" href="#term-blob"><em class="xref std std-term">blob</em></a>, un <a class="reference internal" href="#term-arbore"><em class="xref std std-term">arbore</em></a>, o <a class="reference internal" href="#term-comitere"><em class="xref std std-term">comitere</em></a> sau o <a class="reference internal" href="#term-eticheta"><em class="xref std std-term">etichetă</em></a>; orice altă entitate în afara acestei liste nu este obiect git.</dd>
+<dt id="term-obiect-git">obiect git</dt>
+<dd>Un obiect git [en. git object] poate fi: un <a class="reference internal" href="#term-blob"><em class="xref std std-term">blob</em></a>, un <a class="reference internal" href="#term-arbore"><em class="xref std std-term">arbore</em></a>, o <a class="reference internal" href="#term-comitere"><em class="xref std std-term">comitere</em></a> sau o <a class="reference internal" href="#term-eticheta"><em class="xref std std-term">etichetă</em></a>; orice altă entitate în afara acestei liste nu este obiect git. Obiectele se păstrează în dosarul <tt class="code docutils literal"><span class="pre">.git/objects</span></tt>.</dd>
 <dt id="term-blob">blob</dt>
 <dd>O clecție de octeți care cel mai des reprezintă conținutul unui fișier.</dd>
 <dt id="term-arbore">arbore</dt>
-<dd>O structură care conține refințe către alți arbori și blob-uri; poate fi privit ca un dosar.</dd>
+<dd>[en. tree] O structură care conține refințe către alți arbori și blob-uri. De fapt arborii reprezintă dosarele proiectului, dacă dosarul conține n subdosare și m fișiere atunci arborele va conține n referințe către arborii coresponzători subdosarelor și m referințe către blob-urile corespunzătoare fișierelor.</dd>
 <dt id="term-comitere">comitere</dt>
-<dd>Conține o singură referință către un arbore.</dd>
+<dd>Comiterea [en. commit] reprezintă o &#8216;&#8217;fotografie&#8217;&#8217; a dosarului într-un moment de timp. Ca <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a> comiterea constă din: o singură referință către un <a class="reference internal" href="#term-arbore"><em class="xref std std-term">arbore</em></a>, referințe către părinții acesteia, autorul comiterii, data când a fost creată și o notă (comentariu). Fiecare comitere se păstrează sub formă de fișier (în dosarul <tt class="code docutils literal"><span class="pre">.git/objects</span></tt>) a cărui nume este hash-ul comiterii, iar conținutul este conținutul comiterii într-un format specific.</dd>
 <dt id="term-eticheta">etichetă</dt>
 <dd>Un nume asociat unei comiteri.</dd>
+<dt id="term-ramura">ramură</dt>
+<dd>O ramură este un lanț de comiteri care reprezintă la nivel logic o altă direcție de dezvoltare a proiectului supus controlului versiunii. La cel mai jos nivel ramura nu-i altceva decât o <a class="reference internal" href="#term-referinta"><em class="xref std std-term">referință</em></a> (precum e <a class="reference internal" href="#term-head"><em class="xref std std-term">HEAD</em></a>).</dd>
+<dt id="term-referinta">referință</dt>
+<dd>Referințele [en. referencies, refs] sunt nume simbolice pentru hash-uri, la fel numele de domeniu sunt nume simbolice pentru adresele IP. Git păstrează referințele în formă de fișiere în dosarul <tt class="code docutils literal"><span class="pre">.git/refs</span></tt> : denumirea fișierului este însăși referința, iar conținutul - hash-ul. Exemple de referințe: <a class="reference internal" href="#term-ramura"><em class="xref std std-term">ramură</em></a>, <a class="reference internal" href="#term-eticheta"><em class="xref std std-term">etichetă</em></a>, <a class="reference internal" href="#term-head"><em class="xref std std-term">HEAD</em></a>.</dd>
+<dt id="term-head">HEAD</dt>
+<dd>HEAD (sau capul) este o referință rezervată indică spre ultima comitere din ramura curentă.</dd>
+<dt id="term-upstream">upstream</dt>
+<dd>Proiectul inițial (de origine) cu care se sincronizează regulat proiectul local.</dd>
+<dt id="term-tracking-branch">tracking branch</dt>
+<dd>Ramură locală pentru care este specificată ramura corespunzătoare de pe proiectul inițial.</dd>
 </dl>
 </div>
 

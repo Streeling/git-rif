@@ -47,20 +47,51 @@
             
   <div class="section" id="comenzi">
 <h1>Comenzi<a class="headerlink" href="#comenzi" title="Link permanent la acest titlu">¶</a></h1>
+<div class="section" id="git-branch">
+<span id="id1"></span><h2>git-branch<a class="headerlink" href="#git-branch" title="Link permanent la acest titlu">¶</a></h2>
+<p>Gestionează ramurile. De obicei se utilizează pentru:</p>
+<p class="rubric">Afișarea ramurilor existente</p>
+<div class="highlight-bash"><div class="highlight"><pre>git branch
+</pre></div>
+</div>
+<p>în rezultat se va afișa o listă cu ramurile existente, iar ramura curentă va fi marcată cu ajutorul simbolului <cite>*</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre>  &lt;ramura1&gt;
+  &lt;ramura2&gt;
+* &lt;ramura3&gt;
+  &lt;ramura4&gt;
+  &lt;ramura5&gt;
+</pre></div>
+</div>
+<p class="rubric" id="git-branch-crearea-unei-ramuri-noi">Crearea unei ramuri noi</p>
+<div class="highlight-bash"><div class="highlight"><pre>git branch &lt;ramura nouă&gt;
+</pre></div>
+</div>
+<p>în rezultat se va crea <tt class="code docutils literal"><span class="pre">&lt;ramura</span> <span class="pre">nouă&gt;</span></tt> care va avea drept punct de început comiterea curentă. Totodată acestă comandă nu schimbă ramura curentă.</p>
+<p class="rubric" id="git-branch-stergerea-unei-ramuri">Ștergerea unei ramuri</p>
+<p>se realizează folosind opțiunea <tt class="code docutils literal"><span class="pre">-d</span></tt> (<tt class="code docutils literal"><span class="pre">--delete</span></tt>)</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch -d &lt;ramură existentă&gt;
+</pre></div>
+</div>
+<p class="rubric" id="git-branch-redenumirea-unei-ramuri">Redenumirea unei ramuri</p>
+<p>se realizează folosind opțiunea <tt class="code docutils literal"><span class="pre">-d</span></tt> (<tt class="code docutils literal"><span class="pre">--delete</span></tt>)</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch -m [&lt;ramura veche&gt;] &lt;ramura nouă&gt;
+</pre></div>
+</div>
+</div>
 <div class="section" id="git-config">
-<span id="id1"></span><h2>git-config<a class="headerlink" href="#git-config" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id2"></span><h2>git-config<a class="headerlink" href="#git-config" title="Link permanent la acest titlu">¶</a></h2>
 </div>
 <div class="section" id="git-fetch">
-<span id="id2"></span><h2>git-fetch<a class="headerlink" href="#git-fetch" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id3"></span><h2>git-fetch<a class="headerlink" href="#git-fetch" title="Link permanent la acest titlu">¶</a></h2>
 </div>
 <div class="section" id="git-merge">
-<span id="id3"></span><h2>git-merge<a class="headerlink" href="#git-merge" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id4"></span><h2>git-merge<a class="headerlink" href="#git-merge" title="Link permanent la acest titlu">¶</a></h2>
 </div>
 <div class="section" id="git-pull">
-<span id="id4"></span><h2>git-pull<a class="headerlink" href="#git-pull" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id5"></span><h2>git-pull<a class="headerlink" href="#git-pull" title="Link permanent la acest titlu">¶</a></h2>
 </div>
 <div class="section" id="git-push">
-<span id="id5"></span><h2>git-push<a class="headerlink" href="#git-push" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id6"></span><h2>git-push<a class="headerlink" href="#git-push" title="Link permanent la acest titlu">¶</a></h2>
 <p>Încarcă toate modificările operate asupra proiectului local într-un alt proiect aflat de regulă la distanță.
 Altfel spus realizează sincronizarea unui proiect la distanță cu proiectul local.
 Cel mai des se utilizează în formatul următor</p>
@@ -91,10 +122,10 @@ Dacă ramura de la distanță are alt nume atunci va fi nevoie de schimbat puți
 </div>
 </div>
 <div class="section" id="git-rebase">
-<span id="id6"></span><h2>git-rebase<a class="headerlink" href="#git-rebase" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id7"></span><h2>git-rebase<a class="headerlink" href="#git-rebase" title="Link permanent la acest titlu">¶</a></h2>
 </div>
 <div class="section" id="git-remote">
-<span id="id7"></span><h2>git-remote<a class="headerlink" href="#git-remote" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id8"></span><h2>git-remote<a class="headerlink" href="#git-remote" title="Link permanent la acest titlu">¶</a></h2>
 <p>Gestionează informațiile privind proiectele la distanță (adăugare, ștergere, vizualizare etc). De regulă în cazul unui singur proiect la distanță (proiect pe server) se folosește în formatul</p>
 <div class="highlight-bash"><div class="highlight"><pre>git remote add origin &lt;URL-ul proiectului&gt;
 </pre></div>
@@ -121,6 +152,7 @@ origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>pu
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Comenzi</a><ul>
+<li><a class="reference internal" href="#git-branch">git-branch</a></li>
 <li><a class="reference internal" href="#git-config">git-config</a></li>
 <li><a class="reference internal" href="#git-fetch">git-fetch</a></li>
 <li><a class="reference internal" href="#git-merge">git-merge</a></li>

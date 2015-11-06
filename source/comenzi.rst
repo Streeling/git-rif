@@ -68,6 +68,19 @@ git-merge
 git-pull
 """"""""""
 
+Descarcă toate modificările operate asupra proiectului la distanță și le integrează în proiectul local.
+Altfel spus realizează sincronizarea proiectul local cu un proiect la distanță.
+Cel mai des se utilizează în formatul următor::
+
+   git push <proiect la distanță> <ramura la distanță>
+
+Unde :code:`<proiect la distanță>` poate fi specificat direct prin URL (https://git-scm.com/book/tr/v2/Git-on-the-Server-The-Protocols) 
+sau printr-un nume creat cu ajutorul comenzii :ref:`git-remote`. 
+În rezultat modificările din ramura din :code:`<proiect la distanță>` sunt descărcate în ramura cu același nume din proiectul local.
+Dacă ramura locală are alt nume atunci va fi nevoie de schimbat puțin formatul comenzii  
+
+   git push <proiect la distanță> <ramura la distanță>:<ramura locală>
+
 .. _git-push:
 
 git-push

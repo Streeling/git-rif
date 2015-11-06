@@ -168,22 +168,18 @@ Cum să încarc mai multe ramuri pe server dintr-o lovitură?
 Cum să integrez (merge) o ramură în alta?
 """""""""""""""""""""""""""""""""""""""""
 
-tralala::
+Treceți pe ramura destinație (în care doriți să integrați)::
 
-   git checkout <ramura țintă>
+   git checkout <ramura destinație>
 
-tralala::
+apoi rulați::
 
    git merge <ramura sursă>
 
-.. image:: images/merge1.png
-    :width: 200px
-    :align: center
-    :height: 100px
-    :alt: alternate text
+în caz de conflicte de integrare va afișat mesajul corespunzator care se va sfârși cu următoarea propoziție::
 
-.. image:: images/merge2.png
-    :width: 200px
-    :align: center
-    :height: 100px
-    :alt: alternate text
+   Automatic merge failed; fix conflicts and then commit the result.   
+
+și va trebui să înlăturați conflictele pentru a finaliza integrarea.
+   
+Vezi și :ref:`Cum să integrez o ramură în alta în IntelliJ IDEA <idea-cum-să-integrez-o-ramură-în-alta>`

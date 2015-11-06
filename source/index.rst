@@ -6,8 +6,6 @@
 Răspunsuri la întrebări frecvente legate de Git
 ===============================================
 
-Cuprins:
-
 .. toctree::
    :maxdepth: 2
    
@@ -15,6 +13,16 @@ Cuprins:
    ramuri
    termeni
    comenzi
+
+Git în medii integrate de dezvoltare
+------------------------------------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   
+   idea/index
+
 
 
 Index și tabele

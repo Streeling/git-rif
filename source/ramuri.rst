@@ -164,3 +164,26 @@ Cum să încarc mai multe ramuri pe server dintr-o lovitură?
 .. code-block:: bash
 
    git push --all origin
+
+Cum să integrez (merge) o ramură în alta?
+"""""""""""""""""""""""""""""""""""""""""
+
+tralala::
+
+   git checkout <ramura țintă>
+
+tralala::
+
+   git merge <ramura sursă>
+
+.. image:: images/merge1.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
+
+.. image:: images/merge2.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text

@@ -32,3 +32,6 @@ Termeni
       
    tracking branch
       Ramură locală pentru care este specificată ramura corespunzătoare de pe proiectul inițial.   
+      
+   ORIG_HEAD
+      Referință rezervată care conține valoarea (poziția) precedentă a referinței HEAD.

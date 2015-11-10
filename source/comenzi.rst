@@ -131,6 +131,28 @@ Modificările locale pot fi respinse de :code:`<proiect la distanță>` atunci c
 git-rebase
 """"""""""
 
+.. _git-reset:
+
+git-reset
+"""""""""
+
+Schimbă poziția CAPULUI actualizând totodată conținutul index-ului și a șantierului.
+Pentru a schimba poziția CAPULUI sintaxa este::
+
+   git reset <mod> <comitere>
+   
+unde în loc de :code:`<mode>` putem folosiu oricare dintre opțiunile: :code:`--soft`, :code:`--mixed`, :code:`--hard`, :code:`--merge` și :code:`--keep`. 
+
+cu :code:`--soft` se schimbă doar poziția capului fără a altera index-ul sau șantierul ... vezi anularea comiterilor
+
+cu :code:`--mixed` se schimbă poziția capului și index-ul coincide cu acea comitere, șantierul rămâne intact
+
+cu :code:`--mixed` se schimbă poziția capului, index-ul coincide cu acea comitere și șantierul
+
+putem revni prin :term:`ORIG_HEAD`
+
+https://git-scm.com/blog/2011/07/11/reset.html
+
 .. _git-remote:
 
 git-remote

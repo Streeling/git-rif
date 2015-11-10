@@ -11,6 +11,7 @@ Răspunsuri la întrebări frecvente legate de Git
    
    comiteri
    ramuri
+   misc
    termeni
    comenzi
 

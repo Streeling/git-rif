@@ -136,22 +136,33 @@ git-rebase
 git-reset
 """""""""
 
-Schimbă poziția CAPULUI actualizând totodată conținutul index-ului și a șantierului.
-Pentru a schimba poziția CAPULUI sintaxa este::
+Schimbă ''poziția'' referinței :term:`HEAD`. Cel mai des se utilizează în formatul::
 
    git reset <mod> <comitere>
    
-unde în loc de :code:`<mode>` putem folosiu oricare dintre opțiunile: :code:`--soft`, :code:`--mixed`, :code:`--hard`, :code:`--merge` și :code:`--keep`. 
+unde în loc de :code:`<mode>` putem folosi oricare dintre următoarele opțiuni: 
+
+* :code:`--soft` -- schimbă valoarea referinței :term:`HEAD` astfel încât să indice către comiterea :code:`<comitere>`;
+
+* :code:`--mixed` -- pe lângă faptul că schimbă valoarea referinței :term:`HEAD` astfel încât să indice către comiterea :code:`<comitere>` mai actualizează și index-ul ca să reflecte conținutul comiterii :code:`<comitere>`;
+
+* :code:`--hard` -- la fel ca și :code:`--mixed` doar că mai actualizează și conținutul dosarului de lucru.
+
+șantierul rămâne intact
+
+opțiunile: :code:`--soft`, :code:`--mixed`, :code:`--hard`, :code:`--merge` și :code:`--keep`. 
 
 cu :code:`--soft` se schimbă doar poziția capului fără a altera index-ul sau șantierul ... vezi anularea comiterilor
 
 cu :code:`--mixed` se schimbă poziția capului și index-ul coincide cu acea comitere, șantierul rămâne intact
 
-cu :code:`--mixed` se schimbă poziția capului, index-ul coincide cu acea comitere și șantierul
+cu :code:`--hard` se schimbă poziția capului, index-ul coincide cu acea comitere și șantierul
 
 putem revni prin :term:`ORIG_HEAD`
 
-https://git-scm.com/blog/2011/07/11/reset.html
+https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html#def_head
+
+`Reset Demystified <https://git-scm.com/blog/2011/07/11/reset.html>`_ 
 
 .. _git-remote:
 

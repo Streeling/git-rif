@@ -6,32 +6,28 @@ Ramuri
 Cum să integrez o ramură în alta?
 """""""""""""""""""""""""""""""""
 
-Treceți pe ramura destinație (în care doriți să integrați) de exemplu **gh-pages**
+Treceți pe ramura destinație, adică ramura în care doriți să integrați. Fără a pierde din generalitate putem presupune că ea se numește **gh-pages**
 
 .. image:: ../_static/idea_ramura_curenta.png
-    :width: 200px
     :align: center
-    :height: 100px
+    :height: 333px
 
-apoi din lista de ramuri faceți clic pe ramura sursă (pe care doriți s-o integrați) de exemplu **master** și meniul contextual alegeți :code:`Merge`
+Apoi din lista de ramuri faceți clic pe ramura sursă, adică ramura pe care doriți s-o integrați, să presupunem că se numește **master** și din meniul contextual alegeți **Merge**
 
 .. image:: ../_static/idea_integrare_ramura.png
-    :width: 200px
     :align: center
-    :height: 100px
+    :height: 333px
     
-dacă nu s-au ivit conflicte de integrare, atunci IDEA vă va înștiința despre finalizare printr-o notificare oranj în partea de jos
+dacă nu s-au ivit conflicte de integrare, atunci IntelliJ IDEA vă va înștiința despre finalizare printr-o notificare de culoare verde în partea dreapta-jos
 
 .. image:: ../_static/idea_integrare_reusita_ramura.png
-    :width: 200px
     :align: center
-    :height: 100px
+    :height: 333px
 
-în caz că au apărut conflicte de integrare va apărea o ferestră de genul 
+În caz că au apărut conflicte de integrare va apărea o ferestră de genul 
 
 .. image:: ../_static/idea_integrare_cu_conflicte.png
-    :width: 200px
     :align: center
-    :height: 100px
+    :height: 333px
 
 în care vor fi presentate toate fișierele în care au apărut conflicte. Pentru a finaliza integrarea va trebui să înlăturați toate conflictele.

@@ -4,7 +4,7 @@ Termeni
 .. glossary::
 
    obiect git
-      Un obiect git [en. git object] poate fi: un :term:`blob`, un :term:`arbore`, o :term:`comitere` sau o :term:`etichetă`; orice altă entitate în afara acestei liste nu este obiect git. Obiectele se păstrează în dosarul :code:`.git/objects`.
+      Un obiect git [en. git object] poate fi: un :term:`blob`, un :term:`arbore` sau o :term:`comitere`; orice altă entitate în afara acestei liste nu este obiect git. Obiectele se identifică prin hash-uri și se păstrează în dosarul **.git/objects** sub formă de fișiere. Aceste fișiere sunt organizate într-un mod special și anume: fiecare fișier se păstrează într-un dosar a cărui denumire conține primele 2 litere ale hash-ului obiectului, iar însăși denumirea fișierului conține celelalte 38 de litere rămase ale hash-ului. De exemplu fișierul obiectului cu hash-ul **fe5f927c084fdf216c00cc15d21ddd0a5c299006** are **.git/objects/fe/5f927c084fdf216c00cc15d21ddd0a5c299006**. Conținutul fișierelor este păstrat într-un format special și pentru a-l citi veți avea nevoie de comanda git-cat-file.
       
    blob
       O clecție de octeți care cel mai des reprezintă conținutul unui fișier.

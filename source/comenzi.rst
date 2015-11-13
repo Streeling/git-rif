@@ -6,7 +6,7 @@ Comenzi
 git-branch
 """"""""""
 
-Gestionează ramurile. De obicei se utilizează pentru:
+Comandă pentru manipularea ramurilor. De obicei se utilizează pentru:
 
 .. rubric:: Afișarea ramurilor existente
 
@@ -104,7 +104,6 @@ se va afișa::
 
    Un exemplu de etichetă
 
-
 .. _git-config:
 
 git-config
@@ -114,6 +113,13 @@ git-config
 
 git-fetch
 """""""""
+
+.. _git-ls-files:
+
+git-ls-files
+""""""""""""
+
+Afișează informații despre fișierele din :term:`index` și `dosarul de lucru`.
 
 .. _git-merge:
 
@@ -134,7 +140,7 @@ Cel mai des se utilizează în formatul următor::
 Unde :code:`<proiect la distanță>` poate fi specificat direct prin URL (https://git-scm.com/book/tr/v2/Git-on-the-Server-The-Protocols) 
 sau printr-un nume creat cu ajutorul comenzii :ref:`git-remote`. 
 În rezultat modificările din ramura din :code:`<proiect la distanță>` sunt descărcate în ramura cu același nume din proiectul local.
-Dacă ramura locală are alt nume atunci va fi nevoie de schimbat puțin formatul comenzii  
+Dacă ramura locală are alt nume atunci va fi nevoie de schimbat puțin formatul comenzii::
 
    git push <proiect la distanță> <ramura la distanță>:<ramura locală>
 
@@ -181,7 +187,7 @@ Modificările locale pot fi respinse de :code:`<proiect la distanță>` atunci c
 
 .. warning::
 
-   În rezultatul încăracării forțate toate modificările mai proaspete decât cele locale vor dispărea din proiectul de la distanță. Din acest motiv asigurați-vă că nu sunt modificări importante pe proiectul la distanță. Printre situațiile când este nevoie de încărcare forțată se numără: :ref:`cum-să-schimb-mesajul-ultimei-comiteri` sau :ref:`cum-să-redenumesc-o-ramură`.
+   În rezultatul încărcării forțate toate modificările mai proaspete decât cele locale vor dispărea din proiectul de la distanță. Din acest motiv asigurați-vă că nu sunt modificări importante pe proiectul la distanță. Printre situațiile când este nevoie de încărcare forțată se numără: :ref:`cum-să-schimb-mesajul-ultimei-comiteri` sau :ref:`cum-să-redenumesc-o-ramură`.
 
 .. _git-rebase:
 
@@ -220,6 +226,10 @@ putem revni prin :term:`ORIG_HEAD`
 https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html#def_head
 
 `Reset Demystified <https://git-scm.com/blog/2011/07/11/reset.html>`_ 
+
+.. rubric:: xxx
+
+
 
 .. _git-remote:
 

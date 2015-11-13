@@ -48,6 +48,63 @@ se realizează folosind opțiunea :code:`-d` (:code:`--delete`) ::
 
    git branch -m [<ramura veche>] <ramura nouă>
 
+.. _git-cat-file:
+
+git-cat-file
+""""""""""""
+
+Afișează conținutul, tipul sau marimea :term:`obiectelor git <obiect git>`. 
+
+.. _git-cat-file-cum-arată-un-arbore:
+
+.. rubric:: Cum arată un :term:`arbore`
+
+De exemplu dosarul acestui proiect la un moment oarecare avea asociat :term:`arborele <arbore>` cu hash-ul **c5e8251aaa20f5a822b3dc12d03d68c78e8ccd30**, folosind comanda ::
+
+   git cat-file -p c5e8251aaa20f5a822b3dc12d03d68c78e8ccd30
+
+se va afișa::
+ 
+   100644 blob d8539217c2eb6b51a86abe1279c37c8cc4139d22	.gitignore
+   100644 blob d45a907923f682f533128fb344c8eefde1fb81fd	Makefile
+   100644 blob a1c4e80ac1142e3e4a35039478b9ff3b0afc94eb	README.md
+   040000 tree 4a3d4ac761ee7eeb491e5cd33a91bf147bb25552	locale
+   100644 blob de2346e1cc0afae33b569cf12f2e9510dd422814	make.bat
+   040000 tree 5be6adfbe1e7b690cf5abe4d61aa211cf1f411bd	source
+
+.. _git-cat-file-cum-arată-o-comitere:
+
+.. rubric:: Cum arată o :term:`comitere`
+
+De exemplu folosind comanda pe ultima comitere::
+
+   git cat-file -p HEAD
+
+se va afișa::
+
+   tree c5e8251aaa20f5a822b3dc12d03d68c78e8ccd30
+   parent 9a7657e68c8c93f8944223175d855a8e2b8ccf2e
+   author Radu Dumbraveanu <rdumbraveanu@amsoft-group.com> 1447341585 +0200
+   committer Radu Dumbraveanu <rdumbraveanu@amsoft-group.com> 1447341585 +0200
+
+.. _git-cat-file-cum-arată-o-etichetă-adnotată:
+
+.. rubric:: Cum arată o :term:`etichetă adnotată`
+
+De exemplu folosind comanda pentru o anumită etichetă cu hash-ul **b5b809ec5a83c0ebe15c41f4dacf61de9e12dd61** care se referă la comiterea **9afeed48d9654122a4c4f0f8e0ef0cd388550d7f**::
+
+   git cat-file -p b5b809ec5a83c0ebe15c41f4dacf61de9e12dd61
+
+se va afișa::
+
+   object 9afeed48d9654122a4c4f0f8e0ef0cd388550d7f
+   type commit
+   tag v999
+   tagger Radu Dumbraveanu <rdumbraveanu@amsoft-group.com> 1447411375 +0200
+
+   Un exemplu de etichetă
+
+
 .. _git-config:
 
 git-config

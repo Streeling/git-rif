@@ -1,6 +1,20 @@
 Comenzi
 =======
 
+.. _git-add:
+
+git-add
+"""""""
+
+Adaugă fișiere (conținutul acestora) în index.
+
+.. _git-blame:
+
+git-blame
+"""""""""
+
+Afișează autorii ultimilor modificări per linie.
+
 .. _git-branch:
 
 git-branch
@@ -104,15 +118,75 @@ se va afișa::
 
    Un exemplu de etichetă
 
+.. _git-checkout:
+
+git-checkout
+""""""""""""
+
+Comută poziția curentă a referinței :term:`HEAD`. 
+
+.. _git-cherry-pick:
+
+git-cherry-pick
+"""""""""""""""
+
+Aplică doar modificările care rezidă într-o anumită comitere. 
+
+.. _git-clean:
+
+git-clean
+"""""""""
+
+Șterge fișierele neindexate (care nu-s supuse controlului versiunii).
+
+.. _git-clone:
+
+git-clone
+"""""""""
+
+Copie un proiect Git în alt dosar (local sau la distanță).
+
+.. _git-commit:
+
+git-commit
+""""""""""
+
+Înregistrează modificările în istoria proiectului.
+
 .. _git-config:
 
 git-config
 """"""""""
 
+Schimbă parametrii Git pentru proiectul curent (:code:`--local`), pentru toate proiectele utilizatorului curent (:code:`--global`) și pentru pentru toate proiectele din sistem (:code:`--system`).
+
+.. _git-diff:
+
+git-diff
+""""""""
+
+Afișează diferențele dintre conținutul ultimei comiteri, :term:`index` și :term:`dosarul de lucru`.
+
 .. _git-fetch:
 
 git-fetch
 """""""""
+
+Descarcă obiecte git și referințe din alt proiect git.
+
+.. _git-init:
+
+git-init
+""""""""
+
+Creează un proiect Git nou sau reinițializează unul existent.
+
+.. _git-log:
+
+git-log
+"""""""
+
+Afișează istoria.
 
 .. _git-ls-files:
 
@@ -125,6 +199,15 @@ Afișează informații despre fișierele din :term:`index` și `dosarul de lucru
 
 git-merge
 """"""""""
+
+Integrează două sau mai multe ramuri.
+
+.. _git-merge-tool:
+
+git-merge-tool
+""""""""""""""
+
+Rulează instrumente pentru soluționarea conflictelor de integrare.
 
 .. _git-pull:
 
@@ -194,16 +277,26 @@ Modificările locale pot fi respinse de :code:`<proiect la distanță>` atunci c
 git-rebase
 """"""""""
 
+Schimbă punctele de început ale ramurilor.
+
 .. _git-reset:
 
 git-reset
 """""""""
 
-Schimbă ''poziția'' referinței :term:`HEAD`. Cel mai des se utilizează în formatul::
+Schimbă :term:`index`-ul pentru anumite fișiere sau în general schimbă ''poziția'' referinței :term:`HEAD`. 
 
-   git reset <mod> <comitere>
-   
-unde în loc de :code:`<mode>` putem folosi oricare dintre următoarele opțiuni: 
+.. rubric:: Sintaxa
+
+.. code-block:: bash
+
+   git reset [-q] [<arbore git>] [--] <fișier>…​
+   git reset (--patch | -p) [<arbore git>] [--] [<fișier>…​]
+   git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [<comitere>]
+
+În prima și în a doua formă înlocuiește conținutul (versiunea) :code:`<fișier>…` din :term:`index` cu versiunea :code:`<fișier>…` din :code:`<arbore git>`. În a treia formă schimbă comiterea curentă, adică ''poziția'' referinței :term:`HEAD`.
+
+Opțiunile: :code:`--soft`, :code:`--mixed` și :code:`--hard` sunt într-o anumită relație și anume: 
 
 * :code:`--soft` -- schimbă valoarea referinței :term:`HEAD` astfel încât să indice către comiterea :code:`<comitere>`;
 
@@ -211,25 +304,11 @@ unde în loc de :code:`<mode>` putem folosi oricare dintre următoarele opțiuni
 
 * :code:`--hard` -- la fel ca și :code:`--mixed` doar că mai actualizează și conținutul dosarului de lucru.
 
-șantierul rămâne intact
+.. warning::
 
-opțiunile: :code:`--soft`, :code:`--mixed`, :code:`--hard`, :code:`--merge` și :code:`--keep`. 
+   În caz că nu vă place ce a ieșit după schimbarea referinței :term:`HEAD` puteți întotdeauna reveni la poziția inițială folosind referința :term:`ORIG_HEAD`
 
-cu :code:`--soft` se schimbă doar poziția capului fără a altera index-ul sau șantierul ... vezi anularea comiterilor
-
-cu :code:`--mixed` se schimbă poziția capului și index-ul coincide cu acea comitere, șantierul rămâne intact
-
-cu :code:`--hard` se schimbă poziția capului, index-ul coincide cu acea comitere și șantierul
-
-putem revni prin :term:`ORIG_HEAD`
-
-https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html#def_head
-
-`Reset Demystified <https://git-scm.com/blog/2011/07/11/reset.html>`_ 
-
-.. rubric:: xxx
-
-
+Un articol în engleză în care se abordează vizual această comandă: `Reset Demystified <https://git-scm.com/blog/2011/07/11/reset.html>`_ 
 
 .. _git-remote:
 
@@ -255,4 +334,32 @@ De exemplu în cazul acestui proiect în rezultatul rulării comenzii de mai sus
    git remote -v
    origin	https://github.com/Streeling/git-rif.git (fetch)
    origin	https://github.com/Streeling/git-rif.git (push)
+
+.. _git-show:
+
+git-show
+""""""""
+
+Afișează informație despre obiecte.
+
+.. _git-show-ref:
+
+git-show-ref
+""""""""""""
+
+Afișează informația despre toate referințele proiectului.
+
+.. _git-status:
+
+git-status
+""""""""""
+
+Afișează diferențele dintre conținutul ultimei comiteri, :term:`index` și :term:`dosarul de lucru`.
+
+.. _git-tag:
+
+git-tag
+"""""""
+
+Cu acestă comandă se manipulează etichetele.
 

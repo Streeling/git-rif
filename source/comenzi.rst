@@ -179,7 +179,17 @@ Descarcă obiecte git și referințe din alt proiect git.
 git-init
 """"""""
 
-Creează un proiect Git nou sau reinițializează unul existent.
+Creează un proiect Git nou sau reinițializează unul existent. 
+
+Pentru a inițializa proiectul Git în dosarul curent se rulează comanda::
+
+   git init
+   
+iar pentru a inițializa proiectul în alt dosar decât cel curent este nevoie de a indica calea spre acest dosar::
+
+   git init <dosarul proiectului>
+   
+Inițializarea proiectului Git din punct de vedere tehnic constă în crearea în dosarul destinație a unui dosar ascuns numit **.git** împreună cu subdosarele **objects** (unde se vor păstra :term:`obiectele git <obiect git>`), **refs/heads** (pentru stocarea :term:`referințelor <referință>`), **refs/tags** (pentru stocarea :term:`etichetelor <etichetă>`) și fișierul **HEAD** (pentru stocarea referinței :term:`HEAD`).    
 
 .. _git-log:
 

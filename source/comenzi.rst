@@ -6,7 +6,19 @@ Comenzi
 git-add
 """""""
 
-Adaugă fișiere (conținutul acestora) în index.
+Adaugă fișiere (conținutul acestora) în :term:`index`.
+
+Emulează adăugarea :code:`-n` (:code:`--dry-run`) afișează informație de parcă le-ar adăuga, dar n-o face ca atare.
+
+:term:`Index` reprezintă ''fotografia'' :term:`dosarului de lucru <dosarul de lucru>` care va fi folosită drept conținut al următoarei comiteri. Din acest motiv după ce ați operat modificări asupra :term:`dosarului de lucru <dosarul de lucru>` și înainte de a efectua comiterea trebuie să adăugați acest schimbari în index.
+
+Sintaxa este::
+
+   git add [<opțiuni>] [<fișier>…​]
+   
+Git poate analiza automat cu ajutoru opțiunii :code:`-u` (:code:`--update`) actualizează doar înregistrările existente din index, adică pentru orice fișier din index el este actualizat dacă fișier din dosarul de lucru conține modificări sau este șters din index dacă acesta a fost șters din dosarul de lucru. Fișierele noi care nu-s în index nu se adaugă. O opțiune mi universală este :code:`-A` (:code:`--all`, :code:`--no-ignore-removal`) adaugă, șterge modifică. Alta este :code:`--no-all` (:code:`--ignore-removal`) adaugă cele noi, modifică cele existente, dar ignoră cele șterse.
+
+
 
 .. _git-blame:
 
@@ -14,6 +26,10 @@ git-blame
 """""""""
 
 Afișează autorii ultimilor modificări per linie.
+
+Adnotează fiecare rând a fișierului cu informația din ultima comitere în care s-a modificat acestă linie.
+
+Putem limita raportul doar la un diapazon cu opțiunea :code:`-L <început>,<sfârșit>`.
 
 .. _git-branch:
 
@@ -125,6 +141,21 @@ git-checkout
 
 Comută poziția curentă a referinței :term:`HEAD`. 
 
+Poate fi aplicată asupra fișierelor sau a întregului proiect.
+
+Dacă este aplicată fișierelor::
+ 
+   git checkout <comitere> <fișier>...
+   
+atunci actualizează conținutul fișierelor cu cel din :code:`<comitere>`.
+
+
+Dacă nu este aplicată asupra fișierelor::
+
+   git checkout <comitere>
+
+atunci schimbă atualizează întreg dosarul de lucru. Dacă :code:`<comiterea>` reprezintă o ramură atunci are loc comutarea de ramură.   
+
 .. _git-cherry-pick:
 
 git-cherry-pick
@@ -132,12 +163,28 @@ git-cherry-pick
 
 Aplică doar modificările care rezidă într-o anumită comitere. 
 
+Pentru a copia comiterile se folosește sintaxa::
+
+   git cherry-pick <comitere>
+   
+după ce s-au soluționat conflictele de integrare trebuie de rulat::
+
+   git cherry-pick --continue
+
+sau dacă se dorește anularea întregului process::
+
+   git cherry-pick --abort
+
 .. _git-clean:
 
 git-clean
 """""""""
 
 Șterge fișierele neindexate (care nu-s supuse controlului versiunii).
+
+Șterge recursiv fișierele care nu-s supuse controlului versiunii.
+
+Pentru că e operați într-un fel periculoasă are opțiunea de emulare prin :code:`-n` (:code:`--dry-run`)
 
 .. _git-clone:
 
@@ -174,6 +221,19 @@ git-commit
 """"""""""
 
 Înregistrează modificările în istoria proiectului.
+
+Stochează conținutul indexului în istorie împreună cu un mesaj, autorul comiterii și data.
+
+Cu :code:`-a` (:code:`--all`) automat actualizează index-ul pentru fișierele modificate sau șterse (dar nu  și pentru cele noi).
+
+Ne poate ușura puțin lucrul dacă vrem să folosim mesajul dintr-o altă comitere cu 
+
+* :code:`-c <comiterea>` (:code:`--reedit-message=<comiterea>`) -- cu deschiderea editorul;
+* :code:`-C <comiterea>` (:code:`--reuse-message=<comiterea>`) -- fără a deschide editorul;
+
+
+Mesajul :code:`-m <mesaj>` (:code:`--message=<mesaj>`).
+
 
 .. _git-config:
 

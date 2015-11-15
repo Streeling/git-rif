@@ -9,6 +9,7 @@ Răspunsuri la întrebări frecvente legate de Git
 .. toctree::
    :maxdepth: 2
    
+   proiect_git
    comiteri
    ramuri
    misc

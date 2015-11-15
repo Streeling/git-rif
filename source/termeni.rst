@@ -53,3 +53,15 @@ Termeni
       
    dosarul de lucru
       Dosarul de lucru [en. work dir] este dosarul proiectului fără istorie.   
+
+   legătură simbolică
+      [en. soft link, symlink] Fișier (A) care indică spre alt fișier (B) utilizând doar calea către fișierul (B) de regulă stocată în conținutul fișierului (A). Mai multe detalii despre legăturile simbolice în engleză pe `Wikipedia1 <https://en.wikipedia.org/wiki/Symbolic_link>`_.   
+            
+   legătură tare
+      [en. hard link] Fișier (A) care indică spre alt fișier (B) utilizând un identificator al fișierului (B) specific pentru sistemul de fișiere în cauza. Legăturile tari pot fi făcute doar local (adică în cadrul aceluiași sistem de operare). În familia sistemelor de operare Windows legăturile tari sunt disponibile doar în cadrul sistemului de fișiere NTFS. Mai multe detalii despre legăturile simbolice în engleză pe `Wikipedia2 <https://en.wikipedia.org/wiki/Hard_link>`_ sau pe `Linux Information Project <http://www.linfo.org/hard_link.html>`_.
+      
+   origin
+      este un pseudonim de regulă folosit pentru a face referință la proiectul origine (:term:`upstream`) a proiectului.
+      
+   clonă superficială
+      [en. shallow clone] proiect Git care conține doar câteva din ultimele comiteri ale altui proiect Git sursă. Poate fi creat cu ajutorul comenzii :ref:`git-clone` și nu putem utiliza în cadrul acestuia comenzile :ref:`git-pull` și :ref:`git-push`.   

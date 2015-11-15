@@ -144,7 +144,29 @@ git-clean
 git-clone
 """""""""
 
-Copie un proiect Git în alt dosar (local sau la distanță).
+Copiază un proiect Git într-o altă locație (local sau la distanță).
+
+Sintaxa este::
+
+   git clone [<opțiuni>] <URL proiect Git> <dosar destinație>
+
+În cazul când copierea se face local, adică locația nouă se află pe același calculator ca și proiectul sursă, se poate salva din spațiul folosit (pe disc) utilizând opțiunea :code:`-l` (:code:`--local`)::
+
+   git clone -l <URL proiect Git> <dosar destinație>
+
+efectul utilizării acestei opțiuni este acela că dosarul **.git/objects** din :code:`<dosarul destinație>` nu va conține :term:`obiectele Git <obiect Git>` ca atare ci doar :term:`legături tari <legătură tare>` către fișierele din proiectul sursă. Dacă nu folosim această opțiune atunci se creează copii ale fișierelor și nu legături, dar dacă dorim să ne asigurăm și să forțăm acest comportament în mod obligatoriu putem folosi opțiunea :code:`--no-hardlinks`.
+
+După clonare proiectul sursă devine :term:`upstream` pentru :term:`<proiectul destinație>` și respectiv referința :term:`origin` a acestuia este modificată astfel încât să indice către proiectul sursă. Pentru a modifica puțin acest comportament putem folosi opțiunea :code:`-o` (:code:`--origin`) pentru a schimba numele referinței care va indica către proiectul sursă, de exemplu în rezultatul rulării comenzii::
+
+   git clone -o source <URL proiect Git> <dosar destinație>
+
+în proiectul destinație va fi creată referința **source** în dosarul **.git/refs/remotes** care va indica către proiectul sursă. De-o potrivă cu acestă opțiune există și alte opțiuni pentru modificare anumitor lucruri din proiectul destinați cumar fi:
+
+* :code:`-b <nume ramură>` (:code:`--branch <nume ramură>`) -- schimbă ramura curentă în proiectul destinație;
+
+* :code:`-c <cheie>=<valoare>` (:code:`--config <cheie>=<valoare>`) -- schimbă valori ale parametrilor în proiectul destinație;
+
+* :code:`--depth <numărul de comiteri>` -- copiază doar ultimele comiteri în proiectul destinație (în așa caz acesta se numește :term:`clonă superficială`).
 
 .. _git-commit:
 

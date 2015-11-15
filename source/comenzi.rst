@@ -287,12 +287,18 @@ git-ls-files
 
 Afișează informații despre fișierele din :term:`index` și `dosarul de lucru`.
 
+De exemplu,
+
+:code:`-u` (:code:`--unmerged`) fișierele care n-au fost integrate (cu conflicte).
+
 .. _git-merge:
 
 git-merge
 """"""""""
 
 Integrează două sau mai multe ramuri.
+
+Cum sunt prezentate conflictele; sun marcate prin ``<<<<<<<``, ``=======``, și ``>>>>>>>``. Fragmentul până la `=======` este cel din ramura sursă, și partea după din destinație.
 
 .. _git-merge-tool:
 

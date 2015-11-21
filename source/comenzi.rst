@@ -413,25 +413,41 @@ Un articol în engleză în care se abordează vizual această comandă: `Reset 
 git-remote
 """"""""""
 
-Gestionează informațiile privind proiectele la distanță (adăugare, ștergere, vizualizare etc). De regulă în cazul unui singur proiect la distanță (proiect pe server) se folosește în formatul
+Comandă pentru manipularea numelor asociate :term:`proiectelor la distanță <proiect la distanță>` conexe proiectului curent.
 
-.. code-block:: bash
+Adăugarea, redenumirea și ștergerea se fac cu ajutorul opțiunilpor :code:`add`, :code:`rename` și :code:`rm` (:code:`remove`) în felul următor::
 
-   git remote add origin <URL-ul proiectului>
+   git remote add <nume> <URL-ul proiectului> 
+   
+   git remote rename <vechi> <nou>
+   
+și respectiv ștergerea
 
-Pentru a lista alias-urile existente
+   git remote remove <nume existent>
+   
+în rezultat se șterge nu doar numele ci și toate ramurile la distanță din acest proiect stocate local prin fetch sau pull   
 
-.. code-block:: bash
+Pentru a lista alias-urile existente::
 
    git remote -v
 
-De exemplu în cazul acestui proiect în rezultatul rulării comenzii de mai sus avem
-
-.. code-block:: bash
+De exemplu în cazul acestui proiect în rezultatul rulării comenzii de mai sus avem::
 
    git remote -v
    origin	https://github.com/Streeling/git-rif.git (fetch)
    origin	https://github.com/Streeling/git-rif.git (push)
+
+sau simplu::
+
+   git remote
+   
+   fară multe detalii
+
+Dacă ați greșit se poate schimba url-ul::
+
+  git remote set-url <nume> <URL nou>
+  
+Pentru a curăța de ramurile care nu există pe proiectul la distanță :code:`prune` și ca orice comandă git aare :code:`--dry-run`.  
 
 .. _git-show:
 

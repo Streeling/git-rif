@@ -234,6 +234,54 @@ Ne poate ușura puțin lucrul dacă vrem să folosim mesajul dintr-o altă comit
 
 Mesajul :code:`-m <mesaj>` (:code:`--message=<mesaj>`).
 
+.. _git-commit-amend:
+
+.. rubric:: Modificarea ultimei comiteri
+
+Cu ajutorul opțiunii :code:`--amend` avem posibilitatea să redactăm ultima comitere: începănd cu mesajul, autorul și temrinând cu conținutul acesteia. 
+De notat însă că atunci când redactați ultima comitere se schimbă automat și :term:`hash`-ul acesteia. 
+Respectiv pot apărea situații neclare atunci când proiectul dvs. nu este doar local. De exemplu, să presupunem că proiectul local și cel de la distanță arată astfel
+
+.. code::
+
+   (A) -- (B) -- (C)
+                  |
+               <master>
+                  |
+                 HEAD
+
+după ce ați aplicat opțiunea :code:`--amend` proiectul dvs local va arăta astfel
+
+.. code::
+
+   (A) -- (B) -- (C')
+                  |
+               <master>
+                  |
+                 HEAD
+
+unde :code:`(C')` este comiterea :code:`(C)` redactată respectiv cu alt :term:`hash`. În așa fal dacă să comparăm proietul local cu cel de la disatnță situația e următoarea
+
+.. code::
+
+            (C) - <origin/master>
+            /
+   (A) -- (B)
+            \
+           (C')
+            |
+         <master>
+            |
+           HEAD
+
+astfel dacă veți încerca să încărcați modificările nu va mirați dacă veți obține mesajul::
+
+    ! [rejected]        master -> master (non-fast-forward)
+   error: failed to push some refs to '<proiectul dvs.>'
+   hint: Updates were rejected because the tip of your current branch is behind
+   hint: its remote counterpart. Integrate the remote changes (e.g.
+   hint: 'git pull ...') before pushing again.
+   hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 .. _git-config:
 

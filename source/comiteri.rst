@@ -39,6 +39,10 @@ Dacă ultima comitere a fost deja încărcată pe server, adică nu este prezent
 
    git push -f ...
 
+.. warning::
+
+   1111111111111111111111
+
 .. _cum-să-schimb-mesajul-oricărei-sau-oricăror-comiteri:
 
 Cum să schimb mesajul oricărei sau oricăror comiteri?

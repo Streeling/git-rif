@@ -64,4 +64,10 @@ Termeni
       este un pseudonim de regulă folosit pentru a face referință la proiectul origine (:term:`upstream`) a proiectului.
       
    clonă superficială
-      [en. shallow clone] proiect Git care conține doar câteva din ultimele comiteri ale altui proiect Git sursă. Poate fi creat cu ajutorul comenzii :ref:`git-clone` și nu putem utiliza în cadrul acestuia comenzile :ref:`git-pull` și :ref:`git-push`.   
+      [en. shallow clone] proiect Git care conține doar câteva din ultimele comiteri ale altui proiect Git sursă. Poate fi creat cu ajutorul comenzii :ref:`git-clone` și nu putem utiliza în cadrul acestuia comenzile :ref:`git-pull` și :ref:`git-push`.
+      
+   refspec
+   fast-forward
+   proiect la distanță
+   ramură la distanță
+      remote-tracking branch   

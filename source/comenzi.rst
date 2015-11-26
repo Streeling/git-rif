@@ -523,5 +523,22 @@ Afișează diferențele dintre conținutul ultimei comiteri, :term:`index` și :
 git-tag
 """""""
 
-Cu acestă comandă se manipulează etichetele.
+Comandă pentru manipularea etichetelor.
+
+Pentru a crea o :term:`etichetă simplă` se folosește în formatul următor::
+
+   git tag <nume etichetă> [<comitere>|<obiect git>]
+
+Pentru a crea o :term:`etichetă adnotată` se folosește opțiunea :code:`-a` (:code:`--annotate`)::
+
+   git tag -a [-m <notă>] <nume etichetă> [<comitere>|<obiect git>]
+
+dacă nu este folosită opținea :code:`-m` (:code:`--message`) atunci se va deschitde editorul implicit (ca și în situația cu :ref:`git-commit`).
+
+Pentru a altera referința unei etichete existente poate fi utilizată opțiunea :code:`-f` (:code:`--force`) doar că în cazul când eticheta a fost încărcată pe server nu se recomandă această procedură. Etichetele sunt descărcate o singură dată de pe server, adică va fi nevoie de anunțat toate persoanele care au descărcat eticheta modificată să o ștergă și s-o descarce încă o dată.
+
+Ștergerea unei etichete se realizează cu ajutorul opțiunii :code:`-d` (:code:`--delete`)::
+
+   git tag -d <etichetă existentă>… 
+ 
 

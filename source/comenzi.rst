@@ -504,12 +504,26 @@ git-show
 
 Afișează informație despre obiecte.
 
+Sintaxa::
+
+   git show [<opțiuni>] <obiect>…​
+
 .. _git-show-ref:
 
 git-show-ref
 """"""""""""
 
-Afișează informația despre toate referințele proiectului.
+Afișează informația despre referințele proiectului.
+
+Sintaxa::
+
+  git show-ref [<opțiuni>] [--] [<șablon de căutare>…​]
+
+Dacă nu este specificat șablonul de căutare sunt efișate toate referințele. 
+Când acest e specificat atunci se afișează toate referințele a căror cale absolută conține drept prefix șablunul indicat.
+Dacă se dorește afișarea informației despre o referință care exact numele căutat se folosește opțiunea :code:`--verify`, de exemplu::
+
+   git show-ref --verify refs/heads/master
 
 .. _git-status:
 

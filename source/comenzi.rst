@@ -518,6 +518,20 @@ git-status
 
 Afișează diferențele dintre conținutul ultimei comiteri, :term:`index` și :term:`dosarul de lucru`.
 
+Sintaxa::
+
+   git status [<opțiuni>] [--] [<fișier>…​]
+
+Atunci când nu este specificat nici un fișier este aplicată pentru toate fișierele din proiect.
+
+Practic afișează 3 zone informaționale:
+
+* fișierele care-s în index și se deosebesc de versiunea din ultima comitere (:term:`HEAD`) - anume aceste modificări vor fi înregistrate la rularea comenzii :ref:`git-commit`;
+
+* fișierele care-s în dosarul de lucru și se deosebesc de versiunea din index -  de regulă asupra acestor fișiere aplicăm :ref:`git-add`;
+
+* fișierele care-s în dosarul de lucru, dar încă n-au fost adăugate în index, adică nu-s supuse controlului versiunii.  
+
 .. _git-tag:
 
 git-tag

@@ -8,17 +8,21 @@ git-add
 
 Adaugă fișiere (conținutul acestora) în :term:`index`.
 
-Emulează adăugarea :code:`-n` (:code:`--dry-run`) afișează informație de parcă le-ar adăuga, dar n-o face ca atare.
+Opțiunea :code:`-n` (:code:`--dry-run`) simulează adăugarea, adică afișează informație de parcă ar adăuga fișiere, dar n-o face ca atare.
 
-:term:`Index` reprezintă ''fotografia'' :term:`dosarului de lucru <dosarul de lucru>` care va fi folosită drept conținut al următoarei comiteri. Din acest motiv după ce ați operat modificări asupra :term:`dosarului de lucru <dosarul de lucru>` și înainte de a efectua comiterea trebuie să adăugați acest schimbari în index.
+:term:`Index` reprezintă ''fotografia'' :term:`dosarului de lucru <dosarul de lucru>` care va fi folosită drept conținut al următoarei comiteri. Din acest motiv după ce ați operat modificări asupra :term:`dosarului de lucru <dosarul de lucru>` și înainte de a efectua comiterea trebuie să adăugați acest schimbări în index.
 
 Sintaxa este::
 
    git add [<opțiuni>] [<fișier>…​]
-   
-Git poate analiza automat cu ajutoru opțiunii :code:`-u` (:code:`--update`) actualizează doar înregistrările existente din index, adică pentru orice fișier din index el este actualizat dacă fișier din dosarul de lucru conține modificări sau este șters din index dacă acesta a fost șters din dosarul de lucru. Fișierele noi care nu-s în index nu se adaugă. O opțiune mi universală este :code:`-A` (:code:`--all`, :code:`--no-ignore-removal`) adaugă, șterge modifică. Alta este :code:`--no-all` (:code:`--ignore-removal`) adaugă cele noi, modifică cele existente, dar ignoră cele șterse.
 
+În cazul în care lista fișierelor care trebuie adăugate în :term:`Index` este voluminoasă comanda :ref:`git-add` ne pune la dispoziție opțiuni de filtrare:
 
+* :code:`-u` (:code:`--update`) - actualizează doar înregistrările existente din index, adică pentru orice fișier din index acesta este actualizat dacă fișierul din dosarul de lucru conține modificări sau este șters din index dacă acesta a fost șters din dosarul de lucru.
+
+* :code:`-A` (:code:`--all`, :code:`--no-ignore-removal`) - actualizează înregistrările existente, adăugă fișierele care n-au fost până acum în index [en. untracked] și șterge din index fișierele care au fost șterse din dosarul de lucru. 
+
+* :code:`--no-all` (:code:`--ignore-removal`) - adaugă fișierele noi (care încă n-au fost adăugate în index [en. untracked]), actualizează cele existente, dar ignoră cele șterse.
 
 .. _git-blame:
 
@@ -203,11 +207,11 @@ Sintaxa este::
 
 efectul utilizării acestei opțiuni este acela că dosarul **.git/objects** din :code:`<dosarul destinație>` nu va conține :term:`obiectele Git <obiect Git>` ca atare ci doar :term:`legături tari <legătură tare>` către fișierele din proiectul sursă. Dacă nu folosim această opțiune atunci se creează copii ale fișierelor și nu legături, dar dacă dorim să ne asigurăm și să forțăm acest comportament în mod obligatoriu putem folosi opțiunea :code:`--no-hardlinks`.
 
-După clonare proiectul sursă devine :term:`upstream` pentru :term:`<proiectul destinație>` și respectiv referința :term:`origin` a acestuia este modificată astfel încât să indice către proiectul sursă. Pentru a modifica puțin acest comportament putem folosi opțiunea :code:`-o` (:code:`--origin`) pentru a schimba numele referinței care va indica către proiectul sursă, de exemplu în rezultatul rulării comenzii::
+După clonare proiectul sursă devine :term:`upstream` pentru :term:`<proiectul destinație>` și respectiv referința :term:`origin` a acestuia este modificată astfel încât să indice către proiectul sursă. Pentru a modifica puțin acest comportament putem folosi opțiunea :code:`-o` (:code:`--origin`) pentru a schimba numele referinței care va indica către proiectul sursă. De exemplu în rezultatul rulării comenzii::
 
    git clone -o source <URL proiect Git> <dosar destinație>
 
-în proiectul destinație va fi creată referința **source** în dosarul **.git/refs/remotes** care va indica către proiectul sursă. De-o potrivă cu acestă opțiune există și alte opțiuni pentru modificare anumitor lucruri din proiectul destinați cumar fi:
+în proiectul destinație va fi creată referința **source** în dosarul **.git/refs/remotes** care va indica către proiectul sursă. Deopotrivă cu această opțiune există și alte opțiuni pentru modificare anumitor lucruri din proiectul destinație cumar fi:
 
 * :code:`-b <nume ramură>` (:code:`--branch <nume ramură>`) -- schimbă ramura curentă în proiectul destinație;
 

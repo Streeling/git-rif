@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentație" href="index.html" />
     <link rel="next" title="Comenzi" href="comenzi.html" />
-    <link rel="prev" title="Ramuri" href="ramuri.html" /> 
+    <link rel="prev" title="Miscelaneu" href="misc.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,7 +38,7 @@
           <a href="comenzi.html" title="Comenzi"
              accesskey="N">următor</a> |</li>
         <li class="right" >
-          <a href="ramuri.html" title="Ramuri"
+          <a href="misc.html" title="Miscelaneu"
              accesskey="P">precedent</a> |</li>
         <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentație</a> &raquo;</li> 
       </ul>
@@ -53,25 +53,49 @@
 <h1>Termeni<a class="headerlink" href="#termeni" title="Link permanent la acest titlu">¶</a></h1>
 <dl class="glossary docutils">
 <dt id="term-obiect-git">obiect git</dt>
-<dd>Un obiect git [en. git object] poate fi: un <a class="reference internal" href="#term-blob"><em class="xref std std-term">blob</em></a>, un <a class="reference internal" href="#term-arbore"><em class="xref std std-term">arbore</em></a>, o <a class="reference internal" href="#term-comitere"><em class="xref std std-term">comitere</em></a> sau o <a class="reference internal" href="#term-eticheta"><em class="xref std std-term">etichetă</em></a>; orice altă entitate în afara acestei liste nu este obiect git. Obiectele se păstrează în dosarul <tt class="code docutils literal"><span class="pre">.git/objects</span></tt>.</dd>
+<dd>Un obiect git [en. git object] poate fi: un <a class="reference internal" href="#term-blob"><em class="xref std std-term">blob</em></a>, un <a class="reference internal" href="#term-arbore"><em class="xref std std-term">arbore</em></a>, o <a class="reference internal" href="#term-comitere"><em class="xref std std-term">comitere</em></a> sau <a class="reference internal" href="#term-eticheta-adnotata"><em class="xref std std-term">etichetă adnotată</em></a>; orice altă entitate în afara acestei liste nu este obiect git. Obiectele se identifică prin <a class="reference internal" href="#term-hash"><em class="xref std std-term">hash</em></a>-uri și se păstrează în dosarul <strong>.git/objects</strong> sub formă de fișiere. Aceste fișiere sunt organizate într-un mod special și anume, fiecare fișier se păstrează într-un dosar a cărui denumire conține primele 2 simboluri ale <a class="reference internal" href="#term-hash"><em class="xref std std-term">hash</em></a>-ului obiectului, iar însăși denumirea fișierului conține celelalte 38 de simboluri rămase ale <a class="reference internal" href="#term-hash"><em class="xref std std-term">hash</em></a>-ului. De exemplu fișierul obiectului cu <a class="reference internal" href="#term-hash"><em class="xref std std-term">hash</em></a>-ul <strong>fe5f927c084fdf216c00cc15d21ddd0a5c299006</strong> are numele <strong>5f927c084fdf216c00cc15d21ddd0a5c299006</strong> și se păstrează în dosarul <strong>.git/objects/fe</strong>. Conținutul fișierelor nu poate fi citit cu &#8216;&#8217;ochiul liber&#8217;&#8217; în acest scop există comanda <a class="reference internal" href="comenzi.html#git-cat-file"><em>git-cat-file</em></a>.</dd>
 <dt id="term-blob">blob</dt>
-<dd>O clecție de octeți care cel mai des reprezintă conținutul unui fișier.</dd>
+<dd>Un blob este un <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a> folosit pentru a păstra conținutul unui fișier. Altfel spus blob-urile sunt utilizate pentru a reprezenta fișierele.</dd>
 <dt id="term-arbore">arbore</dt>
-<dd>[en. tree] O structură care conține refințe către alți arbori și blob-uri. De fapt arborii reprezintă dosarele proiectului, dacă dosarul conține n subdosare și m fișiere atunci arborele va conține n referințe către arborii coresponzători subdosarelor și m referințe către blob-urile corespunzătoare fișierelor.</dd>
+<dd>[en. tree] Un arbore este un <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a> folosit pentru a modela un dosar. Orice arbore conține o listă de referințe către obiectele asociate fișierelor și subdosarelor dintr-un anumit dosar. Pentru mai multe detalii vezi <a class="reference internal" href="comenzi.html#git-cat-file-cum-arata-un-arbore"><em>cum arată un arbore</em></a> folosind comanda <a class="reference internal" href="comenzi.html#git-cat-file"><em>git-cat-file</em></a>.</dd>
 <dt id="term-comitere">comitere</dt>
-<dd>Comiterea [en. commit] reprezintă o &#8216;&#8217;fotografie&#8217;&#8217; a dosarului într-un moment de timp. Ca <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a> comiterea constă din: o singură referință către un <a class="reference internal" href="#term-arbore"><em class="xref std std-term">arbore</em></a>, referințe către părinții acesteia, autorul comiterii, data când a fost creată și o notă (comentariu). Fiecare comitere se păstrează sub formă de fișier (în dosarul <tt class="code docutils literal"><span class="pre">.git/objects</span></tt>) a cărui nume este hash-ul comiterii, iar conținutul este conținutul comiterii într-un format specific.</dd>
+<dd>Comiterea [en. commit] reprezintă o &#8216;&#8217;fotografie&#8217;&#8217; a dosarului într-un moment de timp. Ca <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a> comiterea constă din: o referință către un <a class="reference internal" href="#term-arbore"><em class="xref std std-term">arbore</em></a> (dosarul &#8216;&#8217;fotografiat&#8217;&#8216;), una sau mai multe referințe către comiterile părinte ale acesteia, autorul original al comiterii, ultimul autor [en. commiter] al comiterii și nota (comentariul) asociată. Pentru mai multe detalii vezi <a class="reference internal" href="comenzi.html#git-cat-file-cum-arata-o-comitere"><em>cum arată o comitere</em></a> folosind comanda <a class="reference internal" href="comenzi.html#git-cat-file"><em>git-cat-file</em></a>.</dd>
 <dt id="term-eticheta">etichetă</dt>
-<dd>Un nume asociat unei comiteri.</dd>
+<dd>Un nume asociat unui <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a>. Poate fi de 2 tipuri: <a class="reference internal" href="#term-eticheta-simpla"><em class="xref std std-term">etichetă simplă</em></a> sau <a class="reference internal" href="#term-eticheta-adnotata"><em class="xref std std-term">etichetă adnotată</em></a>.</dd>
+<dt id="term-eticheta-simpla">etichetă simplă</dt>
+<dd>O etichetă simplă [en. lightweight tag] este o referință simbolică către un <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a>. Spre deosebire o <a class="reference internal" href="#term-eticheta-adnotata"><em class="xref std std-term">etichetă adnotată</em></a> cele simple se păstrează doar în dosarul <strong>.git/refs/tags</strong>.</dd>
+<dt id="term-eticheta-adnotata">etichetă adnotată</dt>
+<dd>Eticheta adnotată [en. annotated tag] reprezintă un nume împreună cu o notă asociate unui <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a>. Însăși eticheta ca <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a> constă din: o referință către un <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiect git</em></a> [en. object], tipul obiectului referit [en. type], eticheta [en. tag], autorul etichetei [en. tagger] și nota (comentariul) asociată. Pentru mai multe detalii vezi <a class="reference internal" href="comenzi.html#git-cat-file-cum-arata-o-eticheta-adnotata"><em>cum arată o etichetă adnotată</em></a> folosind comanda <a class="reference internal" href="comenzi.html#git-cat-file"><em>git-cat-file</em></a>.</dd>
 <dt id="term-ramura">ramură</dt>
-<dd>O ramură este un lanț de comiteri care reprezintă la nivel logic o altă direcție de dezvoltare a proiectului supus controlului versiunii. La cel mai jos nivel ramura nu-i altceva decât o <a class="reference internal" href="#term-referinta"><em class="xref std std-term">referință</em></a> (precum e <a class="reference internal" href="#term-head"><em class="xref std std-term">HEAD</em></a>).</dd>
+<dd>O ramură este un lanț de comiteri care reprezintă la nivel logic o direcție paralelă de dezvoltare a proiectului supus controlului versiunii. La nivel tehnic ramura nu-i altceva decât o <a class="reference internal" href="#term-referinta"><em class="xref std std-term">referință</em></a> (precum e <a class="reference internal" href="#term-10"><em class="xref std std-term">HEAD</em></a>) care este actualizată automat de Git astfel încât să indice permanent la ultima comitere din ramura respectivă.</dd>
 <dt id="term-referinta">referință</dt>
-<dd>Referințele [en. referencies, refs] sunt nume simbolice pentru hash-uri, la fel numele de domeniu sunt nume simbolice pentru adresele IP. Git păstrează referințele în formă de fișiere în dosarul <tt class="code docutils literal"><span class="pre">.git/refs</span></tt> : denumirea fișierului este însăși referința, iar conținutul - hash-ul. Exemple de referințe: <a class="reference internal" href="#term-ramura"><em class="xref std std-term">ramură</em></a>, <a class="reference internal" href="#term-eticheta"><em class="xref std std-term">etichetă</em></a>, <a class="reference internal" href="#term-head"><em class="xref std std-term">HEAD</em></a>.</dd>
-<dt id="term-head">HEAD</dt>
-<dd>HEAD (sau capul) este o referință rezervată indică spre ultima comitere din ramura curentă.</dd>
+<dd>Referințele [en. referencies, refs] sunt nume simbolice pentru <a class="reference internal" href="#term-hash"><em class="xref std std-term">hash</em></a>-uri, la fel cum numele de domeniu sunt nume simbolice pentru adresele IP. Git păstrează referințele în formă de fișiere în dosarul <strong>.git/refs</strong>: denumirea fișierului este însăși referința, iar conținutul - <a class="reference internal" href="#term-hash"><em class="xref std std-term">hash</em></a>-ul. Exemple de referințe: <a class="reference internal" href="#term-ramura"><em class="xref std std-term">ramură</em></a>, <a class="reference internal" href="#term-eticheta"><em class="xref std std-term">etichetă</em></a>, <a class="reference internal" href="#term-10"><em class="xref std std-term">HEAD</em></a> etc.</dd>
+<dt id="term-head">head</dt>
+<dd>O referință simbolică către ultima comitere dintr-o ramură. Git creează automat câte o astfel de referință pentru fiecare ramura și le stochează în dosarul <strong>.git/refs/heads</strong>.</dd>
+<dt id="term-10">HEAD</dt>
+<dd>HEAD este o referință rezervată care indică spre referința <a class="reference internal" href="#term-10"><em class="xref std std-term">head</em></a> curentă. Se păstrează în dosarul <strong>.git</strong>.</dd>
 <dt id="term-upstream">upstream</dt>
 <dd>Proiectul inițial (de origine) cu care se sincronizează regulat proiectul local.</dd>
 <dt id="term-tracking-branch">tracking branch</dt>
 <dd>Ramură locală pentru care este specificată ramura corespunzătoare de pe proiectul inițial.</dd>
+<dt id="term-orig-head">ORIG_HEAD</dt>
+<dd>Referință rezervată care conține valoarea (poziția) precedentă a referinței <a class="reference internal" href="#term-10"><em class="xref std std-term">HEAD</em></a>. Se păstrează în dosarul <strong>.git</strong>.</dd>
+<dt id="term-hash">hash</dt>
+<dd>Valoare generată cu ajutorul algoritmului SHA-1 (Secure Hash Algorithm 1) folosită drept nume pentru <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiectele git</em></a>. Are lungimea de 160 biți (20 octeți sau 40 simboluri hexazecimale) și de regulă se utilizează în forma hexazecimală.</dd>
+<dt id="term-index">index</dt>
+<dd>Este versiunea proiectului carea va fi comisă. Acestă versiune se păstrează în formă de <a class="reference internal" href="#term-obiect-git"><em class="xref std std-term">obiecte git</em></a>, iar referințele către aceste obiecte este sunt stocate în fișierul <strong>.git/index</strong>. Pentru a vizualiza lista fișierelor din index împreună cu hash-urile obiectelor poate fi utilizată comanda <a class="reference internal" href="comenzi.html#git-ls-files"><em>git-ls-files</em></a> cu optiunea <tt class="code docutils literal"><span class="pre">--stage</span></tt>.</dd>
+<dt id="term-dosarul-de-lucru">dosarul de lucru</dt>
+<dd>Dosarul de lucru [en. work dir] este dosarul proiectului fără istorie.</dd>
+<dt id="term-legatura-simbolica">legătură simbolică</dt>
+<dd>[en. soft link, symlink] Fișier (A) care indică spre alt fișier (B) utilizând doar calea către fișierul (B) de regulă stocată în conținutul fișierului (A). Mai multe detalii despre legăturile simbolice în engleză pe <a class="reference external" href="https://en.wikipedia.org/wiki/Symbolic_link">Wikipedia1</a>.</dd>
+<dt id="term-legatura-tare">legătură tare</dt>
+<dd>[en. hard link] Fișier (A) care indică spre alt fișier (B) utilizând un identificator al fișierului (B) specific pentru sistemul de fișiere în cauza. Legăturile tari pot fi făcute doar local (adică în cadrul aceluiași sistem de operare). În familia sistemelor de operare Windows legăturile tari sunt disponibile doar în cadrul sistemului de fișiere NTFS. Mai multe detalii despre legăturile simbolice în engleză pe <a class="reference external" href="https://en.wikipedia.org/wiki/Hard_link">Wikipedia2</a> sau pe <a class="reference external" href="http://www.linfo.org/hard_link.html">Linux Information Project</a>.</dd>
+<dt id="term-origin">origin</dt>
+<dd>este un pseudonim de regulă folosit pentru a face referință la proiectul origine (<a class="reference internal" href="#term-upstream"><em class="xref std std-term">upstream</em></a>) a proiectului.</dd>
+<dt id="term-clona-superficiala">clonă superficială</dt>
+<dd>[en. shallow clone] proiect Git care conține doar câteva din ultimele comiteri ale altui proiect Git sursă. Poate fi creat cu ajutorul comenzii <a class="reference internal" href="comenzi.html#git-clone"><em>git-clone</em></a> și nu putem utiliza în cadrul acestuia comenzile <a class="reference internal" href="comenzi.html#git-pull"><em>git-pull</em></a> și <a class="reference internal" href="comenzi.html#git-push"><em>git-push</em></a>.</dd>
+<dt id="term-refspec"><span id="term-fast-forward"></span><span id="term-proiect-la-distanta"></span><span id="term-ramura-la-distanta"></span>refspec<br />fast-forward<br />proiect la distanță<br />ramură la distanță</dt>
+<dd>remote-tracking branch</dd>
 </dl>
 </div>
 
@@ -82,8 +106,8 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Subiectul precedent</h4>
-  <p class="topless"><a href="ramuri.html"
-                        title="capitolul precedent">Ramuri</a></p>
+  <p class="topless"><a href="misc.html"
+                        title="capitolul precedent">Miscelaneu</a></p>
   <h4>Subiectul următor</h4>
   <p class="topless"><a href="comenzi.html"
                         title="capitolul următor">Comenzi</a></p>
@@ -119,7 +143,7 @@
           <a href="comenzi.html" title="Comenzi"
              >următor</a> |</li>
         <li class="right" >
-          <a href="ramuri.html" title="Ramuri"
+          <a href="misc.html" title="Miscelaneu"
              >precedent</a> |</li>
         <li><a href="index.html">Răspunsuri la întrebări frecvente legate de Git 1.0 documentație</a> &raquo;</li> 
       </ul>

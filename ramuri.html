@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentație" href="index.html" />
-    <link rel="next" title="Termeni" href="termeni.html" />
+    <link rel="next" title="Miscelaneu" href="misc.html" />
     <link rel="prev" title="Comiteri" href="comiteri.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
           <a href="genindex.html" title="Index General"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="termeni.html" title="Termeni"
+          <a href="misc.html" title="Miscelaneu"
              accesskey="N">următor</a> |</li>
         <li class="right" >
           <a href="comiteri.html" title="Comiteri"
@@ -195,6 +195,23 @@ git cherry-pick --continue
 </pre></div>
 </div>
 </div>
+<div class="section" id="cum-sa-integrez-merge-o-ramura-in-alta">
+<h2>Cum să integrez (merge) o ramură în alta?<a class="headerlink" href="#cum-sa-integrez-merge-o-ramura-in-alta" title="Link permanent la acest titlu">¶</a></h2>
+<p>Treceți pe ramura destinație (în care doriți să integrați):</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;ramura destinație&gt;
+</pre></div>
+</div>
+<p>apoi rulați:</p>
+<div class="highlight-python"><div class="highlight"><pre>git merge &lt;ramura sursă&gt;
+</pre></div>
+</div>
+<p>în caz de conflicte de integrare va afișat mesajul corespunzător care se va sfârși cu următoarea propoziție:</p>
+<div class="highlight-python"><div class="highlight"><pre>Automatic merge failed; fix conflicts and then commit the result.
+</pre></div>
+</div>
+<p>și va trebui să înlăturați conflictele pentru a finaliza integrarea.</p>
+<p>Vezi și <a class="reference internal" href="idea/ramuri.html#idea-cum-sa-integrez-o-ramura-in-alta"><em>Cum să integrez o ramură în alta în IntelliJ IDEA</em></a></p>
+</div>
 </div>
 
 
@@ -209,6 +226,7 @@ git cherry-pick --continue
 <li><a class="reference internal" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta">Cum să mut comiterile dintr-o ramură în alta?</a></li>
 <li><a class="reference internal" href="#cum-sa-redenumesc-o-ramura">Cum să redenumesc o ramură?</a></li>
 <li><a class="reference internal" href="#cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura">Cum să încarc mai multe ramuri pe server dintr-o lovitură?</a></li>
+<li><a class="reference internal" href="#cum-sa-integrez-merge-o-ramura-in-alta">Cum să integrez (merge) o ramură în alta?</a></li>
 </ul>
 </li>
 </ul>
@@ -217,8 +235,8 @@ git cherry-pick --continue
   <p class="topless"><a href="comiteri.html"
                         title="capitolul precedent">Comiteri</a></p>
   <h4>Subiectul următor</h4>
-  <p class="topless"><a href="termeni.html"
-                        title="capitolul următor">Termeni</a></p>
+  <p class="topless"><a href="misc.html"
+                        title="capitolul următor">Miscelaneu</a></p>
   <h3>Această Pagină</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/ramuri.txt"
@@ -248,7 +266,7 @@ git cherry-pick --continue
           <a href="genindex.html" title="Index General"
              >index</a></li>
         <li class="right" >
-          <a href="termeni.html" title="Termeni"
+          <a href="misc.html" title="Miscelaneu"
              >următor</a> |</li>
         <li class="right" >
           <a href="comiteri.html" title="Comiteri"

@@ -24,6 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Răspunsuri la întrebări frecvente legate de Git 1.0 documentație" href="index.html" />
+    <link rel="next" title="IntelliJ IDEA" href="idea/index.html" />
     <link rel="prev" title="Termeni" href="termeni.html" /> 
   </head>
   <body>
@@ -33,6 +34,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="Index General"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="idea/index.html" title="IntelliJ IDEA"
+             accesskey="N">următor</a> |</li>
         <li class="right" >
           <a href="termeni.html" title="Termeni"
              accesskey="P">precedent</a> |</li>
@@ -47,14 +51,36 @@
             
   <div class="section" id="comenzi">
 <h1>Comenzi<a class="headerlink" href="#comenzi" title="Link permanent la acest titlu">¶</a></h1>
+<div class="section" id="git-add">
+<span id="id1"></span><h2>git-add<a class="headerlink" href="#git-add" title="Link permanent la acest titlu">¶</a></h2>
+<p>Adaugă fișiere (conținutul acestora) în <a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">index</em></a>.</p>
+<p>Opțiunea <tt class="code docutils literal"><span class="pre">-n</span></tt> (<tt class="code docutils literal"><span class="pre">--dry-run</span></tt>) simulează adăugarea, adică afișează informație de parcă ar adăuga fișiere, dar n-o face ca atare.</p>
+<p><a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">Index</em></a> reprezintă &#8216;&#8217;fotografia&#8217;&#8217; <a class="reference internal" href="termeni.html#term-dosarul-de-lucru"><em class="xref std std-term">dosarului de lucru</em></a> care va fi folosită drept conținut al următoarei comiteri. Din acest motiv după ce ați operat modificări asupra <a class="reference internal" href="termeni.html#term-dosarul-de-lucru"><em class="xref std std-term">dosarului de lucru</em></a> și înainte de a efectua comiterea trebuie să adăugați acest schimbări în index.</p>
+<p>Sintaxa este:</p>
+<div class="highlight-python"><div class="highlight"><pre>git add [&lt;opțiuni&gt;] [&lt;fișier&gt;…​]
+</pre></div>
+</div>
+<p>În cazul în care lista fișierelor care trebuie adăugate în <a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">Index</em></a> este voluminoasă comanda <a class="reference internal" href="#git-add"><em>git-add</em></a> ne pune la dispoziție opțiuni de filtrare:</p>
+<ul class="simple">
+<li><tt class="code docutils literal"><span class="pre">-u</span></tt> (<tt class="code docutils literal"><span class="pre">--update</span></tt>) - actualizează doar înregistrările existente din index, adică pentru orice fișier din index acesta este actualizat dacă fișierul din dosarul de lucru conține modificări sau este șters din index dacă acesta a fost șters din dosarul de lucru.</li>
+<li><tt class="code docutils literal"><span class="pre">-A</span></tt> (<tt class="code docutils literal"><span class="pre">--all</span></tt>, <tt class="code docutils literal"><span class="pre">--no-ignore-removal</span></tt>) - actualizează înregistrările existente, adăugă fișierele care n-au fost până acum în index [en. untracked] și șterge din index fișierele care au fost șterse din dosarul de lucru.</li>
+<li><tt class="code docutils literal"><span class="pre">--no-all</span></tt> (<tt class="code docutils literal"><span class="pre">--ignore-removal</span></tt>) - adaugă fișierele noi (care încă n-au fost adăugate în index [en. untracked]), actualizează cele existente, dar ignoră cele șterse.</li>
+</ul>
+</div>
+<div class="section" id="git-blame">
+<span id="id2"></span><h2>git-blame<a class="headerlink" href="#git-blame" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează autorii ultimilor modificări per rând.</p>
+<p>Adnotează fiecare rând a fișierului cu informația din ultima comitere (autor, data etc) în care s-a modificat acest rând.</p>
+<p>Putem limita raportul doar la un diapazon de rânduri cu opțiunea <tt class="code docutils literal"><span class="pre">-L</span> <span class="pre">&lt;început&gt;,&lt;sfârșit&gt;</span></tt>.</p>
+</div>
 <div class="section" id="git-branch">
-<span id="id1"></span><h2>git-branch<a class="headerlink" href="#git-branch" title="Link permanent la acest titlu">¶</a></h2>
-<p>Gestionează ramurile. De obicei se utilizează pentru:</p>
+<span id="id3"></span><h2>git-branch<a class="headerlink" href="#git-branch" title="Link permanent la acest titlu">¶</a></h2>
+<p>Comandă pentru manipularea ramurilor. De obicei se utilizează pentru:</p>
 <p class="rubric">Afișarea ramurilor existente</p>
 <div class="highlight-bash"><div class="highlight"><pre>git branch
 </pre></div>
 </div>
-<p>în rezultat se va afișa o listă cu ramurile existente, iar ramura curentă va fi marcată cu ajutorul simbolului <cite>*</cite>:</p>
+<p>în rezultat se va afișa o listă ce va conține ramurile existente, iar ramura curentă va fi marcată cu ajutorul simbolului <cite>*</cite>:</p>
 <div class="highlight-python"><div class="highlight"><pre>  &lt;ramura1&gt;
   &lt;ramura2&gt;
 * &lt;ramura3&gt;
@@ -66,7 +92,7 @@
 <div class="highlight-bash"><div class="highlight"><pre>git branch &lt;ramura nouă&gt;
 </pre></div>
 </div>
-<p>în rezultat se va crea <tt class="code docutils literal"><span class="pre">&lt;ramura</span> <span class="pre">nouă&gt;</span></tt> care va avea drept punct de început comiterea curentă. Totodată acestă comandă nu schimbă ramura curentă.</p>
+<p>în rezultat se va crea <tt class="code docutils literal"><span class="pre">&lt;ramura</span> <span class="pre">nouă&gt;</span></tt> care va avea drept punct de început comiterea curentă. Totodată această comandă nu schimbă ramura curentă.</p>
 <p class="rubric" id="git-branch-stergerea-unei-ramuri">Ștergerea unei ramuri</p>
 <p>se realizează folosind opțiunea <tt class="code docutils literal"><span class="pre">-d</span></tt> (<tt class="code docutils literal"><span class="pre">--delete</span></tt>)</p>
 <div class="highlight-python"><div class="highlight"><pre>git branch -d &lt;ramură existentă&gt;
@@ -77,21 +103,227 @@
 <div class="highlight-python"><div class="highlight"><pre>git branch -m [&lt;ramura veche&gt;] &lt;ramura nouă&gt;
 </pre></div>
 </div>
+<p>În cazul când <tt class="code docutils literal"><span class="pre">&lt;ramura</span> <span class="pre">veche&gt;</span></tt> este ramura curentă (altfel spus se dorește redenumirea ramurii curente) aceasta poate fi omisă.
+Anume din acest motiv în comanda de mai sus parametrul <tt class="code docutils literal"><span class="pre">&lt;ramura</span> <span class="pre">veche&gt;</span></tt> este opțional.</p>
+</div>
+<div class="section" id="git-cat-file">
+<span id="id4"></span><h2>git-cat-file<a class="headerlink" href="#git-cat-file" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează conținutul, tipul sau mărimea <a class="reference internal" href="termeni.html#term-obiect-git"><em class="xref std std-term">obiectelor git</em></a>.</p>
+<p class="rubric" id="git-cat-file-cum-arata-un-arbore">Cum arată un <a class="reference internal" href="termeni.html#term-arbore"><em class="xref std std-term">arbore</em></a></p>
+<p>De exemplu dosarul acestui proiect la un moment oarecare avea asociat <a class="reference internal" href="termeni.html#term-arbore"><em class="xref std std-term">arborele</em></a> cu hash-ul <strong>c5e8251aaa20f5a822b3dc12d03d68c78e8ccd30</strong>, folosind comanda</p>
+<div class="highlight-python"><div class="highlight"><pre>git cat-file -p c5e8251aaa20f5a822b3dc12d03d68c78e8ccd30
+</pre></div>
+</div>
+<p>se va afișa:</p>
+<div class="highlight-python"><div class="highlight"><pre>100644 blob d8539217c2eb6b51a86abe1279c37c8cc4139d22 .gitignore
+100644 blob d45a907923f682f533128fb344c8eefde1fb81fd Makefile
+100644 blob a1c4e80ac1142e3e4a35039478b9ff3b0afc94eb README.md
+040000 tree 4a3d4ac761ee7eeb491e5cd33a91bf147bb25552 locale
+100644 blob de2346e1cc0afae33b569cf12f2e9510dd422814 make.bat
+040000 tree 5be6adfbe1e7b690cf5abe4d61aa211cf1f411bd source
+</pre></div>
+</div>
+<p class="rubric" id="git-cat-file-cum-arata-o-comitere">Cum arată o <a class="reference internal" href="termeni.html#term-comitere"><em class="xref std std-term">comitere</em></a></p>
+<p>De exemplu folosind comanda pe ultima comitere:</p>
+<div class="highlight-python"><div class="highlight"><pre>git cat-file -p HEAD
+</pre></div>
+</div>
+<p>se va afișa:</p>
+<div class="highlight-python"><div class="highlight"><pre>tree c5e8251aaa20f5a822b3dc12d03d68c78e8ccd30
+parent 9a7657e68c8c93f8944223175d855a8e2b8ccf2e
+author Radu Dumbraveanu &lt;rdumbraveanu@amsoft-group.com&gt; 1447341585 +0200
+committer Radu Dumbraveanu &lt;rdumbraveanu@amsoft-group.com&gt; 1447341585 +0200
+</pre></div>
+</div>
+<p class="rubric" id="git-cat-file-cum-arata-o-eticheta-adnotata">Cum arată o <a class="reference internal" href="termeni.html#term-eticheta-adnotata"><em class="xref std std-term">etichetă adnotată</em></a></p>
+<p>De exemplu folosind comanda pentru o anumită etichetă cu hash-ul <strong>b5b809ec5a83c0ebe15c41f4dacf61de9e12dd61</strong> care se referă la comiterea <strong>9afeed48d9654122a4c4f0f8e0ef0cd388550d7f</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>git cat-file -p b5b809ec5a83c0ebe15c41f4dacf61de9e12dd61
+</pre></div>
+</div>
+<p>se va afișa:</p>
+<div class="highlight-python"><div class="highlight"><pre>object 9afeed48d9654122a4c4f0f8e0ef0cd388550d7f
+type commit
+tag v999
+tagger Radu Dumbraveanu &lt;rdumbraveanu@amsoft-group.com&gt; 1447411375 +0200
+
+Un exemplu de etichetă
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-checkout">
+<span id="id5"></span><h2>git-checkout<a class="headerlink" href="#git-checkout" title="Link permanent la acest titlu">¶</a></h2>
+<p>Comută poziția curentă a referinței <a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a>.</p>
+<p>Poate fi aplicată asupra fișierelor sau a întregului proiect.</p>
+<p>Dacă este aplicată fișierelor:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;comitere&gt; &lt;fișier&gt;...
+</pre></div>
+</div>
+<p>atunci actualizează conținutul fișierelor cu cel din <tt class="code docutils literal"><span class="pre">&lt;comitere&gt;</span></tt>.</p>
+<p>Dacă nu este aplicată asupra fișierelor:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout &lt;comitere&gt;
+</pre></div>
+</div>
+<p>atunci schimbă (atualizează) întreg dosarul de lucru. Dacă <tt class="code docutils literal"><span class="pre">&lt;comiterea&gt;</span></tt> reprezintă o ramură atunci are loc comutarea la acea ramură.</p>
+</div>
+<div class="section" id="git-cherry-pick">
+<span id="id6"></span><h2>git-cherry-pick<a class="headerlink" href="#git-cherry-pick" title="Link permanent la acest titlu">¶</a></h2>
+<p>Aplică doar modificările care rezidă într-o anumită comitere.</p>
+<p>Pentru a copia comiterile se folosește sintaxa:</p>
+<div class="highlight-python"><div class="highlight"><pre>git cherry-pick &lt;comitere&gt;
+</pre></div>
+</div>
+<p>după ce s-au soluționat conflictele de integrare trebuie de rulat:</p>
+<div class="highlight-python"><div class="highlight"><pre>git cherry-pick --continue
+</pre></div>
+</div>
+<p>sau dacă se dorește anularea întregului proces:</p>
+<div class="highlight-python"><div class="highlight"><pre>git cherry-pick --abort
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-clean">
+<span id="id7"></span><h2>git-clean<a class="headerlink" href="#git-clean" title="Link permanent la acest titlu">¶</a></h2>
+<p>Șterge fișierele neindexate (care nu-s supuse controlului versiunii).</p>
+<p>Șterge recursiv fișierele care nu-s supuse controlului versiunii.</p>
+<p>Pentru că reprezintă o operație într-un fel periculoasă are opțiunea de simulare <tt class="code docutils literal"><span class="pre">-n</span></tt> (<tt class="code docutils literal"><span class="pre">--dry-run</span></tt>).</p>
+</div>
+<div class="section" id="git-clone">
+<span id="id8"></span><h2>git-clone<a class="headerlink" href="#git-clone" title="Link permanent la acest titlu">¶</a></h2>
+<p>Copiază un proiect Git într-o altă locație (local sau la distanță).</p>
+<p>Sintaxa este:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone [&lt;opțiuni&gt;] &lt;URL proiect Git&gt; &lt;dosar destinație&gt;
+</pre></div>
+</div>
+<p>În cazul când copierea se face local, adică locația nouă se află pe același calculator ca și proiectul sursă, se poate salva din spațiul folosit (pe disc) utilizând opțiunea <tt class="code docutils literal"><span class="pre">-l</span></tt> (<tt class="code docutils literal"><span class="pre">--local</span></tt>):</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone -l &lt;URL proiect Git&gt; &lt;dosar destinație&gt;
+</pre></div>
+</div>
+<p>efectul utilizării acestei opțiuni este acela că dosarul <strong>.git/objects</strong> din <tt class="code docutils literal"><span class="pre">&lt;dosarul</span> <span class="pre">destinație&gt;</span></tt> nu va conține <a class="reference internal" href="termeni.html#term-obiect-git"><em class="xref std std-term">obiectele Git</em></a> ca atare ci doar <a class="reference internal" href="termeni.html#term-legatura-tare"><em class="xref std std-term">legături tari</em></a> către fișierele din proiectul sursă. Dacă nu folosim această opțiune atunci se creează copii ale fișierelor și nu legături, dar dacă dorim să ne asigurăm și să forțăm acest comportament în mod obligatoriu putem folosi opțiunea <tt class="code docutils literal"><span class="pre">--no-hardlinks</span></tt>.</p>
+<p>După clonare proiectul sursă devine <a class="reference internal" href="termeni.html#term-upstream"><em class="xref std std-term">upstream</em></a> pentru <em class="xref std std-term">&lt;proiectul destinație&gt;</em> și respectiv referința <a class="reference internal" href="termeni.html#term-origin"><em class="xref std std-term">origin</em></a> a acestuia este modificată astfel încât să indice către proiectul sursă. Pentru a modifica puțin acest comportament putem folosi opțiunea <tt class="code docutils literal"><span class="pre">-o</span></tt> (<tt class="code docutils literal"><span class="pre">--origin</span></tt>) pentru a schimba numele referinței care va indica către proiectul sursă. De exemplu în rezultatul rulării comenzii:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone -o source &lt;URL proiect Git&gt; &lt;dosar destinație&gt;
+</pre></div>
+</div>
+<p>în proiectul destinație va fi creată referința <strong>source</strong> în dosarul <strong>.git/refs/remotes</strong> care va indica către proiectul sursă. Deopotrivă cu această opțiune există și alte opțiuni pentru modificare anumitor lucruri din proiectul destinație cum ar fi:</p>
+<ul class="simple">
+<li><tt class="code docutils literal"><span class="pre">-b</span> <span class="pre">&lt;nume</span> <span class="pre">ramură&gt;</span></tt> (<tt class="code docutils literal"><span class="pre">--branch</span> <span class="pre">&lt;nume</span> <span class="pre">ramură&gt;</span></tt>) &#8211; schimbă ramura curentă în proiectul destinație;</li>
+<li><tt class="code docutils literal"><span class="pre">-c</span> <span class="pre">&lt;cheie&gt;=&lt;valoare&gt;</span></tt> (<tt class="code docutils literal"><span class="pre">--config</span> <span class="pre">&lt;cheie&gt;=&lt;valoare&gt;</span></tt>) &#8211; schimbă valori ale parametrilor în proiectul destinație;</li>
+<li><tt class="code docutils literal"><span class="pre">--depth</span> <span class="pre">&lt;numărul</span> <span class="pre">de</span> <span class="pre">comiteri&gt;</span></tt> &#8211; copiază doar ultimele comiteri în proiectul destinație (în așa caz acesta se numește <a class="reference internal" href="termeni.html#term-clona-superficiala"><em class="xref std std-term">clonă superficială</em></a>).</li>
+</ul>
+</div>
+<div class="section" id="git-commit">
+<span id="id9"></span><h2>git-commit<a class="headerlink" href="#git-commit" title="Link permanent la acest titlu">¶</a></h2>
+<p>Înregistrează modificările în istoria proiectului.</p>
+<p>Stochează conținutul indexului în istorie împreună cu un mesaj, autorul comiterii și data.</p>
+<p>Cu <tt class="code docutils literal"><span class="pre">-a</span></tt> (<tt class="code docutils literal"><span class="pre">--all</span></tt>) automat actualizează index-ul pentru fișierele modificate sau șterse (dar nu  și pentru cele noi).</p>
+<p>Ne poate ușura puțin lucrul dacă vrem să folosim mesajul dintr-o altă comitere cu</p>
+<ul class="simple">
+<li><tt class="code docutils literal"><span class="pre">-c</span> <span class="pre">&lt;comiterea&gt;</span></tt> (<tt class="code docutils literal"><span class="pre">--reedit-message=&lt;comiterea&gt;</span></tt>) &#8211; cu deschiderea editorul;</li>
+<li><tt class="code docutils literal"><span class="pre">-C</span> <span class="pre">&lt;comiterea&gt;</span></tt> (<tt class="code docutils literal"><span class="pre">--reuse-message=&lt;comiterea&gt;</span></tt>) &#8211; fără a deschide editorul;</li>
+</ul>
+<p>Mesajul <tt class="code docutils literal"><span class="pre">-m</span> <span class="pre">&lt;mesaj&gt;</span></tt> (<tt class="code docutils literal"><span class="pre">--message=&lt;mesaj&gt;</span></tt>).</p>
+<p class="rubric" id="git-commit-amend">Modificarea ultimei comiteri</p>
+<p>Cu ajutorul opțiunii <tt class="code docutils literal"><span class="pre">--amend</span></tt> avem posibilitatea să redactăm ultima comitere: începând cu mesajul, autorul și terminând cu conținutul acesteia.
+De notat însă că atunci când redactați ultima comitere se schimbă automat și <a class="reference internal" href="termeni.html#term-hash"><em class="xref std std-term">hash</em></a>-ul acesteia.
+Respectiv pot apărea situații neclare atunci când proiectul dvs. nu este doar local. De exemplu, să presupunem că proiectul local și cel de la distanță arată astfel</p>
+<div class="code highlight-python"><div class="highlight"><pre>(A) -- (B) -- (C)
+               |
+            &lt;master&gt;
+               |
+              HEAD
+</pre></div>
+</div>
+<p>după ce ați aplicat opțiunea <tt class="code docutils literal"><span class="pre">--amend</span></tt> proiectul dvs local va arăta astfel</p>
+<div class="code highlight-python"><div class="highlight"><pre>(A) -- (B) -- (C&#39;)
+               |
+            &lt;master&gt;
+               |
+              HEAD
+</pre></div>
+</div>
+<p>unde <tt class="code docutils literal"><span class="pre">(C')</span></tt> este comiterea <tt class="code docutils literal"><span class="pre">(C)</span></tt> redactată respectiv cu alt <a class="reference internal" href="termeni.html#term-hash"><em class="xref std std-term">hash</em></a>. În așa fel dacă ar fi să comparăm proiectul local cu cel de la distanță situația e următoarea</p>
+<div class="code highlight-python"><div class="highlight"><pre>         (C) - &lt;origin/master&gt;
+         /
+(A) -- (B)
+         \
+        (C&#39;)
+         |
+      &lt;master&gt;
+         |
+        HEAD
+</pre></div>
+</div>
+<p>astfel dacă veți încerca să încărcați modificările să nu vă surprindă mesajul:</p>
+<div class="highlight-python"><div class="highlight"><pre> ! [rejected]        master -&gt; master (non-fast-forward)
+error: failed to push some refs to &#39;&lt;proiectul dvs.&gt;&#39;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</pre></div>
+</div>
 </div>
 <div class="section" id="git-config">
-<span id="id2"></span><h2>git-config<a class="headerlink" href="#git-config" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id10"></span><h2>git-config<a class="headerlink" href="#git-config" title="Link permanent la acest titlu">¶</a></h2>
+<p>Schimbă parametrii Git pentru proiectul curent (<tt class="code docutils literal"><span class="pre">--local</span></tt>), pentru toate proiectele utilizatorului curent (<tt class="code docutils literal"><span class="pre">--global</span></tt>) și pentru pentru toate proiectele din sistem (<tt class="code docutils literal"><span class="pre">--system</span></tt>).</p>
+</div>
+<div class="section" id="git-diff">
+<span id="id11"></span><h2>git-diff<a class="headerlink" href="#git-diff" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează diferențele dintre conținutul ultimei comiteri, <a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">index</em></a> și <a class="reference internal" href="termeni.html#term-dosarul-de-lucru"><em class="xref std std-term">dosarul de lucru</em></a>.</p>
 </div>
 <div class="section" id="git-fetch">
-<span id="id3"></span><h2>git-fetch<a class="headerlink" href="#git-fetch" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id12"></span><h2>git-fetch<a class="headerlink" href="#git-fetch" title="Link permanent la acest titlu">¶</a></h2>
+<p>Descarcă obiecte git și referințe din alt proiect git.</p>
+</div>
+<div class="section" id="git-init">
+<span id="id13"></span><h2>git-init<a class="headerlink" href="#git-init" title="Link permanent la acest titlu">¶</a></h2>
+<p>Creează un proiect Git nou sau reinițializează unul existent.</p>
+<p>Pentru a inițializa proiectul Git în dosarul curent se rulează comanda:</p>
+<div class="highlight-python"><div class="highlight"><pre>git init
+</pre></div>
+</div>
+<p>iar pentru a inițializa proiectul în alt dosar decât cel curent este nevoie de a indica calea spre acest dosar:</p>
+<div class="highlight-python"><div class="highlight"><pre>git init &lt;dosarul proiectului&gt;
+</pre></div>
+</div>
+<p>Inițializarea proiectului Git din punct de vedere tehnic constă în crearea în dosarul destinație a unui dosar ascuns numit <strong>.git</strong> împreună cu subdosarele <strong>objects</strong> (unde se vor păstra <a class="reference internal" href="termeni.html#term-obiect-git"><em class="xref std std-term">obiectele git</em></a>), <strong>refs/heads</strong> (pentru stocarea <a class="reference internal" href="termeni.html#term-referinta"><em class="xref std std-term">referințelor</em></a>), <strong>refs/tags</strong> (pentru stocarea <a class="reference internal" href="termeni.html#term-eticheta"><em class="xref std std-term">etichetelor</em></a>) și fișierul <strong>HEAD</strong> (pentru stocarea referinței <a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a>).</p>
+</div>
+<div class="section" id="git-log">
+<span id="id14"></span><h2>git-log<a class="headerlink" href="#git-log" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează istoria.</p>
+</div>
+<div class="section" id="git-ls-files">
+<span id="id15"></span><h2>git-ls-files<a class="headerlink" href="#git-ls-files" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează informații despre fișierele din <a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">index</em></a> și <cite>dosarul de lucru</cite>.</p>
+<p>De exemplu,</p>
+<p><tt class="code docutils literal"><span class="pre">-u</span></tt> (<tt class="code docutils literal"><span class="pre">--unmerged</span></tt>) fișierele care n-au fost integrate (cu conflicte).</p>
 </div>
 <div class="section" id="git-merge">
-<span id="id4"></span><h2>git-merge<a class="headerlink" href="#git-merge" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id16"></span><h2>git-merge<a class="headerlink" href="#git-merge" title="Link permanent la acest titlu">¶</a></h2>
+<p>Integrează două sau mai multe ramuri.</p>
+<p>Cum sunt prezentate conflictele; sun marcate prin <tt class="docutils literal"><span class="pre">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span></tt>, <tt class="docutils literal"><span class="pre">=======</span></tt>, și <tt class="docutils literal"><span class="pre">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></tt>. Fragmentul până la <cite>=======</cite> este cel din ramura sursă, și partea după - din ramura destinație.</p>
+</div>
+<div class="section" id="git-merge-tool">
+<span id="id17"></span><h2>git-merge-tool<a class="headerlink" href="#git-merge-tool" title="Link permanent la acest titlu">¶</a></h2>
+<p>Rulează instrumente pentru soluționarea conflictelor de integrare.</p>
 </div>
 <div class="section" id="git-pull">
-<span id="id5"></span><h2>git-pull<a class="headerlink" href="#git-pull" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id18"></span><h2>git-pull<a class="headerlink" href="#git-pull" title="Link permanent la acest titlu">¶</a></h2>
+<p>Descarcă toate modificările operate asupra proiectului la distanță și le integrează în proiectul local.
+Altfel spus realizează sincronizarea proiectul local cu un proiect la distanță.
+Cel mai des se utilizează în formatul următor:</p>
+<div class="highlight-python"><div class="highlight"><pre>git push &lt;proiect la distanță&gt; &lt;ramura la distanță&gt;
+</pre></div>
+</div>
+<p>Unde <tt class="code docutils literal"><span class="pre">&lt;proiect</span> <span class="pre">la</span> <span class="pre">distanță&gt;</span></tt> poate fi specificat direct prin URL (<a class="reference external" href="https://git-scm.com/book/tr/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/tr/v2/Git-on-the-Server-The-Protocols</a>)
+sau printr-un nume creat cu ajutorul comenzii <a class="reference internal" href="#git-remote"><em>git-remote</em></a>.
+În rezultat modificările din ramura din <tt class="code docutils literal"><span class="pre">&lt;proiect</span> <span class="pre">la</span> <span class="pre">distanță&gt;</span></tt> sunt descărcate în ramura cu același nume din proiectul local.
+Dacă ramura locală are alt nume atunci va fi nevoie de schimbat puțin formatul comenzii:</p>
+<div class="highlight-python"><div class="highlight"><pre>git push &lt;proiect la distanță&gt; &lt;ramura la distanță&gt;:&lt;ramura locală&gt;
+</pre></div>
+</div>
 </div>
 <div class="section" id="git-push">
-<span id="id6"></span><h2>git-push<a class="headerlink" href="#git-push" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id19"></span><h2>git-push<a class="headerlink" href="#git-push" title="Link permanent la acest titlu">¶</a></h2>
 <p>Încarcă toate modificările operate asupra proiectului local într-un alt proiect aflat de regulă la distanță.
 Altfel spus realizează sincronizarea unui proiect la distanță cu proiectul local.
 Cel mai des se utilizează în formatul următor</p>
@@ -118,26 +350,123 @@ Dacă ramura de la distanță are alt nume atunci va fi nevoie de schimbat puți
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">În rezultatul încăracării forțate toate modificările mai proaspete decât cele locale vor dispărea din proiectul de la distanță. Din acest motiv asigurați-vă că nu sunt modificări importante pe proiectul la distanță. Printre situațiile când este nevoie de încărcare forțată se numără: <a class="reference internal" href="comiteri.html#cum-sa-schimb-mesajul-ultimei-comiteri"><em>Cum să schimb mesajul ultimei comiteri?</em></a> sau <a class="reference internal" href="ramuri.html#cum-sa-redenumesc-o-ramura"><em>Cum să redenumesc o ramură?</em></a>.</p>
+<p class="last">În rezultatul încărcării forțate toate modificările mai proaspete decât cele locale vor dispărea din proiectul de la distanță. Din acest motiv asigurați-vă că nu sunt modificări importante pe proiectul la distanță. Printre situațiile când este nevoie de încărcare forțată se numără: <a class="reference internal" href="comiteri.html#cum-sa-schimb-mesajul-ultimei-comiteri"><em>Cum să schimb mesajul ultimei comiteri?</em></a> sau <a class="reference internal" href="ramuri.html#cum-sa-redenumesc-o-ramura"><em>Cum să redenumesc o ramură?</em></a>.</p>
 </div>
 </div>
 <div class="section" id="git-rebase">
-<span id="id7"></span><h2>git-rebase<a class="headerlink" href="#git-rebase" title="Link permanent la acest titlu">¶</a></h2>
+<span id="id20"></span><h2>git-rebase<a class="headerlink" href="#git-rebase" title="Link permanent la acest titlu">¶</a></h2>
+<p>Schimbă punctele de început ale ramurilor.</p>
+</div>
+<div class="section" id="git-reset">
+<span id="id21"></span><h2>git-reset<a class="headerlink" href="#git-reset" title="Link permanent la acest titlu">¶</a></h2>
+<p>Schimbă <a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">index</em></a>-ul pentru anumite fișiere sau în general schimbă &#8216;&#8217;poziția&#8217;&#8217; referinței <a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a>.</p>
+<p class="rubric">Sintaxa</p>
+<div class="highlight-bash"><div class="highlight"><pre>git reset <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>&lt;arbore git&gt;<span class="o">]</span> <span class="o">[</span>--<span class="o">]</span> &lt;<span class="k">fi</span>șier&gt;…​
+git reset <span class="o">(</span>--patch | -p<span class="o">)</span> <span class="o">[</span>&lt;arbore git&gt;<span class="o">]</span> <span class="o">[</span>--<span class="o">]</span> <span class="o">[</span>&lt;<span class="k">fi</span>șier&gt;…​<span class="o">]</span>
+git reset <span class="o">[</span>--soft | --mixed <span class="o">[</span>-N<span class="o">]</span> | --hard | --merge | --keep<span class="o">]</span> <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>&lt;comitere&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>În prima și în a doua formă înlocuiește conținutul (versiunea) <tt class="code docutils literal"><span class="pre">&lt;fișier&gt;…</span></tt> din <a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">index</em></a> cu versiunea <tt class="code docutils literal"><span class="pre">&lt;fișier&gt;…</span></tt> din <tt class="code docutils literal"><span class="pre">&lt;arbore</span> <span class="pre">git&gt;</span></tt>. În a treia formă schimbă comiterea curentă, adică &#8216;&#8217;poziția&#8217;&#8217; referinței <a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a>.</p>
+<p>Opțiunile: <tt class="code docutils literal"><span class="pre">--soft</span></tt>, <tt class="code docutils literal"><span class="pre">--mixed</span></tt> și <tt class="code docutils literal"><span class="pre">--hard</span></tt> sunt într-o anumită relație și anume:</p>
+<ul class="simple">
+<li><tt class="code docutils literal"><span class="pre">--soft</span></tt> &#8211; schimbă valoarea referinței <a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a> astfel încât să indice către comiterea <tt class="code docutils literal"><span class="pre">&lt;comitere&gt;</span></tt>;</li>
+<li><tt class="code docutils literal"><span class="pre">--mixed</span></tt> &#8211; pe lângă faptul că schimbă valoarea referinței <a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a> astfel încât să indice către comiterea <tt class="code docutils literal"><span class="pre">&lt;comitere&gt;</span></tt> mai actualizează și index-ul ca să reflecte conținutul comiterii <tt class="code docutils literal"><span class="pre">&lt;comitere&gt;</span></tt>;</li>
+<li><tt class="code docutils literal"><span class="pre">--hard</span></tt> &#8211; la fel ca și <tt class="code docutils literal"><span class="pre">--mixed</span></tt> doar că mai actualizează și conținutul dosarului de lucru.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">În caz că nu vă place ce a ieșit după schimbarea referinței <a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a> puteți întotdeauna reveni la poziția inițială folosind referința <a class="reference internal" href="termeni.html#term-orig-head"><em class="xref std std-term">ORIG_HEAD</em></a></p>
+</div>
+<p>Un articol în engleză în care se folosesc imagini vizuale pentru descrierea acestei comenzi: <a class="reference external" href="https://git-scm.com/blog/2011/07/11/reset.html">Reset Demystified</a></p>
 </div>
 <div class="section" id="git-remote">
-<span id="id8"></span><h2>git-remote<a class="headerlink" href="#git-remote" title="Link permanent la acest titlu">¶</a></h2>
-<p>Gestionează informațiile privind proiectele la distanță (adăugare, ștergere, vizualizare etc). De regulă în cazul unui singur proiect la distanță (proiect pe server) se folosește în formatul</p>
-<div class="highlight-bash"><div class="highlight"><pre>git remote add origin &lt;URL-ul proiectului&gt;
+<span id="id22"></span><h2>git-remote<a class="headerlink" href="#git-remote" title="Link permanent la acest titlu">¶</a></h2>
+<p>Comandă pentru manipularea numelor asociate <a class="reference internal" href="termeni.html#term-proiect-la-distanta"><em class="xref std std-term">proiectelor la distanță</em></a> conexe proiectului curent.</p>
+<p>Adăugarea, redenumirea și ștergerea se fac cu ajutorul opțiunilor <tt class="code docutils literal"><span class="pre">add</span></tt>, <tt class="code docutils literal"><span class="pre">rename</span></tt> și <tt class="code docutils literal"><span class="pre">rm</span></tt> (<tt class="code docutils literal"><span class="pre">remove</span></tt>) în felul următor:</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote add &lt;nume&gt; &lt;URL-ul proiectului&gt;
+
+git remote rename &lt;vechi&gt; &lt;nou&gt;
 </pre></div>
 </div>
-<p>Pentru a lista alias-urile existente</p>
-<div class="highlight-bash"><div class="highlight"><pre>git remote -v
+<p>și respectiv ștergerea:</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote remove &lt;nume existent&gt;
 </pre></div>
 </div>
-<p>De exemplu în cazul acestui proiect în rezultatul rulării comenzii de mai sus avem</p>
-<div class="highlight-bash"><div class="highlight"><pre>git remote -v
-origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>fetch<span class="o">)</span>
-origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>push<span class="o">)</span>
+<p>în rezultat se șterge nu doar numele ci și toate ramurile la distanță din acest proiect stocate local prin <a class="reference internal" href="#git-fetch"><em>git-fetch</em></a> sau <a class="reference internal" href="#git-pull"><em>git-pull</em></a>.</p>
+<p>Pentru a lista alias-urile existente:</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote -v
+</pre></div>
+</div>
+<p>De exemplu în cazul acestui proiect în rezultatul rulării comenzii de mai sus avem:</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote -v
+origin       https://github.com/Streeling/git-rif.git (fetch)
+origin       https://github.com/Streeling/git-rif.git (push)
+</pre></div>
+</div>
+<p>sau simplu:</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote
+
+fară multe detalii
+</pre></div>
+</div>
+<p>Dacă ați greșit se poate schimba url-ul:</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote set-url &lt;nume&gt; &lt;URL nou&gt;
+</pre></div>
+</div>
+<p>Pentru a curăța de ramurile care nu există pe proiectul la distanță <tt class="code docutils literal"><span class="pre">prune</span></tt> și ca orice comandă &#8216;&#8217;periculoasă&#8217;&#8217; are opțiunea de simulare <tt class="code docutils literal"><span class="pre">--dry-run</span></tt>.</p>
+</div>
+<div class="section" id="git-show">
+<span id="id23"></span><h2>git-show<a class="headerlink" href="#git-show" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează informația despre obiecte.</p>
+<p>Sintaxa:</p>
+<div class="highlight-python"><div class="highlight"><pre>git show [&lt;opțiuni&gt;] &lt;obiect&gt;…​
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-show-ref">
+<span id="id24"></span><h2>git-show-ref<a class="headerlink" href="#git-show-ref" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează informația despre referințele proiectului.</p>
+<p>Sintaxa:</p>
+<div class="highlight-python"><div class="highlight"><pre>git show-ref [&lt;opțiuni&gt;] [--] [&lt;șablon de căutare&gt;…​]
+</pre></div>
+</div>
+<p>Dacă nu este specificat șablonul de căutare sunt afișate toate referințele.
+Când acesta (șablonul) este specificat atunci se afișează toate referințele a căror cale absolută conține drept prefix șablonul indicat.
+Dacă se dorește afișarea informației despre o referință care are exact numele căutat se folosește opțiunea <tt class="code docutils literal"><span class="pre">--verify</span></tt>, de exemplu:</p>
+<div class="highlight-python"><div class="highlight"><pre>git show-ref --verify refs/heads/master
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-status">
+<span id="id25"></span><h2>git-status<a class="headerlink" href="#git-status" title="Link permanent la acest titlu">¶</a></h2>
+<p>Afișează diferențele dintre conținutul ultimei comiteri, <a class="reference internal" href="termeni.html#term-index"><em class="xref std std-term">index</em></a> și <a class="reference internal" href="termeni.html#term-dosarul-de-lucru"><em class="xref std std-term">dosarul de lucru</em></a>.</p>
+<p>Sintaxa:</p>
+<div class="highlight-python"><div class="highlight"><pre>git status [&lt;opțiuni&gt;] [--] [&lt;fișier&gt;…​]
+</pre></div>
+</div>
+<p>Atunci când nu este specificat nici un fișier este aplicată pentru toate fișierele din proiect.</p>
+<p>Practic afișează 3 zone informaționale:</p>
+<ul class="simple">
+<li>fișierele care-s în index și se deosebesc de versiunea din ultima comitere (<a class="reference internal" href="termeni.html#term-10"><em class="xref std std-term">HEAD</em></a>) - anume aceste modificări vor fi înregistrate la rularea comenzii <a class="reference internal" href="#git-commit"><em>git-commit</em></a>;</li>
+<li>fișierele care-s în dosarul de lucru și se deosebesc de versiunea din index - de regulă asupra acestor fișiere aplicăm <a class="reference internal" href="#git-add"><em>git-add</em></a>;</li>
+<li>fișierele care-s în dosarul de lucru, dar încă n-au fost adăugate în index, adică nu-s supuse controlului versiunii.</li>
+</ul>
+</div>
+<div class="section" id="git-tag">
+<span id="id26"></span><h2>git-tag<a class="headerlink" href="#git-tag" title="Link permanent la acest titlu">¶</a></h2>
+<p>Comandă pentru manipularea etichetelor.</p>
+<p>Pentru a crea o <a class="reference internal" href="termeni.html#term-eticheta-simpla"><em class="xref std std-term">etichetă simplă</em></a> se folosește în formatul următor:</p>
+<div class="highlight-python"><div class="highlight"><pre>git tag &lt;nume etichetă&gt; [&lt;comitere&gt;|&lt;obiect git&gt;]
+</pre></div>
+</div>
+<p>Pentru a crea o <a class="reference internal" href="termeni.html#term-eticheta-adnotata"><em class="xref std std-term">etichetă adnotată</em></a> se folosește opțiunea <tt class="code docutils literal"><span class="pre">-a</span></tt> (<tt class="code docutils literal"><span class="pre">--annotate</span></tt>):</p>
+<div class="highlight-python"><div class="highlight"><pre>git tag -a [-m &lt;notă&gt;] &lt;nume etichetă&gt; [&lt;comitere&gt;|&lt;obiect git&gt;]
+</pre></div>
+</div>
+<p>dacă nu este folosită opținea <tt class="code docutils literal"><span class="pre">-m</span></tt> (<tt class="code docutils literal"><span class="pre">--message</span></tt>) atunci se va deschitde editorul implicit (ca și în situația cu <a class="reference internal" href="#git-commit"><em>git-commit</em></a>).</p>
+<p>Pentru a altera referința unei etichete existente poate fi utilizată opțiunea <tt class="code docutils literal"><span class="pre">-f</span></tt> (<tt class="code docutils literal"><span class="pre">--force</span></tt>) doar că în cazul când eticheta a fost încărcată pe server nu se recomandă această procedură. Etichetele sunt descărcate o singură dată de pe server, adică va fi nevoie de anunțat toate persoanele care au descărcat eticheta modificată să o șteargă și s-o descarce încă o dată.</p>
+<p>Ștergerea unei etichete se realizează cu ajutorul opțiunii <tt class="code docutils literal"><span class="pre">-d</span></tt> (<tt class="code docutils literal"><span class="pre">--delete</span></tt>):</p>
+<div class="highlight-python"><div class="highlight"><pre>git tag -d &lt;etichetă existentă&gt;…
 </pre></div>
 </div>
 </div>
@@ -152,14 +481,32 @@ origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>pu
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Comenzi</a><ul>
+<li><a class="reference internal" href="#git-add">git-add</a></li>
+<li><a class="reference internal" href="#git-blame">git-blame</a></li>
 <li><a class="reference internal" href="#git-branch">git-branch</a></li>
+<li><a class="reference internal" href="#git-cat-file">git-cat-file</a></li>
+<li><a class="reference internal" href="#git-checkout">git-checkout</a></li>
+<li><a class="reference internal" href="#git-cherry-pick">git-cherry-pick</a></li>
+<li><a class="reference internal" href="#git-clean">git-clean</a></li>
+<li><a class="reference internal" href="#git-clone">git-clone</a></li>
+<li><a class="reference internal" href="#git-commit">git-commit</a></li>
 <li><a class="reference internal" href="#git-config">git-config</a></li>
+<li><a class="reference internal" href="#git-diff">git-diff</a></li>
 <li><a class="reference internal" href="#git-fetch">git-fetch</a></li>
+<li><a class="reference internal" href="#git-init">git-init</a></li>
+<li><a class="reference internal" href="#git-log">git-log</a></li>
+<li><a class="reference internal" href="#git-ls-files">git-ls-files</a></li>
 <li><a class="reference internal" href="#git-merge">git-merge</a></li>
+<li><a class="reference internal" href="#git-merge-tool">git-merge-tool</a></li>
 <li><a class="reference internal" href="#git-pull">git-pull</a></li>
 <li><a class="reference internal" href="#git-push">git-push</a></li>
 <li><a class="reference internal" href="#git-rebase">git-rebase</a></li>
+<li><a class="reference internal" href="#git-reset">git-reset</a></li>
 <li><a class="reference internal" href="#git-remote">git-remote</a></li>
+<li><a class="reference internal" href="#git-show">git-show</a></li>
+<li><a class="reference internal" href="#git-show-ref">git-show-ref</a></li>
+<li><a class="reference internal" href="#git-status">git-status</a></li>
+<li><a class="reference internal" href="#git-tag">git-tag</a></li>
 </ul>
 </li>
 </ul>
@@ -167,6 +514,9 @@ origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>pu
   <h4>Subiectul precedent</h4>
   <p class="topless"><a href="termeni.html"
                         title="capitolul precedent">Termeni</a></p>
+  <h4>Subiectul următor</h4>
+  <p class="topless"><a href="idea/index.html"
+                        title="capitolul următor">IntelliJ IDEA</a></p>
   <h3>Această Pagină</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/comenzi.txt"
@@ -195,6 +545,9 @@ origin       https://github.com/Streeling/git-rif.git <span class="o">(</span>pu
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="Index General"
              >index</a></li>
+        <li class="right" >
+          <a href="idea/index.html" title="IntelliJ IDEA"
+             >următor</a> |</li>
         <li class="right" >
           <a href="termeni.html" title="Termeni"
              >precedent</a> |</li>

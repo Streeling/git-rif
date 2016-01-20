@@ -164,3 +164,22 @@ Cum să încarc mai multe ramuri pe server dintr-o lovitură?
 .. code-block:: bash
 
    git push --all origin
+
+Cum să integrez (merge) o ramură în alta?
+"""""""""""""""""""""""""""""""""""""""""
+
+Treceți pe ramura destinație (în care doriți să integrați)::
+
+   git checkout <ramura destinație>
+
+apoi rulați::
+
+   git merge <ramura sursă>
+
+în caz de conflicte de integrare va afișat mesajul corespunzător care se va sfârși cu următoarea propoziție::
+
+   Automatic merge failed; fix conflicts and then commit the result.   
+
+și va trebui să înlăturați conflictele pentru a finaliza integrarea.
+   
+Vezi și :ref:`Cum să integrez o ramură în alta în IntelliJ IDEA <idea-cum-să-integrez-o-ramură-în-alta>`

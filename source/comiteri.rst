@@ -173,15 +173,15 @@ Cum sa revin la versiunea fișierul dintr-o anumită comitere?
 
 .. warning::
 
-   Ultima comadă alterează atît conținutul din șantier cît și șterge conținutul din index.
+   Ultima comandă alterează atât conținutul din șantier cât și șterge conținutul din index.
 
-.. rubric:: D. Vreau să înlocuesc doar conținutul din index
+.. rubric:: D. Vreau să înlocuiesc doar conținutul din index
 
 .. code-block:: bash
 
    git reset <comitere> <fisier>
 
-În rezultat fișier rămîne nealterat și se schimbă doar conținutul din index.
+În rezultat fișier rămâne nealterat și se schimbă doar conținutul din index.
 
 .. _cum-să-văd-istoria-unui-fișier:
 
@@ -220,13 +220,13 @@ sau
 
 .. code-block:: bash
 
-   git blame <fisier>
+   git blame <fișier>
 
 .. rubric:: E. Vreau să văd cine a modificat ultimul un anumit rând din fișier dintr-o anumită comitere
 
 .. code-block:: bash
 
-   git blame <comitere> <fisier>
+   git blame <comitere> <fișier>
 
 .. _cum-să-scot-fișierele-adăugate-în-index:
 

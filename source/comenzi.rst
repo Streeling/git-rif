@@ -29,11 +29,11 @@ Sintaxa este::
 git-blame
 """""""""
 
-Afișează autorii ultimilor modificări per linie.
+Afișează autorii ultimilor modificări per rând.
 
-Adnotează fiecare rând a fișierului cu informația din ultima comitere în care s-a modificat acestă linie.
+Adnotează fiecare rând a fișierului cu informația din ultima comitere (autor, data etc) în care s-a modificat acest rând.
 
-Putem limita raportul doar la un diapazon cu opțiunea :code:`-L <început>,<sfârșit>`.
+Putem limita raportul doar la un diapazon de rânduri cu opțiunea :code:`-L <început>,<sfârșit>`.
 
 .. _git-branch:
 
@@ -48,7 +48,7 @@ Comandă pentru manipularea ramurilor. De obicei se utilizează pentru:
 
    git branch
 
-în rezultat se va afișa o listă cu ramurile existente, iar ramura curentă va fi marcată cu ajutorul simbolului `*`::
+în rezultat se va afișa o listă ce va conține ramurile existente, iar ramura curentă va fi marcată cu ajutorul simbolului `*`::
 
      <ramura1>
      <ramura2>
@@ -64,7 +64,7 @@ Comandă pentru manipularea ramurilor. De obicei se utilizează pentru:
 
    git branch <ramura nouă>
 
-în rezultat se va crea :code:`<ramura nouă>` care va avea drept punct de început comiterea curentă. Totodată acestă comandă nu schimbă ramura curentă. 
+în rezultat se va crea :code:`<ramura nouă>` care va avea drept punct de început comiterea curentă. Totodată această comandă nu schimbă ramura curentă. 
 
 .. _git-branch-stergerea-unei-ramuri:
 
@@ -81,13 +81,16 @@ se realizează folosind opțiunea :code:`-d` (:code:`--delete`) ::
 se realizează folosind opțiunea :code:`-d` (:code:`--delete`) ::
 
    git branch -m [<ramura veche>] <ramura nouă>
+   
+În cazul când :code:`<ramura veche>` este ramura curentă (altfel spus se dorește redenumirea ramurii curente) aceasta poate fi omisă. 
+Anume din acest motiv în comanda de mai sus parametrul :code:`<ramura veche>` este opțional.    
 
 .. _git-cat-file:
 
 git-cat-file
 """"""""""""
 
-Afișează conținutul, tipul sau marimea :term:`obiectelor git <obiect git>`. 
+Afișează conținutul, tipul sau mărimea :term:`obiectelor git <obiect git>`. 
 
 .. _git-cat-file-cum-arată-un-arbore:
 
@@ -153,12 +156,11 @@ Dacă este aplicată fișierelor::
    
 atunci actualizează conținutul fișierelor cu cel din :code:`<comitere>`.
 
-
 Dacă nu este aplicată asupra fișierelor::
 
    git checkout <comitere>
 
-atunci schimbă atualizează întreg dosarul de lucru. Dacă :code:`<comiterea>` reprezintă o ramură atunci are loc comutarea de ramură.   
+atunci schimbă (atualizează) întreg dosarul de lucru. Dacă :code:`<comiterea>` reprezintă o ramură atunci are loc comutarea la acea ramură.   
 
 .. _git-cherry-pick:
 
@@ -175,7 +177,7 @@ după ce s-au soluționat conflictele de integrare trebuie de rulat::
 
    git cherry-pick --continue
 
-sau dacă se dorește anularea întregului process::
+sau dacă se dorește anularea întregului proces::
 
    git cherry-pick --abort
 
@@ -188,7 +190,7 @@ git-clean
 
 Șterge recursiv fișierele care nu-s supuse controlului versiunii.
 
-Pentru că e operați într-un fel periculoasă are opțiunea de emulare prin :code:`-n` (:code:`--dry-run`)
+Pentru că reprezintă o operație într-un fel periculoasă are opțiunea de simulare :code:`-n` (:code:`--dry-run`). 
 
 .. _git-clone:
 
@@ -211,7 +213,7 @@ După clonare proiectul sursă devine :term:`upstream` pentru :term:`<proiectul 
 
    git clone -o source <URL proiect Git> <dosar destinație>
 
-în proiectul destinație va fi creată referința **source** în dosarul **.git/refs/remotes** care va indica către proiectul sursă. Deopotrivă cu această opțiune există și alte opțiuni pentru modificare anumitor lucruri din proiectul destinație cumar fi:
+în proiectul destinație va fi creată referința **source** în dosarul **.git/refs/remotes** care va indica către proiectul sursă. Deopotrivă cu această opțiune există și alte opțiuni pentru modificare anumitor lucruri din proiectul destinație cum ar fi:
 
 * :code:`-b <nume ramură>` (:code:`--branch <nume ramură>`) -- schimbă ramura curentă în proiectul destinație;
 
@@ -242,7 +244,7 @@ Mesajul :code:`-m <mesaj>` (:code:`--message=<mesaj>`).
 
 .. rubric:: Modificarea ultimei comiteri
 
-Cu ajutorul opțiunii :code:`--amend` avem posibilitatea să redactăm ultima comitere: începănd cu mesajul, autorul și temrinând cu conținutul acesteia. 
+Cu ajutorul opțiunii :code:`--amend` avem posibilitatea să redactăm ultima comitere: începând cu mesajul, autorul și terminând cu conținutul acesteia. 
 De notat însă că atunci când redactați ultima comitere se schimbă automat și :term:`hash`-ul acesteia. 
 Respectiv pot apărea situații neclare atunci când proiectul dvs. nu este doar local. De exemplu, să presupunem că proiectul local și cel de la distanță arată astfel
 
@@ -264,7 +266,7 @@ după ce ați aplicat opțiunea :code:`--amend` proiectul dvs local va arăta as
                   |
                  HEAD
 
-unde :code:`(C')` este comiterea :code:`(C)` redactată respectiv cu alt :term:`hash`. În așa fal dacă să comparăm proietul local cu cel de la disatnță situația e următoarea
+unde :code:`(C')` este comiterea :code:`(C)` redactată respectiv cu alt :term:`hash`. În așa fel dacă ar fi să comparăm proiectul local cu cel de la distanță situația e următoarea
 
 .. code::
 
@@ -278,7 +280,7 @@ unde :code:`(C')` este comiterea :code:`(C)` redactată respectiv cu alt :term:`
             |
            HEAD
 
-astfel dacă veți încerca să încărcați modificările nu va mirați dacă veți obține mesajul::
+astfel dacă veți încerca să încărcați modificările să nu vă surprindă mesajul::
 
     ! [rejected]        master -> master (non-fast-forward)
    error: failed to push some refs to '<proiectul dvs.>'
@@ -350,7 +352,7 @@ git-merge
 
 Integrează două sau mai multe ramuri.
 
-Cum sunt prezentate conflictele; sun marcate prin ``<<<<<<<``, ``=======``, și ``>>>>>>>``. Fragmentul până la `=======` este cel din ramura sursă, și partea după din destinație.
+Cum sunt prezentate conflictele; sun marcate prin ``<<<<<<<``, ``=======``, și ``>>>>>>>``. Fragmentul până la `=======` este cel din ramura sursă, și partea după - din ramura destinație.
 
 .. _git-merge-tool:
 
@@ -458,7 +460,7 @@ Opțiunile: :code:`--soft`, :code:`--mixed` și :code:`--hard` sunt într-o anum
 
    În caz că nu vă place ce a ieșit după schimbarea referinței :term:`HEAD` puteți întotdeauna reveni la poziția inițială folosind referința :term:`ORIG_HEAD`
 
-Un articol în engleză în care se abordează vizual această comandă: `Reset Demystified <https://git-scm.com/blog/2011/07/11/reset.html>`_ 
+Un articol în engleză în care se folosesc imagini vizuale pentru descrierea acestei comenzi: `Reset Demystified <https://git-scm.com/blog/2011/07/11/reset.html>`_ 
 
 .. _git-remote:
 
@@ -467,17 +469,17 @@ git-remote
 
 Comandă pentru manipularea numelor asociate :term:`proiectelor la distanță <proiect la distanță>` conexe proiectului curent.
 
-Adăugarea, redenumirea și ștergerea se fac cu ajutorul opțiunilpor :code:`add`, :code:`rename` și :code:`rm` (:code:`remove`) în felul următor::
+Adăugarea, redenumirea și ștergerea se fac cu ajutorul opțiunilor :code:`add`, :code:`rename` și :code:`rm` (:code:`remove`) în felul următor::
 
    git remote add <nume> <URL-ul proiectului> 
    
    git remote rename <vechi> <nou>
    
-și respectiv ștergerea
+și respectiv ștergerea::
 
    git remote remove <nume existent>
    
-în rezultat se șterge nu doar numele ci și toate ramurile la distanță din acest proiect stocate local prin fetch sau pull   
+în rezultat se șterge nu doar numele ci și toate ramurile la distanță din acest proiect stocate local prin :ref:`git-fetch` sau :ref:`git-pull`.   
 
 Pentru a lista alias-urile existente::
 
@@ -499,14 +501,14 @@ Dacă ați greșit se poate schimba url-ul::
 
   git remote set-url <nume> <URL nou>
   
-Pentru a curăța de ramurile care nu există pe proiectul la distanță :code:`prune` și ca orice comandă git aare :code:`--dry-run`.  
+Pentru a curăța de ramurile care nu există pe proiectul la distanță :code:`prune` și ca orice comandă ''periculoasă'' are opțiunea de simulare :code:`--dry-run`.  
 
 .. _git-show:
 
 git-show
 """"""""
 
-Afișează informație despre obiecte.
+Afișează informația despre obiecte.
 
 Sintaxa::
 
@@ -523,9 +525,9 @@ Sintaxa::
 
   git show-ref [<opțiuni>] [--] [<șablon de căutare>…​]
 
-Dacă nu este specificat șablonul de căutare sunt efișate toate referințele. 
-Când acest e specificat atunci se afișează toate referințele a căror cale absolută conține drept prefix șablunul indicat.
-Dacă se dorește afișarea informației despre o referință care exact numele căutat se folosește opțiunea :code:`--verify`, de exemplu::
+Dacă nu este specificat șablonul de căutare sunt afișate toate referințele. 
+Când acesta (șablonul) este specificat atunci se afișează toate referințele a căror cale absolută conține drept prefix șablonul indicat.
+Dacă se dorește afișarea informației despre o referință care are exact numele căutat se folosește opțiunea :code:`--verify`, de exemplu::
 
    git show-ref --verify refs/heads/master
 
@@ -546,7 +548,7 @@ Practic afișează 3 zone informaționale:
 
 * fișierele care-s în index și se deosebesc de versiunea din ultima comitere (:term:`HEAD`) - anume aceste modificări vor fi înregistrate la rularea comenzii :ref:`git-commit`;
 
-* fișierele care-s în dosarul de lucru și se deosebesc de versiunea din index -  de regulă asupra acestor fișiere aplicăm :ref:`git-add`;
+* fișierele care-s în dosarul de lucru și se deosebesc de versiunea din index - de regulă asupra acestor fișiere aplicăm :ref:`git-add`;
 
 * fișierele care-s în dosarul de lucru, dar încă n-au fost adăugate în index, adică nu-s supuse controlului versiunii.  
 
@@ -567,7 +569,7 @@ Pentru a crea o :term:`etichetă adnotată` se folosește opțiunea :code:`-a` (
 
 dacă nu este folosită opținea :code:`-m` (:code:`--message`) atunci se va deschitde editorul implicit (ca și în situația cu :ref:`git-commit`).
 
-Pentru a altera referința unei etichete existente poate fi utilizată opțiunea :code:`-f` (:code:`--force`) doar că în cazul când eticheta a fost încărcată pe server nu se recomandă această procedură. Etichetele sunt descărcate o singură dată de pe server, adică va fi nevoie de anunțat toate persoanele care au descărcat eticheta modificată să o ștergă și s-o descarce încă o dată.
+Pentru a altera referința unei etichete existente poate fi utilizată opțiunea :code:`-f` (:code:`--force`) doar că în cazul când eticheta a fost încărcată pe server nu se recomandă această procedură. Etichetele sunt descărcate o singură dată de pe server, adică va fi nevoie de anunțat toate persoanele care au descărcat eticheta modificată să o șteargă și s-o descarce încă o dată.
 
 Ștergerea unei etichete se realizează cu ajutorul opțiunii :code:`-d` (:code:`--delete`)::
 

@@ -176,7 +176,7 @@ apoi rulați::
 
    git merge <ramura sursă>
 
-în caz de conflicte de integrare va afișat mesajul corespunzator care se va sfârși cu următoarea propoziție::
+în caz de conflicte de integrare va afișat mesajul corespunzător care se va sfârși cu următoarea propoziție::
 
    Automatic merge failed; fix conflicts and then commit the result.   
 

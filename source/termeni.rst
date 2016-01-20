@@ -46,7 +46,7 @@ Termeni
       Referință rezervată care conține valoarea (poziția) precedentă a referinței :term:`HEAD`. Se păstrează în dosarul **.git**.
       
    hash
-      Valoare generată cu ajutorul algoritmului SHA-1 (Secure Hash Algorithm 1) folosită drept nume pentru :term:`obicetele git <obiect git>`. Are lungimea de 160 biți (20 octeți sau 40 simboluri hexazecimale) și de regulă se utilizează în forma hexazecimală. 
+      Valoare generată cu ajutorul algoritmului SHA-1 (Secure Hash Algorithm 1) folosită drept nume pentru :term:`obiectele git <obiect git>`. Are lungimea de 160 biți (20 octeți sau 40 simboluri hexazecimale) și de regulă se utilizează în forma hexazecimală. 
       
    index
       Este versiunea proiectului carea va fi comisă. Acestă versiune se păstrează în formă de :term:`obiecte git <obiect git>`, iar referințele către aceste obiecte este sunt stocate în fișierul **.git/index**. Pentru a vizualiza lista fișierelor din index împreună cu hash-urile obiectelor poate fi utilizată comanda :ref:`git-ls-files` cu optiunea :code:`--stage`. 

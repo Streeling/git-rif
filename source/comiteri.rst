@@ -104,6 +104,13 @@ fie mutând capul pe penultima comitere::
 
 .. _cum-să-adaug-un-fișier-la-ultima-comitere:
 
+Cum sa revin la ultima comitere?
+""""""""""""""""""""""""""""""""
+
+Dacă ați operat careva modificări nereușite și doriți să le anulați, atunci următoarea comandă va șterge noile modificări și va reveni la ultima comitere::
+
+   git reset --hard HEAD 
+
 Cum să adaug un fișier la ultima comitere?
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -253,4 +260,3 @@ sau puteți aplica comanda pe mai multe fișiere concomitent
 Cum să mă debarasez de un fișier?
 """""""""""""""""""""""""""""""""
 Eu am avut o astfel de situație când cineva a făcut ``git add`` la un fișier inclus în fișierul ``.gitignotre``, eu l-am preluat și vina a fost a mea.
-

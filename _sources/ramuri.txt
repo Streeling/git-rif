@@ -158,6 +158,25 @@ sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe ser
 
 .. _Cum-să-încarc-mai-multe-ramuri-pe-server-dintr-o-lovitură:
 
+Cum să șterg o ramură?
+""""""""""""""""""""""
+
+.. rubric:: A. Ștergerea unei ramuri locale
+
+.. code-block:: bash
+
+   git branch -d <ramura locală>
+
+.. rubric:: B. Ștergerea unei ramuri pe server
+
+.. code-block:: bash
+
+   git push origin :<ramura de pe server>
+
+sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe server mai poate fi realizată și astfel::
+   
+   git push origin --delete <ramura de pe server>
+
 Cum să încarc mai multe ramuri pe server dintr-o lovitură?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

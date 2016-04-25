@@ -189,8 +189,23 @@ git cherry-pick --continue
 </pre></div>
 </div>
 </div>
-<div class="section" id="cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura">
-<span id="id3"></span><h2>Cum să încarc mai multe ramuri pe server dintr-o lovitură?<a class="headerlink" href="#cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura" title="Link permanent la acest titlu">¶</a></h2>
+<div class="section" id="cum-sa-sterg-o-ramura">
+<span id="cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura"></span><h2>Cum să șterg o ramură?<a class="headerlink" href="#cum-sa-sterg-o-ramura" title="Link permanent la acest titlu">¶</a></h2>
+<p class="rubric">A. Ștergerea unei ramuri locale</p>
+<div class="highlight-bash"><div class="highlight"><pre>git branch -d &lt;ramura <span class="nb">local</span>ă&gt;
+</pre></div>
+</div>
+<p class="rubric">B. Ștergerea unei ramuri pe server</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin :&lt;ramura de pe server&gt;
+</pre></div>
+</div>
+<p>sau (începând cu versiunea 1.7.0 a lui Git) ștergerea ramurii vechi de pe server mai poate fi realizată și astfel:</p>
+<div class="highlight-python"><div class="highlight"><pre>git push origin --delete &lt;ramura de pe server&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Cum să încarc mai multe ramuri pe server dintr-o lovitură?<a class="headerlink" href="#id3" title="Link permanent la acest titlu">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre>git push --all origin
 </pre></div>
 </div>
@@ -225,7 +240,8 @@ git cherry-pick --continue
 <li><a class="reference internal" href="#">Ramuri</a><ul>
 <li><a class="reference internal" href="#cum-sa-mut-comiterile-dintr-o-ramura-in-alta">Cum să mut comiterile dintr-o ramură în alta?</a></li>
 <li><a class="reference internal" href="#cum-sa-redenumesc-o-ramura">Cum să redenumesc o ramură?</a></li>
-<li><a class="reference internal" href="#cum-sa-incarc-mai-multe-ramuri-pe-server-dintr-o-lovitura">Cum să încarc mai multe ramuri pe server dintr-o lovitură?</a></li>
+<li><a class="reference internal" href="#cum-sa-sterg-o-ramura">Cum să șterg o ramură?</a></li>
+<li><a class="reference internal" href="#id3">Cum să încarc mai multe ramuri pe server dintr-o lovitură?</a></li>
 <li><a class="reference internal" href="#cum-sa-integrez-merge-o-ramura-in-alta">Cum să integrez (merge) o ramură în alta?</a></li>
 </ul>
 </li>

@@ -133,8 +133,15 @@ git commit
 </pre></div>
 </div>
 </div>
-<div class="section" id="cum-sa-adaug-un-fisier-la-ultima-comitere">
-<span id="id4"></span><h2>Cum să adaug un fișier la ultima comitere?<a class="headerlink" href="#cum-sa-adaug-un-fisier-la-ultima-comitere" title="Link permanent la acest titlu">¶</a></h2>
+<div class="section" id="cum-sa-revin-la-ultima-comitere">
+<span id="cum-sa-adaug-un-fisier-la-ultima-comitere"></span><h2>Cum sa revin la ultima comitere?<a class="headerlink" href="#cum-sa-revin-la-ultima-comitere" title="Link permanent la acest titlu">¶</a></h2>
+<p>Dacă ați operat careva modificări nereușite și doriți să le anulați, atunci următoarea comandă va șterge noile modificări și va reveni la ultima comitere:</p>
+<div class="highlight-python"><div class="highlight"><pre>git reset --hard HEAD
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Cum să adaug un fișier la ultima comitere?<a class="headerlink" href="#id4" title="Link permanent la acest titlu">¶</a></h2>
 <p>Dacă ați uitat să adăugați un fișier în ultima comitere, atunci fie folosiți opțiunea <tt class="docutils literal"><span class="pre">--amend</span></tt> a comenzii <tt class="docutils literal"><span class="pre">git-commit</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre>git add &lt;fisier&gt;
 git commit --amend
@@ -261,7 +268,8 @@ git commit ...
 <li><a class="reference internal" href="#cum-sa-schimb-mesajul-ultimei-comiteri">Cum să schimb mesajul ultimei comiteri?</a></li>
 <li><a class="reference internal" href="#cum-sa-schimb-mesajul-oricarei-sau-oricaror-comiteri">Cum să schimb mesajul oricărei sau oricăror comiteri?</a></li>
 <li><a class="reference internal" href="#cum-sa-exclud-un-fisier-din-ultima-comitere">Cum să exclud un fișier din ultima comitere?</a></li>
-<li><a class="reference internal" href="#cum-sa-adaug-un-fisier-la-ultima-comitere">Cum să adaug un fișier la ultima comitere?</a></li>
+<li><a class="reference internal" href="#cum-sa-revin-la-ultima-comitere">Cum sa revin la ultima comitere?</a></li>
+<li><a class="reference internal" href="#id4">Cum să adaug un fișier la ultima comitere?</a></li>
 <li><a class="reference internal" href="#cum-sa-modific-un-fisier-din-ultima-comitere">Cum să modific un fișier din ultima comitere?</a></li>
 <li><a class="reference internal" href="#cum-sa-anulez-ultima-operatie-de-comitere">Cum să anulez ultima operație de comitere?</a></li>
 <li><a class="reference internal" href="#cum-sa-revin-la-versiunea-fisierul-dintr-o-anumita-comitere">Cum sa revin la versiunea fișierul dintr-o anumită comitere?</a></li>
